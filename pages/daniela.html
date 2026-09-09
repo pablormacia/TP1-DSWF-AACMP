@@ -1,118 +1,149 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Daniela | AACMP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">A</span> AACMP</a>
-          <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
-            <span>
-            </span>
-            <span>
-            </span>
-            <span>
-            </span>
-            <span class="sr-only">Abrir menú</span>
-          </button>
-          <nav id="main-nav" class="main-nav">
-            <a href="../index.html">Inicio</a>
-            <a class="active" href="../index.html#equipo">Equipo</a>
-            <a href="bitacora.html">Bitácora</a>
-          </nav>
-        </header>
-        <main class="profile-main section-shell">
-          <section class="profile-hero">
-            <div class="portrait avatar-yellow reveal">
-              <span>DC</span>
-            </div>
-            <div class="profile-info reveal">
-              <p class="profile-kicker">Contenido &amp; empatía</p>
-              <h1>Daniela <em>Cabrera</em>
-              </h1>
-              <p class="profile-lead">Busco las palabras y estructuras que ayudan a las personas a orientarse, comprender y sentirse incluidas.</p>
-              <div class="facts">
-                <div class="fact">
-                  <span>Ciudad</span>
-                  <strong>Lanús</strong>
-                </div>
-                <div class="fact">
-                  <span>Edad</span>
-                  <strong>21 años</strong>
-                </div>
-                <div class="fact">
-                  <span>Color</span>
-                  <strong>Amarillo</strong>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="profile-content">
-            <div class="content-block reveal">
-              <h2>Habilidades</h2>
-              <div class="skill-list">
-                <div class="skill">
-                  <span>UX Writing</span>
-                  <span class="skill-level">●●●●●</span>
-                </div>
-                <div class="skill">
-                  <span>HTML</span>
-                  <span class="skill-level">●●●●○</span>
-                </div>
-                <div class="skill">
-                  <span>Accesibilidad</span>
-                  <span class="skill-level">●●●●○</span>
-                </div>
-                <div class="skill">
-                  <span>Investigación</span>
-                  <span class="skill-level">●●●○○</span>
-                </div>
-              </div>
-            </div>
-            <div class="content-block reveal">
-              <h2>Favoritos</h2>
-              <div class="favorites">
-                <div class="favorite-group">
-                  <h3>Películas</h3>
-                  <ol>
-                    <li>Little Women</li>
-                    <li>Perfect Days</li>
-                    <li>Past Lives</li>
-                  </ol>
-                </div>
-                <div class="favorite-group">
-                  <h3>Discos</h3>
-                  <ol>
-                    <li>Folklore</li>
-                    <li>De todas las flores</li>
-                    <li>Blue</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-            <div class="dynamic-box reveal">
-              <div>
-                <h2>Disparador de historias</h2>
-                <p>Una frase para empezar a escribir sin mirar la hoja en blanco.</p>
-                <p class="dynamic-result" data-prompt-result>Tu próxima historia está a un clic.</p>
-              </div>
-              <button class="button light" data-prompt-button data-options='["La puerta estaba abierta, pero nadie recordaba haberla visto antes.","Todo empezó con un mensaje enviado al número equivocado.","Guardó el mapa porque el destino ya no era lo importante."]'>Crear inicio ✎</button>
-            </div>
-          </section>
-          <nav class="profile-nav">
-            <a href="juan.html">← Juan Manuel</a>
-            <a href="../index.html#equipo">Todos los perfiles</a>
-            <a href="mariano.html">Mariano →</a>
-          </nav>
-        </main>
-        <script src="../js/main.js">
-        </script>
-      </body>
-    </html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Daniela | AACMP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="paper-texture" aria-hidden="true"></div>  <div class="leaf-container" aria-hidden="true">
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">A</span> AACMP</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span>
+      </span>
+      <span>
+      </span>
+      <span>
+      </span>
+      <span class="sr-only">Abrir menú</span>
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <a href="../index.html">Inicio</a>
+      <a class="active" href="../index.html#equipo">Equipo</a>
+      <a href="bitacora.html">Bitácora</a>
+    </nav>
+  </header>
+  <main class="profile-main section-shell">
+    <section class="profile-hero">
+      <div class="portrait avatar-yellow reveal">
+        <span>DC</span>
+      </div>
+      <div class="profile-info reveal">
+        <p class="profile-kicker">Contenido &amp; empatía</p>
+        <h1>Daniela <em>Cabrera</em>
+        </h1>
+        <p class="profile-lead">Busco las palabras y estructuras que ayudan a las personas a orientarse, comprender y
+          sentirse incluidas.</p>
+        <div class="facts">
+          <div class="fact">
+            <span>Ciudad</span>
+            <strong>Lanús</strong>
+          </div>
+          <div class="fact">
+            <span>Edad</span>
+            <strong>21 años</strong>
+          </div>
+          <div class="fact">
+            <span>Color</span>
+            <strong>Amarillo</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="profile-content">
+      <div class="content-block reveal">
+        <h2>Habilidades</h2>
+        <div class="skill-list">
+          <div class="skill">
+            <span>UX Writing</span>
+            <span class="skill-level">●●●●●</span>
+          </div>
+          <div class="skill">
+            <span>HTML</span>
+            <span class="skill-level">●●●●○</span>
+          </div>
+          <div class="skill">
+            <span>Accesibilidad</span>
+            <span class="skill-level">●●●●○</span>
+          </div>
+          <div class="skill">
+            <span>Investigación</span>
+            <span class="skill-level">●●●○○</span>
+          </div>
+        </div>
+      </div>
+      <div class="content-block reveal">
+        <h2>Favoritos</h2>
+        <div class="favorites">
+          <div class="favorite-group">
+            <h3>Películas</h3>
+            <ol>
+              <li>Little Women</li>
+              <li>Perfect Days</li>
+              <li>Past Lives</li>
+            </ol>
+          </div>
+          <div class="favorite-group">
+            <h3>Discos</h3>
+            <ol>
+              <li>Folklore</li>
+              <li>De todas las flores</li>
+              <li>Blue</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="dynamic-box reveal">
+        <div>
+          <h2>Disparador de historias</h2>
+          <p>Una frase para empezar a escribir sin mirar la hoja en blanco.</p>
+          <p class="dynamic-result" data-prompt-result>Tu próxima historia está a un clic.</p>
+        </div>
+        <button class="button light" data-prompt-button
+          data-options='["La puerta estaba abierta, pero nadie recordaba haberla visto antes.","Todo empezó con un mensaje enviado al número equivocado.","Guardó el mapa porque el destino ya no era lo importante."]'>Crear
+          inicio ✎</button>
+      </div>
+    </section>
+    <nav class="profile-nav">
+      <a href="juan.html">← Juan Manuel</a>
+      <a href="../index.html#equipo">Todos los perfiles</a>
+      <a href="mariano.html">Mariano →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="../index.html" aria-label="AACMP, inicio">
+      <span class="brand-mark">A</span> AACMP
+    </a>
+    <p>TP1 · Desarrollo de Sistemas Web · 2026</p>
+    <a href="../index.html">Volver al inicio →</a>
+  </footer>
+  <script src="../js/main.js">
+  </script>
+
+</body>
+
+</html>

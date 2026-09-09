@@ -1,115 +1,159 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Bitácora de desarrollo del equipo AACMP">
-    <title>Bitácora | AACMP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">A</span> AACMP</a>
-          <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
-            <span>
-            </span>
-            <span>
-            </span>
-            <span>
-            </span>
-            <span class="sr-only">Abrir menú</span>
-          </button>
-          <nav id="main-nav" class="main-nav">
-            <a href="../index.html">Inicio</a>
-            <a href="../index.html#equipo">Equipo</a>
-            <a class="active" href="bitacora.html">Bitácora</a>
-          </nav>
-        </header>
-        <main class="section-shell">
-          <section class="log-hero reveal">
-            <p class="eyebrow">Detrás de pantalla</p>
-            <h1>Nuestra bitácora</h1>
-            <p>Decisiones, dificultades y aprendizajes del equipo. Este registro debe actualizarse con la experiencia real del grupo antes de entregar.</p>
-          </section>
-          <section class="timeline">
-            <article class="log-entry reveal">
-              <div class="log-dot">01</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 1 · Organización</span>
-                  <span>Semana 1</span>
-                </div>
-                <h2>Primero, los acuerdos</h2>
-                <p>Definimos un canal de comunicación, repartimos responsabilidades iniciales y acordamos trabajar con ramas cortas y revisiones cruzadas.</p>
-                <h3>Decisión</h3>
-                <p>Usar una identidad compartida y una estructura común para que todos los perfiles se sientan parte del mismo sistema.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">02</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 2 · Diseño</span>
-                  <span>Semana 1</span>
-                </div>
-                <h2>Una identidad flexible</h2>
-                <p>Elegimos una base neutra, tipografía geométrica y un color distinto para cada integrante. Los avatares abstractos funcionan como placeholders respetuosos de la privacidad.</p>
-                <h3>Dificultad</h3>
-                <p>Equilibrar personalidad y consistencia. Lo resolvimos repitiendo grillas, espaciados y componentes, y variando sólo el acento visual.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">03</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 3 · Desarrollo</span>
-                  <span>Semana 2</span>
-                </div>
-                <h2>Componentes sin framework</h2>
-                <p>Construimos la navegación, tarjetas y perfiles con HTML semántico, CSS compartido y JavaScript nativo.</p>
-                <h3>Dificultad</h3>
-                <p>Evitar desbordes en tamaños intermedios. Ajustamos la grilla y verificamos específicamente 400 px, 900 px y 1200 px.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">04</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 4 · Interacción</span>
-                  <span>Semana 2</span>
-                </div>
-                <h2>Movimiento con propósito</h2>
-                <p>La portada permite mezclar el orden del equipo y cada perfil ofrece una interacción temática. También sumamos revelado progresivo y menú móvil.</p>
-                <h3>Aprendizaje</h3>
-                <p>La interacción mejora la experiencia cuando responde al contenido y conserva accesibilidad, foco y legibilidad.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">05</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 5 · Revisión</span>
-                  <span>Antes de entregar</span>
-                </div>
-                <h2>Checklist final</h2>
-                <p>Revisaremos enlaces, consola, ortografía, datos reales, capturas del README, participación en commits y publicación en Vercel.</p>
-                <h3>Pendiente del equipo</h3>
-                <p>Reemplazar este texto modelo por fechas, decisiones, problemas y soluciones que reflejen el proceso real.</p>
-              </div>
-            </article>
-          </section>
-        </main>
-        <footer class="site-footer">
-          <a class="brand" href="../index.html">
-            <span class="brand-mark">A</span> AACMP</a>
-              <p>TP1 · Desarrollo de Sistemas Web · 2026</p>
-              <a href="../index.html">Volver al inicio →</a>
-            </footer>
-            <script src="../js/main.js">
-            </script>
-          </body>
-        </html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bitácora de desarrollo del equipo AACMP — El pergamino del camino recorrido.">
+  <title>Bitácora | AACMP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div class="leaf-container" aria-hidden="true">
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+  </div>
+
+  <!-- CABECERA -->
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="AACMP, inicio">
+      <span class="brand-mark">A</span> AACMP
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Abrir menú</span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#equipo">Equipo</a>
+      <a class="active" href="bitacora.html">Bitácora</a>
+    </nav>
+  </header>
+
+  <main class="section-shell">
+
+    <!--HERO DE BITÁCORA-->
+    <section class="log-hero reveal">
+      <p class="label-tag">Detrás de pantalla</p>
+      <h1>Nuestra bitácora</h1>
+      <p>
+        Decisiones, dificultades y aprendizajes del equipo.
+        El registro escrito a mano del camino recorrido juntos.
+      </p>
+    </section>
+
+    <!--LÍNEA DE TIEMPO-->
+    <section class="timeline">
+
+      <article class="log-entry reveal">
+        <div class="log-dot">01</div>
+        <div class="log-card">
+          <div class="log-meta">
+            <span>Etapa 1 · Organización</span>
+            <span>Semana 1</span>
+          </div>
+          <h2>Primero, los acuerdos</h2>
+          <p>Definimos un canal de comunicación, repartimos responsabilidades iniciales y acordamos trabajar con ramas
+            cortas y revisiones cruzadas.</p>
+          <h3>Decisión</h3>
+          <p>Usar una identidad compartida y una estructura común para que todos los perfiles se sientan parte del mismo
+            sistema.</p>
+        </div>
+      </article>
+
+      <article class="log-entry reveal">
+        <div class="log-dot">02</div>
+        <div class="log-card">
+          <div class="log-meta">
+            <span>Etapa 2 · Diseño</span>
+            <span>Semana 1</span>
+          </div>
+          <h2>Una identidad flexible</h2>
+          <p>Elegimos una base neutra, tipografía geométrica y un color distinto para cada integrante. Los avatares
+            abstractos funcionan como placeholders respetuosos de la privacidad.</p>
+          <h3>Dificultad</h3>
+          <p>Equilibrar personalidad y consistencia. Lo resolvimos repitiendo grillas, espaciados y componentes, y
+            variando sólo el acento visual.</p>
+        </div>
+      </article>
+
+      <article class="log-entry reveal">
+        <div class="log-dot">03</div>
+        <div class="log-card">
+          <div class="log-meta">
+            <span>Etapa 3 · Desarrollo</span>
+            <span>Semana 2</span>
+          </div>
+          <h2>Componentes sin framework</h2>
+          <p>Construimos la navegación, tarjetas y perfiles con HTML semántico, CSS compartido y JavaScript nativo.</p>
+          <h3>Dificultad</h3>
+          <p>Evitar desbordes en tamaños intermedios. Ajustamos la grilla y verificamos específicamente 400 px, 900 px y
+            1200 px.</p>
+        </div>
+      </article>
+
+      <article class="log-entry reveal">
+        <div class="log-dot">04</div>
+        <div class="log-card">
+          <div class="log-meta">
+            <span>Etapa 4 · Interacción</span>
+            <span>Semana 2</span>
+          </div>
+          <h2>Movimiento con propósito</h2>
+          <p>La portada permite mezclar el orden del equipo y cada perfil ofrece una interacción temática. También
+            sumamos revelado progresivo y menú móvil.</p>
+          <h3>Aprendizaje</h3>
+          <p>La interacción mejora la experiencia cuando responde al contenido y conserva accesibilidad, foco y
+            legibilidad.</p>
+        </div>
+      </article>
+
+      <article class="log-entry reveal">
+        <div class="log-dot">05</div>
+        <div class="log-card">
+          <div class="log-meta">
+            <span>Etapa 5 · Revisión</span>
+            <span>Antes de entregar</span>
+          </div>
+          <h2>Checklist final</h2>
+          <p>Revisaremos enlaces, consola, ortografía, datos reales, capturas del README, participación en commits y
+            publicación en Vercel.</p>
+          <h3>Pendiente del equipo</h3>
+          <p>Reemplazar este texto modelo por fechas, decisiones, problemas y soluciones que reflejen el proceso real.
+          </p>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!--FOOTER -->
+  <footer class="site-footer">
+    <a class="brand" href="../index.html" aria-label="AACMP, inicio">
+      <span class="brand-mark">A</span> AACMP
+    </a>
+    <p>TP1 · Desarrollo de Sistemas Web · 2026</p>
+    <a href="../index.html" id="link-volver-inicio">Volver al inicio →</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
