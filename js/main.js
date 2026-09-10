@@ -26,6 +26,16 @@ if (shuffleButton && teamGrid) {
   });
 }
 
+document.querySelectorAll('.favorites-toggle').forEach(button => {
+  const card = button.closest('.member-card');
+  if (!card) return;
+  button.addEventListener('click', () => {
+    const isExpanded = card.classList.toggle('expanded');
+    button.setAttribute('aria-expanded', String(isExpanded));
+    button.textContent = isExpanded ? 'Ocultar ⬏' : 'Ver favoritos ⬎';
+  });
+});
+
 const promptButton = document.querySelector('[data-prompt-button]');
 const promptResult = document.querySelector('[data-prompt-result]');
 if (promptButton && promptResult) {
