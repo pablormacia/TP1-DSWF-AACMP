@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniela Cabrera | Nuestro Equipo</title>
+  <!-- Google Fonts: Playfair Display (Heading) + Inter (Body/Label) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Estilos específicos para la página de perfil */
+    .profile-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .profile-img-container {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(107, 142, 107, .15);
+    }
+
+    .profile-img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease, filter 0.5s ease;
+    }
+
+    .profile-img-container:hover img {
+      transform: scale(1.05);
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .profile-header h1 {
+      font-size: 3rem;
+      margin-bottom: 8px;
+      font-family: var(--font-heading);
+      font-style: italic;
+    }
+
+    .profile-meta {
+      font-family: var(--font-label);
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .profile-skills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+
+    .profile-skills span {
+      background: var(--sage-light);
+      color: var(--ink);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: default;
+      transition: background 0.3s, transform 0.3s, color 0.3s;
+    }
+
+    .profile-skills span:hover {
+      background: var(--sage);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .profile-favorites {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+      padding: 30px;
+      background: rgba(253, 250, 245, .6);
+      border: 1px solid rgba(135, 168, 120, .2);
+      border-radius: 20px;
+    }
+
+    .fav-list h3 {
+      font-size: 1.2rem;
+      color: var(--sage);
+      margin-bottom: 15px;
+      border-bottom: 1px dashed rgba(135, 168, 120, .3);
+      padding-bottom: 8px;
+    }
+
+    .fav-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .fav-list li {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 15px;
+      font-family: var(--font-body);
+      font-style: italic;
+    }
+
+    .fav-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--moss);
+      font-size: 0.8rem;
+    }
+
+    .back-btn-container {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* Responsividad del perfil */
+    @media (max-width: 900px) {
+      .profile-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-img-container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .profile-favorites {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain-overlay"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">✧</span>
+        <span class="logo-text">TP1 — Diseño Web</span>
+      </div>
+      <nav class="main-nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#equipo">El Equipo</a>
+        <a href="bitacora.html">Bitácora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section-shell">
+    <div class="section-inner">
+
+      <section class="profile-hero">
+        <div class="profile-img-container" id="profile-img">
+          <!-- Filtros CSS aplicados vía JS al pasar sobre habilidades -->
+          <img src="../img/daniela.jpg" alt="Foto de Daniela Cabrera" style="filter: hue-rotate(0deg);">
+        </div>
+
+        <div class="profile-details">
+          <div class="profile-header">
+            <p class="role-header"
+              style="color: var(--sage); font-family: var(--font-label); font-size: .8rem; font-weight: 600; letter-spacing: .2em;">
+              Diseño & detalle</p>
+            <h1>Daniela Cabrera</h1>
+            <p class="profile-meta"> General Pico, La Pampa &nbsp;•&nbsp; 33 años</p>
+          </div>
+
+          <p class="bio" style="font-size: 1.1rem; line-height: 1.6; color: var(--ink-light);">
+            Convierte problemas complejos en interfaces simples y llenas de intención. Busca la armonía visual y la
+            perfección en cada pixel para lograr que la tecnología se sienta más humana.
+          </p>
+
+          <div>
+            <h3
+              style="font-size: 1rem; color: var(--ink); margin-bottom: 10px; font-family: var(--font-label); text-transform: uppercase;">
+              Habilidades Destacadas</h3>
+            <div class="profile-skills" id="skills-container">
+              <!-- Requisito: 4 habilidades -->
+              <span data-hue="0">UX Writing</span>
+              <span data-hue="60">HTML</span>
+              <span data-hue="150">CSS</span>
+              <span data-hue="220">Accesibilidad</span>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--sage); font-style: italic; margin-top: 6px;">* Pasa el cursor por
+              las habilidades para interactuar.</p>
+          </div>
+
+          <div class="profile-favorites">
+            <div class="fav-list">
+              <h3>Películas Favoritas</h3>
+              <ul>
+                <li>Orgullo y Prejuicio</li>
+                <li>El Diario de Noa</li>
+                <li>Amélie</li>
+              </ul>
+            </div>
+            <div class="fav-list">
+              <h3>Discos Favoritos</h3>
+              <ul>
+                <li>Folklore (Taylor Swift)</li>
+                <li>Evermore (Taylor Swift)</li>
+                <li>21 (Adele)</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="back-btn-container">
+        <a href="../index.html#equipo" class="button" style="text-decoration: none;">← Volver al Equipo</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 100px;">
+    <p>© 2026 — Trabajo Práctico Grupal 1</p>
+  </footer>
+
+  <!-- Interacción JS: Cambia el tono de la imagen al pasar por las habilidades -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const skills = document.querySelectorAll('#skills-container span');
+      const img = document.querySelector('#profile-img img');
+
+      skills.forEach(skill => {
+        skill.addEventListener('mouseenter', () => {
+          const hue = skill.getAttribute('data-hue');
+          img.style.filter = `hue-rotate(${hue}deg) saturate(140%) contrast(110%)`;
+        });
+
+        skill.addEventListener('mouseleave', () => {
+          img.style.filter = 'hue-rotate(0deg) saturate(100%) contrast(100%)';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
