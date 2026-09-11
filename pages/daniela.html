@@ -158,17 +158,18 @@
   <div class="grain-overlay"></div>
 
   <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-mark">✧</span>
-        <span class="logo-text">TP1 — Diseño Web</span>
-      </div>
-      <nav class="main-nav">
-        <a href="../index.html">Inicio</a>
-        <a href="../index.html#equipo">El Equipo</a>
-        <a href="bitacora.html">Bitácora</a>
-      </nav>
-    </div>
+    <a class="brand" href="../index.html" aria-label="AACMP, inicio">
+      <span class="brand-mark">A</span> AACMP
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Abrir menú</span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a href="../index.html">Inicio </a>
+      <a href="../index.html#equipo">Equipo </a>
+      <a href="bitacora.html">Bitácora </a>
+    </nav>
   </header>
 
   <main class="section-shell">
@@ -213,17 +214,17 @@
             <div class="fav-list">
               <h3>Películas Favoritas</h3>
               <ul>
-                <li>Orgullo y Prejuicio</li>
-                <li>El Diario de Noa</li>
-                <li>Amélie</li>
+                <li>Pienso en el final</li>
+                <li>Memento</li>
+                <li>Lluvia de hamburguesas</li>
               </ul>
             </div>
             <div class="fav-list">
               <h3>Discos Favoritos</h3>
               <ul>
-                <li>Folklore (Taylor Swift)</li>
-                <li>Evermore (Taylor Swift)</li>
-                <li>21 (Adele)</li>
+                <li>Innuendo</li>
+                <li>Home Free</li>
+                <li>Piano Bar</li>
               </ul>
             </div>
           </div>

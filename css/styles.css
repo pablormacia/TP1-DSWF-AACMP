@@ -571,78 +571,35 @@ body::before {
   gap: 36px;
 }
 
-/* Cuerpo del pergamino — papel acuarela */
+/* Mancha de Acuarela — Fondo del cartel */
 .scroll-body {
   position: relative;
   background:
-    radial-gradient(ellipse 70% 60% at 30% 20%, rgba(255, 248, 230, .95) 0%, transparent 70%),
-    radial-gradient(ellipse 55% 45% at 75% 80%, rgba(240, 228, 200, .80) 0%, transparent 65%),
-    linear-gradient(165deg,
-      #FFF8E8 0%,
-      #FAF0D8 25%,
-      #F5E8C8 55%,
-      #EFE0B8 80%,
-      #E8D4A8 100%);
-  border-radius: 4px 4px 6px 6px;
+    radial-gradient(ellipse 80% 90% at 40% 30%, rgba(255, 252, 245, 0.95) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 70% at 80% 80%, rgba(220, 235, 215, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 10% 80%, rgba(245, 235, 215, 0.6) 0%, transparent 70%),
+    rgba(250, 246, 238, 0.9);
+  border-radius: 12px 40px 16px 50px / 40px 12px 50px 16px;
   padding: 56px 52px 60px;
-  /* Efecto de borde de pergamino desgastado mejorado */
   box-shadow:
-    0 4px 0 rgba(180, 140, 80, .18),
-    0 12px 40px rgba(140, 100, 50, .15),
-    0 30px 80px rgba(120, 90, 40, .12),
-    inset 0 0 100px rgba(220, 160, 80, .10);
-  /* Borde rasgado simulado con degradado */
-  border-left: 2.5px solid rgba(180, 140, 80, .25);
-  border-right: 2.5px solid rgba(180, 140, 80, .25);
+    0 10px 40px rgba(135, 168, 120, 0.15),
+    inset 0 0 60px rgba(196, 160, 92, 0.08);
+  border: 1px solid rgba(135, 168, 120, 0.2);
+  backdrop-filter: blur(8px);
 }
 
-/* Bordes enrollados del pergamino (arriba y abajo) */
+/* Ocultar bordes de pergamino rígidos para un estilo más orgánico */
 .scroll-curl {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 22px;
-  border-radius: 4px;
-  overflow: hidden;
+  display: none;
 }
 
-.scroll-curl-top {
-  top: -11px;
-  background: linear-gradient(180deg,
-      rgba(160, 120, 60, .22) 0%,
-      rgba(200, 160, 90, .18) 30%,
-      rgba(240, 210, 150, .25) 60%,
-      rgba(220, 185, 120, .20) 100%);
-  box-shadow:
-    0 -2px 8px rgba(140, 100, 50, .15),
-    0 4px 12px rgba(200, 160, 90, .12);
-  border-radius: 50% 50% 4px 4px / 100% 100% 4px 4px;
-}
-
-.scroll-curl-bottom {
-  bottom: -11px;
-  background: linear-gradient(0deg,
-      rgba(160, 120, 60, .22) 0%,
-      rgba(200, 160, 90, .18) 30%,
-      rgba(240, 210, 150, .25) 60%,
-      rgba(220, 185, 120, .20) 100%);
-  box-shadow:
-    0 2px 8px rgba(140, 100, 50, .15),
-    0 -4px 12px rgba(200, 160, 90, .12);
-  border-radius: 4px 4px 50% 50% / 4px 4px 100% 100%;
-}
-
-/* Líneas de textura del pergamino */
+/* Textura suave de papel, sin líneas marcadas */
 .scroll-body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(180deg,
-      transparent 0px,
-      transparent 28px,
-      rgba(180, 140, 80, .04) 28px,
-      rgba(180, 140, 80, .04) 29px);
   border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
   pointer-events: none;
 }
 
@@ -742,7 +699,7 @@ h1.hero-title {
   flex-wrap: wrap;
 }
 
-/* Botón hoja — sage green orgánico */
+/* Botón hoja — Acuarela */
 .btn-leaf {
   display: inline-flex;
   align-items: center;
@@ -754,56 +711,24 @@ h1.hero-title {
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--paper);
-  background:
-    radial-gradient(ellipse 80% 70% at 35% 30%, rgba(160, 200, 140, .90) 0%, rgba(107, 142, 107, .95) 60%, rgba(74, 103, 65, 1) 100%);
-  /* Forma de hoja orgánica */
-  border-radius: 72% 28% 68% 32% / 55% 48% 52% 45%;
+  background: linear-gradient(135deg, rgba(135, 168, 120, 0.9), rgba(107, 142, 107, 0.95));
+  border-radius: 8px 24px 10px 20px / 20px 10px 24px 8px;
   border: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 3px 16px rgba(107, 142, 107, .35),
-    0 1px 4px rgba(74, 103, 65, .25),
-    inset 0 1px 0 rgba(200, 230, 180, .25);
-  animation: leafBtnDrift 6s ease-in-out infinite alternate;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s;
+  box-shadow: 0 8px 24px rgba(107, 142, 107, 0.25);
+  transition: transform .3s ease, box-shadow .3s ease, border-radius .5s ease;
   text-decoration: none;
 }
 
-.btn-leaf::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  left: -20%;
-  width: 55%;
-  height: 55%;
-  background: radial-gradient(circle, rgba(255, 255, 255, .22) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 .btn-leaf:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 8px 24px rgba(107, 142, 107, .45), 0 2px 8px rgba(74, 103, 65, .30);
-  animation: none;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(107, 142, 107, 0.4);
+  border-radius: 20px 10px 24px 8px / 8px 24px 10px 20px;
 }
 
-@keyframes leafBtnDrift {
-  0% {
-    border-radius: 72% 28% 68% 32% / 55% 48% 52% 45%;
-  }
-
-  50% {
-    border-radius: 60% 40% 55% 45% / 48% 55% 45% 52%;
-  }
-
-  100% {
-    border-radius: 68% 32% 72% 28% / 52% 45% 55% 48%;
-  }
-}
-
-/* Botón piedra — crema blanca orgánica */
+/* Botón Secundario — Trazo de Acuarela */
 .btn-stone {
   display: inline-flex;
   align-items: center;
@@ -814,45 +739,26 @@ h1.hero-title {
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--ink-mid);
-  background:
-    radial-gradient(ellipse 70% 65% at 40% 35%, rgba(255, 252, 244, .98) 0%, rgba(245, 238, 220, .92) 55%, rgba(230, 218, 196, .95) 100%);
-  /* Forma de piedra plana orgánica */
-  border-radius: 38% 62% 45% 55% / 58% 42% 58% 42%;
-  border: 1.5px solid rgba(196, 160, 92, .30);
+  color: var(--sage);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 24px 10px 20px 8px / 10px 24px 8px 20px;
+  border: 1px solid rgba(135, 168, 120, 0.4);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 2px 12px rgba(196, 160, 92, .18),
-    0 1px 3px rgba(140, 110, 60, .12),
-    inset 0 1px 0 rgba(255, 255, 255, .60);
-  animation: stoneBtnDrift 7s ease-in-out infinite alternate;
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 16px rgba(135, 168, 120, 0.1);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease, border-radius .5s ease;
   text-decoration: none;
 }
 
 .btn-stone:hover {
-  transform: translateY(-4px) scale(1.04);
-  background: rgba(255, 252, 244, .98);
-  border-color: rgba(196, 160, 92, .50);
-  box-shadow: 0 8px 24px rgba(196, 160, 92, .25);
-  animation: none;
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(135, 168, 120, 0.2);
+  border-radius: 10px 24px 8px 20px / 24px 10px 20px 8px;
 }
 
-@keyframes stoneBtnDrift {
-  0% {
-    border-radius: 38% 62% 45% 55% / 58% 42% 58% 42%;
-  }
-
-  50% {
-    border-radius: 50% 50% 55% 45% / 45% 58% 42% 58%;
-  }
-
-  100% {
-    border-radius: 42% 58% 38% 62% / 62% 38% 55% 45%;
-  }
-}
 
 /* Stats: Medallones de acuarela etérea*/
 .hero-stats {
@@ -1491,18 +1397,7 @@ h1.hero-title {
   position: relative;
 }
 
-.manifesto::before {
-  content: '· · · ✦ ❧ ✦ · · ·';
-  position: absolute;
-  top: var(--space-lg);
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  color: rgba(78, 205, 196, .55);
-  letter-spacing: .4em;
-  white-space: nowrap;
-}
+
 
 .manifesto-aside {
   display: flex;
@@ -1604,9 +1499,9 @@ h1.hero-title {
   color: var(--sage);
 }
 
-/*EQUIPO — Bosque Etéreo Bioluminiscente */
+/*EQUIPO */
 
-/* Fondo: bosque ancestral */
+
 .team-section {
   padding-block: 100px 120px;
   position: relative;
@@ -2080,20 +1975,7 @@ h1.hero-title {
   border-radius: 50%;
 }
 
-/* Decoración botánica: hojitas en el arco superior */
-.card-portrait::after {
-  content: '❧';
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: .65rem;
-  color: rgba(135, 168, 120, .55);
-  z-index: 4;
-  background: var(--paper);
-  padding: 0 4px;
-  border-radius: 50%;
-}
+
 
 .member-card:hover .card-portrait {
   box-shadow:
@@ -2104,59 +1986,7 @@ h1.hero-title {
   transform: scale(1.05);
 }
 
-/* Icono grande del personaje dentro del medallón */
-.portrait-icon {
-  font-size: 2.8rem;
-  line-height: 1;
-  position: relative;
-  z-index: 3;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
-  transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
-}
 
-.card-portrait.portrait-arch {
-  border-radius: 50px 50px 16px 16px;
-  background: #a77df4;
-  box-shadow: none;
-}
-
-.card-portrait.portrait-arch::before,
-.card-portrait.portrait-arch::after {
-  display: none;
-}
-
-.monogram-avatar {
-  font-family: var(--font-heading);
-  font-size: 2.8rem;
-  font-weight: 600;
-  color: #1a1025;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  letter-spacing: -2px;
-}
-
-.member-card:hover .portrait-icon {
-  transform: scale(1.12) rotate(-4deg);
-}
-
-/* Iniciales pequeñas (accesibilidad) */
-.portrait-initials {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  z-index: 4;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: .62rem;
-  color: rgba(255, 255, 255, .70);
-  font-weight: 600;
-  background: rgba(0, 0, 0, .12);
-  border-radius: 4px;
-  padding: 1px 4px;
-  line-height: 1.2;
-}
 
 /* Gradientes de acuarela bioluminiscente por personaje  */
 
@@ -2316,6 +2146,11 @@ h1.hero-title {
   position: relative;
   overflow: hidden;
   padding: 75px clamp(28px, 8vw, 100px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
   background:
     radial-gradient(ellipse 70% 80% at 15% 50%, rgba(78, 205, 196, .18) 0%, transparent 65%),
     radial-gradient(ellipse 60% 60% at 85% 60%, rgba(160, 100, 220, .12) 0%, transparent 60%),
@@ -2326,23 +2161,7 @@ h1.hero-title {
   backdrop-filter: blur(12px);
 }
 
-.cta-inner::before {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 1.4rem;
-  color: rgba(78, 205, 196, .45);
-}
-
-.cta-inner::after {
-  position: absolute;
-  bottom: 16px;
-  left: 20px;
-  font-size: 1.2rem;
-  opacity: .4;
-}
-
-.cta-inner>p {
+.cta-text p {
   font-family: var(--font-label);
   font-size: .74rem;
   letter-spacing: .22em;
@@ -2351,12 +2170,12 @@ h1.hero-title {
   margin-bottom: var(--space-xs);
 }
 
-.cta-inner h2 {
+.cta-text h2 {
   font-size: clamp(2rem, 5vw, 4.2rem);
   font-style: italic;
   font-weight: 400;
   color: var(--ink);
-  margin-bottom: 36px;
+  margin-bottom: 0;
   line-height: 1.1;
 }
 
@@ -2400,19 +2219,7 @@ h1.hero-title {
   background: linear-gradient(90deg, transparent, rgba(78, 205, 196, .40), rgba(196, 160, 92, .30), rgba(78, 205, 196, .40), transparent);
 }
 
-.site-footer::after {
-  content: ' ✿ ';
-  position: absolute;
-  top: -11px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: .75rem;
-  color: var(--sage);
-  background: var(--paper);
-  padding: 0 12px;
-  border-radius: 10px;
-  opacity: .85;
-}
+
 
 .site-footer .brand {
   font-style: italic;
@@ -3347,9 +3154,7 @@ h1.hero-title {
     height: 85px;
   }
 
-  .portrait-icon {
-    font-size: 2.1rem;
-  }
+
 
   .card-body h3 {
     font-size: .95rem;
