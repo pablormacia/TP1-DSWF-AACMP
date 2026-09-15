@@ -1405,41 +1405,39 @@ h1.hero-title {
   gap: 20px;
 }
 
-/* Árbol de la Sabiduría */
+/* Número decorativo de sección — reemplaza el árbol CSS invisible */
 .tree-illustration {
   width: 180px;
-  height: 240px;
   position: relative;
-  margin-top: 16px;
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .tree-illustration::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 110px;
-  background: linear-gradient(180deg, rgba(139, 92, 60, .6), rgba(107, 72, 40, .5), rgba(139, 92, 60, .35));
-  border-radius: 6px 6px 4px 4px;
+  content: '01';
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(6rem, 12vw, 9rem);
+  font-weight: 400;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(135, 168, 120, .35);
+  letter-spacing: -.04em;
+  user-select: none;
+  pointer-events: none;
 }
 
 .tree-illustration::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 155px;
-  height: 160px;
-  background:
-    radial-gradient(ellipse 80% 90% at 50% 60%, rgba(78, 205, 196, .45) 0%, rgba(86, 200, 160, .35) 45%, transparent 75%),
-    radial-gradient(ellipse 55% 65% at 32% 42%, rgba(160, 100, 220, .35) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 55% at 70% 38%, rgba(220, 180, 80, .35) 0%, transparent 60%);
-  border-radius: 52% 48% 44% 56% / 60% 55% 45% 40%;
-  animation: treeBreeze 8s ease-in-out infinite alternate;
-  filter: drop-shadow(0 0 12px rgba(78, 205, 196, .25));
+  bottom: 0;
+  left: 4px;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sage), transparent);
+  border-radius: 2px;
 }
 
 .manifesto-content {
@@ -1948,7 +1946,7 @@ h1.hero-title {
 .card-portrait {
   width: 110px;
   height: 110px;
-  border-radius: 58% 42% 55% 45% / 52% 48% 60% 40%;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   position: relative;
@@ -2068,9 +2066,9 @@ h1.hero-title {
 
 .role-header {
   font-family: var(--font-label);
-  font-size: .56rem;
+  font-size: .68rem;
   font-weight: 600;
-  letter-spacing: .18em;
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--sage);
   display: block;
@@ -2097,14 +2095,14 @@ h1.hero-title {
 
 .tags span {
   font-family: var(--font-label);
-  font-size: .55rem;
-  letter-spacing: .08em;
+  font-size: .64rem;
+  letter-spacing: .06em;
   text-transform: uppercase;
   background: rgba(135, 168, 120, .12);
   color: var(--moss);
   border: 1px solid rgba(135, 168, 120, .28);
-  border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%;
-  padding: 3px 10px;
+  border-radius: 20px;
+  padding: 4px 10px;
   transition: background .25s;
 }
 
@@ -3232,7 +3230,7 @@ h1.hero-title {
   }
 
   .hero-orb {
-    height: 360px;
+    height: 320px;
     order: 2;
   }
 
@@ -3427,6 +3425,216 @@ h1.hero-title {
     font-size: .70rem;
     left: -50px;
     top: 12px;
+  }
+}
+
+/* Pantallas muy pequeñas: el orbe es puramente decorativo, ocultarlo */
+@media (max-width: 480px) {
+  .hero-orb {
+    display: none;
+  }
+
+  /* Sin el orbe, el hero ocupa solo el espacio del pergamino */
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 32px;
+  }
+
+  /* La sección de manifiesto recupera su label sin el aside */
+  .manifesto-aside .label-tag {
+    display: none;
+  }
+}
+
+/* PÁGINAS DE PERFIL — Estilos compartidos entre todos los perfiles */
+
+.profile-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.profile-img-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(107, 142, 107, .15);
+}
+
+.profile-img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease, filter 0.5s ease;
+}
+
+.profile-img-container:hover img {
+  transform: scale(1.05);
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-header h1 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.profile-meta {
+  font-family: var(--font-label);
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.profile-skills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.profile-skills span {
+  background: var(--sage-light);
+  color: var(--ink);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: default;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+}
+
+.profile-skills span:hover {
+  background: var(--sage);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.profile-favorites {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+  padding: 30px;
+  background: rgba(253, 250, 245, .6);
+  border: 1px solid rgba(135, 168, 120, .2);
+  border-radius: 20px;
+}
+
+.fav-list h3 {
+  font-size: 1.2rem;
+  color: var(--sage);
+  margin-bottom: 15px;
+  border-bottom: 1px dashed rgba(135, 168, 120, .3);
+  padding-bottom: 8px;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.fav-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fav-list li {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
+  font-family: var(--font-body);
+  font-style: italic;
+}
+
+.fav-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--moss);
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.back-btn-container {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* Role label en páginas de perfil (más grande que la variante de tarjeta) */
+.profile-role-label {
+  color: var(--sage);
+  font-family: var(--font-label);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Bio en páginas de perfil */
+.profile-bio {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ink-light);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Encabezado de sección de habilidades */
+.skills-heading {
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 0 0 10px;
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 600;
+}
+
+/* Texto de ayuda bajo las habilidades */
+.skills-hint {
+  font-size: 0.75rem;
+  color: var(--sage);
+  font-style: italic;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Footer con margen superior en páginas de perfil */
+.site-footer--profile {
+  margin-top: 100px;
+}
+
+/* Responsive — páginas de perfil */
+@media (max-width: 900px) {
+  .profile-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-img-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-favorites {
+    grid-template-columns: 1fr;
   }
 }
 
