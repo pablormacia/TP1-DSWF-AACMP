@@ -1405,39 +1405,182 @@ h1.hero-title {
   gap: 20px;
 }
 
-/* Número decorativo de sección — reemplaza el árbol CSS invisible */
-.tree-illustration {
-  width: 180px;
+/* GEMA MÍSTICA — Cristal de facetas acuarela */
+.gem-crystal {
   position: relative;
+  width: 180px;
+  height: 210px;
   margin-top: 8px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
-.tree-illustration::before {
-  content: '01';
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(6rem, 12vw, 9rem);
-  font-weight: 400;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(135, 168, 120, .35);
-  letter-spacing: -.04em;
-  user-select: none;
-  pointer-events: none;
+/* SVG principal */
+.gem-svg {
+  width: 180px;
+  height: 200px;
+  animation: gemFloat 7s ease-in-out infinite;
+  filter: drop-shadow(0 8px 20px rgba(196, 160, 92, 0.22))
+          drop-shadow(0 0 30px rgba(135, 168, 120, 0.18))
+          drop-shadow(0 0 60px rgba(196, 184, 216, 0.12));
+  overflow: visible;
 }
 
-.tree-illustration::after {
-  content: '';
+/* Flotación suave de la gema */
+@keyframes gemFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(-0.8deg);
+    filter: drop-shadow(0 8px 20px rgba(196, 160, 92, 0.22))
+            drop-shadow(0 0 30px rgba(135, 168, 120, 0.18))
+            drop-shadow(0 0 60px rgba(196, 184, 216, 0.12));
+  }
+  33% {
+    transform: translateY(-10px) rotate(0.5deg);
+    filter: drop-shadow(0 18px 30px rgba(196, 160, 92, 0.28))
+            drop-shadow(0 0 40px rgba(135, 168, 120, 0.25))
+            drop-shadow(0 0 80px rgba(196, 184, 216, 0.18));
+  }
+  66% {
+    transform: translateY(-5px) rotate(-0.3deg);
+    filter: drop-shadow(0 13px 25px rgba(196, 160, 92, 0.24))
+            drop-shadow(0 0 35px rgba(135, 168, 120, 0.20));
+  }
+}
+
+/* Aura exterior animada */
+.gem-aura-el {
+  animation: gemAuraPulse 5s ease-in-out infinite alternate;
+  transform-origin: 90px 108px;
+}
+
+@keyframes gemAuraPulse {
+  0% { opacity: 0.5; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Facetas — transición sutil al hover */
+.gem-facet {
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  cursor: default;
+}
+
+/* Animaciones individuales de brillo por faceta (turnos secuenciales) */
+.facet-pablo  { animation: facetShimmer 8s ease-in-out infinite 0.0s; }
+.facet-juan   { animation: facetShimmer 8s ease-in-out infinite 1.6s; }
+.facet-daniela{ animation: facetShimmer 8s ease-in-out infinite 3.2s; }
+.facet-mariano{ animation: facetShimmer 8s ease-in-out infinite 4.8s; }
+.facet-fernando{ animation: facetShimmer 8s ease-in-out infinite 6.4s; }
+
+@keyframes facetShimmer {
+  0%, 100% { opacity: 1; }
+  10%  { opacity: 1; filter: brightness(1.35) saturate(1.3); }
+  20%  { opacity: 1; filter: brightness(1); }
+}
+
+/* Destello principal — parpadeo */
+.main-sparkle {
+  animation: sparkleMainPulse 3.5s ease-in-out infinite;
+  transform-origin: 76px 58px;
+}
+
+@keyframes sparkleMainPulse {
+  0%, 100% { opacity: 0.7; r: 4; }
+  40%  { opacity: 1;   r: 5.5; filter: blur(0); }
+  55%  { opacity: 0.95; r: 4.8; }
+}
+
+/* Destello secundario */
+.sec-sparkle {
+  animation: sparkleSecPulse 4.8s ease-in-out infinite 1.2s;
+  transform-origin: 110px 66px;
+}
+
+@keyframes sparkleSecPulse {
+  0%, 100% { opacity: 0.3; }
+  50%  { opacity: 0.9; }
+}
+
+/* Cruz de destello */
+.cross-sparkle {
+  animation: crossSparkle 3.5s ease-in-out infinite;
+}
+
+@keyframes crossSparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40%  { opacity: 0.9; transform: scale(1.2); }
+  55%  { opacity: 0.7; transform: scale(1.0); }
+}
+
+/* Partículas de polvo mágico */
+.gem-dust {
   position: absolute;
-  bottom: 0;
-  left: 4px;
-  width: 48px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--sage), transparent);
-  border-radius: 2px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: dustFloat linear infinite;
+  will-change: transform, opacity;
+}
+
+.gd-1 {
+  width: 5px; height: 5px;
+  background: rgba(196, 160, 92, 0.75);
+  top: 20%; left: 15%;
+  animation-duration: 4.2s;
+  animation-delay: 0s;
+  box-shadow: 0 0 6px rgba(196, 160, 92, 0.6);
+}
+.gd-2 {
+  width: 4px; height: 4px;
+  background: rgba(135, 168, 120, 0.80);
+  top: 35%; right: 12%;
+  animation-duration: 5.8s;
+  animation-delay: 1.4s;
+  box-shadow: 0 0 5px rgba(135, 168, 120, 0.7);
+}
+.gd-3 {
+  width: 3px; height: 3px;
+  background: rgba(196, 184, 216, 0.85);
+  top: 65%; left: 8%;
+  animation-duration: 3.9s;
+  animation-delay: 2.7s;
+  box-shadow: 0 0 5px rgba(196, 184, 216, 0.7);
+}
+.gd-4 {
+  width: 4px; height: 4px;
+  background: rgba(168, 196, 212, 0.80);
+  top: 75%; right: 10%;
+  animation-duration: 6.1s;
+  animation-delay: 0.8s;
+  box-shadow: 0 0 6px rgba(168, 196, 212, 0.65);
+}
+.gd-5 {
+  width: 3px; height: 3px;
+  background: rgba(212, 168, 160, 0.78);
+  top: 50%; left: 5%;
+  animation-duration: 4.6s;
+  animation-delay: 3.5s;
+  box-shadow: 0 0 5px rgba(212, 168, 160, 0.6);
+}
+
+@keyframes dustFloat {
+  0%   { opacity: 0;    transform: translateY(0px) translateX(0px) scale(0.7); }
+  15%  { opacity: 0.9; }
+  80%  { opacity: 0.5; }
+  100% { opacity: 0;    transform: translateY(-45px) translateX(12px) scale(1.3); }
+}
+
+/* Hover en la gema — toda la magia se intensifica */
+.gem-crystal:hover .gem-svg {
+  filter: drop-shadow(0 10px 28px rgba(196, 160, 92, 0.38))
+          drop-shadow(0 0 50px rgba(135, 168, 120, 0.30))
+          drop-shadow(0 0 90px rgba(196, 184, 216, 0.22));
+  animation-play-state: paused;
+  transform: translateY(-6px) rotate(0deg) scale(1.04);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.gem-crystal:hover .gem-facet {
+  filter: brightness(1.15) saturate(1.2);
 }
 
 .manifesto-content {
@@ -2232,7 +2375,9 @@ h1.hero-title {
   padding: 56px clamp(24px, 6vw, 80px) 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 64px);
+  flex-wrap: wrap;
   font-family: var(--font-label);
   font-size: .72rem;
   letter-spacing: .14em;

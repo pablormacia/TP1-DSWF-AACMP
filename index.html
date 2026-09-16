@@ -149,8 +149,135 @@
     <section class="manifesto section-shell reveal">
       <div class="manifesto-aside">
         <p class="label-tag">01 / Manifiesto</p>
-        <!-- Árbol de la Sabiduría -->
-        <div class="tree-illustration" aria-hidden="true"></div>
+        <!-- Gema Mística — facetas por integrante -->
+        <div class="gem-crystal" aria-hidden="true">
+          <svg class="gem-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Filtro glow general -->
+              <filter id="gemGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <!-- Filtro suave interior -->
+              <filter id="softInner" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+              </filter>
+              <!-- Gradientes por faceta (colores de los integrantes) -->
+              <!-- coral -->
+              <linearGradient id="facetCoral" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#D4A8A0" stop-opacity="0.92" />
+                <stop offset="100%" stop-color="#C48878" stop-opacity="0.75" />
+              </linearGradient>
+              <!-- cerulean -->
+              <linearGradient id="facetBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#A8C4D4" stop-opacity="0.88" />
+                <stop offset="100%" stop-color="#7AAAC4" stop-opacity="0.70" />
+              </linearGradient>
+              <!-- ochre/dorado -->
+              <linearGradient id="facetGold" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#C4A05C" stop-opacity="0.90" />
+                <stop offset="100%" stop-color="#E0C88C" stop-opacity="0.72" />
+              </linearGradient>
+              <!-- sage green -->
+              <linearGradient id="facetGreen" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#87A878" stop-opacity="0.90" />
+                <stop offset="100%" stop-color="#6B8E6B" stop-opacity="0.72" />
+              </linearGradient>
+              <!-- lavender -->
+              <linearGradient id="facetLavender" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#C4B8D8" stop-opacity="0.88" />
+                <stop offset="100%" stop-color="#A898CC" stop-opacity="0.70" />
+              </linearGradient>
+              <!-- Centro brillante -->
+              <radialGradient id="facetCenter" cx="40%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#FFFDF8" stop-opacity="0.95" />
+                <stop offset="45%" stop-color="#F0E8D8" stop-opacity="0.65" />
+                <stop offset="100%" stop-color="#D8CEB8" stop-opacity="0.30" />
+              </radialGradient>
+              <!-- Aura exterior -->
+              <radialGradient id="gemAura" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#C4A05C" stop-opacity="0.18" />
+                <stop offset="60%" stop-color="#87A878" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#A8C4D4" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+
+            <!-- Aura de brillo exterior -->
+            <ellipse cx="90" cy="108" rx="72" ry="78" fill="url(#gemAura)" class="gem-aura-el" />
+
+            <!-- ====== FACETAS TRASERAS (sombra) ====== -->
+            <!-- Faceta izquierda trasera -->
+            <polygon points="90,42 34,88 54,148" fill="rgba(60,45,30,0.12)" class="gem-shadow" />
+            <!-- Faceta derecha trasera -->
+            <polygon points="90,42 146,88 126,148" fill="rgba(60,45,30,0.10)" class="gem-shadow" />
+
+            <!-- ====== FACETAS PRINCIPALES ====== -->
+            <!-- Arriba-izquierda: Pablo (coral) -->
+            <polygon class="gem-facet facet-pablo" points="90,42 34,88 90,78" fill="url(#facetCoral)"
+              filter="url(#gemGlow)" />
+            <!-- Arriba-derecha: Juan (azul) -->
+            <polygon class="gem-facet facet-juan" points="90,42 146,88 90,78" fill="url(#facetBlue)"
+              filter="url(#gemGlow)" />
+            <!-- Izquierda: Daniela (dorado) -->
+            <polygon class="gem-facet facet-daniela" points="34,88 54,148 90,78" fill="url(#facetGold)"
+              filter="url(#gemGlow)" />
+            <!-- Derecha: Mariano (verde) -->
+            <polygon class="gem-facet facet-mariano" points="146,88 126,148 90,78" fill="url(#facetGreen)"
+              filter="url(#gemGlow)" />
+            <!-- Abajo: Fernando (lavanda) -->
+            <polygon class="gem-facet facet-fernando" points="54,148 90,174 126,148 90,78" fill="url(#facetLavender)"
+              filter="url(#gemGlow)" />
+
+            <!-- ====== REFLEJOS Y LUZ ====== -->
+            <!-- Cara central con reflejo de luz -->
+            <polygon points="90,42 34,88 90,78 146,88" fill="url(#facetCenter)" opacity="0.55" />
+
+            <!-- Líneas de aristas (tinta acuarela) -->
+            <g stroke="rgba(80,60,40,0.18)" stroke-width="0.8" fill="none">
+              <line x1="90" y1="42" x2="34" y2="88" />
+              <line x1="90" y1="42" x2="146" y2="88" />
+              <line x1="34" y1="88" x2="90" y2="78" />
+              <line x1="146" y1="88" x2="90" y2="78" />
+              <line x1="34" y1="88" x2="54" y2="148" />
+              <line x1="146" y1="88" x2="126" y2="148" />
+              <line x1="54" y1="148" x2="90" y2="174" />
+              <line x1="126" y1="148" x2="90" y2="174" />
+              <line x1="54" y1="148" x2="126" y2="148" />
+              <line x1="90" y1="78" x2="54" y2="148" />
+              <line x1="90" y1="78" x2="126" y2="148" />
+            </g>
+
+            <!-- Aristas brillantes (reflejo de luz) -->
+            <g stroke="rgba(255,252,245,0.55)" stroke-width="1.2" fill="none">
+              <line x1="90" y1="42" x2="34" y2="88" />
+              <line x1="90" y1="42" x2="90" y2="78" />
+            </g>
+
+            <!-- Destello principal (punto de luz) -->
+            <circle class="gem-sparkle main-sparkle" cx="76" cy="58" r="4.5" fill="white" opacity="0.9" />
+            <circle cx="76" cy="58" r="2" fill="white" opacity="1" />
+
+            <!-- Destello secundario -->
+            <circle class="gem-sparkle sec-sparkle" cx="110" cy="66" r="2.5" fill="rgba(255,252,245,0.85)"
+              opacity="0.7" />
+
+            <!-- Líneas de destello cruciforme -->
+            <g class="gem-sparkle cross-sparkle" opacity="0.7">
+              <line x1="76" y1="52" x2="76" y2="64" stroke="white" stroke-width="1" />
+              <line x1="70" y1="58" x2="82" y2="58" stroke="white" stroke-width="1" />
+            </g>
+          </svg>
+
+          <!-- Partículas de polvo mágico -->
+          <div class="gem-dust gd-1"></div>
+          <div class="gem-dust gd-2"></div>
+          <div class="gem-dust gd-3"></div>
+          <div class="gem-dust gd-4"></div>
+          <div class="gem-dust gd-5"></div>
+        </div>
       </div>
       <div class="manifesto-content">
         <h2>
