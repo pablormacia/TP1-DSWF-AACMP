@@ -153,9 +153,9 @@
         <div class="gem-crystal" aria-hidden="true">
           <svg class="gem-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <!-- Filtro glow general -->
+              <!-- Filtro glow cristal -->
               <filter id="gemGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
@@ -165,78 +165,99 @@
               <filter id="softInner" x="-10%" y="-10%" width="120%" height="120%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
               </filter>
-              <!-- Gradientes por faceta (colores de los integrantes) -->
-              <!-- coral -->
+              <!-- Filtro cristal con refracción sutil -->
+              <filter id="glassRefract" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="2" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" result="distorted" />
+                <feGaussianBlur in="distorted" stdDeviation="0.3" />
+              </filter>
+              <!-- Gradientes cristalinos por faceta -->
+              <!-- coral cristal -->
               <linearGradient id="facetCoral" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#D4A8A0" stop-opacity="0.92" />
-                <stop offset="100%" stop-color="#C48878" stop-opacity="0.75" />
+                <stop offset="0%" stop-color="#FDEAE8" stop-opacity="0.72" />
+                <stop offset="40%" stop-color="#D4A8A0" stop-opacity="0.45" />
+                <stop offset="100%" stop-color="#C48878" stop-opacity="0.28" />
               </linearGradient>
-              <!-- cerulean -->
+              <!-- cerulean cristal -->
               <linearGradient id="facetBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#A8C4D4" stop-opacity="0.88" />
-                <stop offset="100%" stop-color="#7AAAC4" stop-opacity="0.70" />
+                <stop offset="0%" stop-color="#EAF4FA" stop-opacity="0.70" />
+                <stop offset="40%" stop-color="#A8C4D4" stop-opacity="0.42" />
+                <stop offset="100%" stop-color="#7AAAC4" stop-opacity="0.25" />
               </linearGradient>
-              <!-- ochre/dorado -->
+              <!-- ochre/dorado cristal -->
               <linearGradient id="facetGold" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#C4A05C" stop-opacity="0.90" />
-                <stop offset="100%" stop-color="#E0C88C" stop-opacity="0.72" />
+                <stop offset="0%" stop-color="#FBF0D8" stop-opacity="0.68" />
+                <stop offset="40%" stop-color="#C4A05C" stop-opacity="0.40" />
+                <stop offset="100%" stop-color="#E0C88C" stop-opacity="0.22" />
               </linearGradient>
-              <!-- sage green -->
+              <!-- sage green cristal -->
               <linearGradient id="facetGreen" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#87A878" stop-opacity="0.90" />
-                <stop offset="100%" stop-color="#6B8E6B" stop-opacity="0.72" />
+                <stop offset="0%" stop-color="#E8F4E2" stop-opacity="0.70" />
+                <stop offset="40%" stop-color="#87A878" stop-opacity="0.42" />
+                <stop offset="100%" stop-color="#6B8E6B" stop-opacity="0.25" />
               </linearGradient>
-              <!-- lavender -->
+              <!-- lavender cristal -->
               <linearGradient id="facetLavender" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#C4B8D8" stop-opacity="0.88" />
-                <stop offset="100%" stop-color="#A898CC" stop-opacity="0.70" />
+                <stop offset="0%" stop-color="#F0EDF8" stop-opacity="0.70" />
+                <stop offset="40%" stop-color="#C4B8D8" stop-opacity="0.42" />
+                <stop offset="100%" stop-color="#A898CC" stop-opacity="0.25" />
               </linearGradient>
-              <!-- Centro brillante -->
-              <radialGradient id="facetCenter" cx="40%" cy="35%" r="65%">
-                <stop offset="0%" stop-color="#FFFDF8" stop-opacity="0.95" />
-                <stop offset="45%" stop-color="#F0E8D8" stop-opacity="0.65" />
-                <stop offset="100%" stop-color="#D8CEB8" stop-opacity="0.30" />
+              <!-- Reflejo especular de cristal (luz principal) -->
+              <radialGradient id="facetCenter" cx="38%" cy="30%" r="60%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.92" />
+                <stop offset="30%" stop-color="#F8FAFF" stop-opacity="0.55" />
+                <stop offset="70%" stop-color="#E8F0F8" stop-opacity="0.18" />
+                <stop offset="100%" stop-color="#D0DDF0" stop-opacity="0.05" />
               </radialGradient>
-              <!-- Aura exterior -->
+              <!-- Reflejo interno difuso -->
+              <linearGradient id="glassSheen" x1="0%" y1="0%" x2="60%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.50" />
+                <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.00" />
+              </linearGradient>
+              <!-- Aura exterior cristalina -->
               <radialGradient id="gemAura" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#C4A05C" stop-opacity="0.18" />
-                <stop offset="60%" stop-color="#87A878" stop-opacity="0.08" />
-                <stop offset="100%" stop-color="#A8C4D4" stop-opacity="0" />
+                <stop offset="0%" stop-color="#C4D8F0" stop-opacity="0.22" />
+                <stop offset="50%" stop-color="#A8C4D4" stop-opacity="0.10" />
+                <stop offset="100%" stop-color="#E0D8F8" stop-opacity="0" />
               </radialGradient>
             </defs>
 
             <!-- Aura de brillo exterior -->
             <ellipse cx="90" cy="108" rx="72" ry="78" fill="url(#gemAura)" class="gem-aura-el" />
 
-            <!-- ====== FACETAS TRASERAS (sombra) ====== -->
+            <!-- ====== FACETAS TRASERAS (cristal – muy translúcidas) ====== -->
             <!-- Faceta izquierda trasera -->
-            <polygon points="90,42 34,88 54,148" fill="rgba(60,45,30,0.12)" class="gem-shadow" />
+            <polygon points="90,42 34,88 54,148" fill="rgba(180,210,240,0.06)" class="gem-shadow" />
             <!-- Faceta derecha trasera -->
-            <polygon points="90,42 146,88 126,148" fill="rgba(60,45,30,0.10)" class="gem-shadow" />
+            <polygon points="90,42 146,88 126,148" fill="rgba(180,210,240,0.05)" class="gem-shadow" />
 
-            <!-- ====== FACETAS PRINCIPALES ====== -->
-            <!-- Arriba-izquierda: Pablo (coral) -->
+            <!-- ====== FACETAS PRINCIPALES (cristal translúcido) ====== -->
+            <!-- Arriba-izquierda: Pablo (coral cristal) -->
             <polygon class="gem-facet facet-pablo" points="90,42 34,88 90,78" fill="url(#facetCoral)"
               filter="url(#gemGlow)" />
-            <!-- Arriba-derecha: Juan (azul) -->
+            <!-- Arriba-derecha: Juan (azul cristal) -->
             <polygon class="gem-facet facet-juan" points="90,42 146,88 90,78" fill="url(#facetBlue)"
               filter="url(#gemGlow)" />
-            <!-- Izquierda: Daniela (dorado) -->
+            <!-- Izquierda: Daniela (dorado cristal) -->
             <polygon class="gem-facet facet-daniela" points="34,88 54,148 90,78" fill="url(#facetGold)"
               filter="url(#gemGlow)" />
-            <!-- Derecha: Mariano (verde) -->
+            <!-- Derecha: Mariano (verde cristal) -->
             <polygon class="gem-facet facet-mariano" points="146,88 126,148 90,78" fill="url(#facetGreen)"
               filter="url(#gemGlow)" />
-            <!-- Abajo: Fernando (lavanda) -->
+            <!-- Abajo: Fernando (lavanda cristal) -->
             <polygon class="gem-facet facet-fernando" points="54,148 90,174 126,148 90,78" fill="url(#facetLavender)"
               filter="url(#gemGlow)" />
 
-            <!-- ====== REFLEJOS Y LUZ ====== -->
-            <!-- Cara central con reflejo de luz -->
-            <polygon points="90,42 34,88 90,78 146,88" fill="url(#facetCenter)" opacity="0.55" />
+            <!-- ====== REFLEJOS Y LUZ CRISTALINA ====== -->
+            <!-- Capa de brillo vitreo sobre toda la gema -->
+            <polygon points="90,42 34,88 54,148 90,174 126,148 146,88" fill="url(#glassSheen)" opacity="0.85" />
 
-            <!-- Líneas de aristas (tinta acuarela) -->
-            <g stroke="rgba(80,60,40,0.18)" stroke-width="0.8" fill="none">
+            <!-- Cara central con reflejo especular de cristal -->
+            <polygon points="90,42 34,88 90,78 146,88" fill="url(#facetCenter)" opacity="0.75" />
+
+            <!-- Líneas de aristas (finas, casi invisibles como en vidrio) -->
+            <g stroke="rgba(180,210,255,0.22)" stroke-width="0.7" fill="none">
               <line x1="90" y1="42" x2="34" y2="88" />
               <line x1="90" y1="42" x2="146" y2="88" />
               <line x1="34" y1="88" x2="90" y2="78" />
@@ -250,10 +271,16 @@
               <line x1="90" y1="78" x2="126" y2="148" />
             </g>
 
-            <!-- Aristas brillantes (reflejo de luz) -->
-            <g stroke="rgba(255,252,245,0.55)" stroke-width="1.2" fill="none">
+            <!-- Aristas brillantes (refracción de cristal) -->
+            <g stroke="rgba(255,255,255,0.80)" stroke-width="1.4" fill="none">
               <line x1="90" y1="42" x2="34" y2="88" />
               <line x1="90" y1="42" x2="90" y2="78" />
+              <line x1="90" y1="42" x2="146" y2="88" />
+            </g>
+            <!-- Borde inferior iluminado -->
+            <g stroke="rgba(255,255,255,0.35)" stroke-width="0.9" fill="none">
+              <line x1="54" y1="148" x2="90" y2="174" />
+              <line x1="126" y1="148" x2="90" y2="174" />
             </g>
 
             <!-- Destello principal (punto de luz) -->

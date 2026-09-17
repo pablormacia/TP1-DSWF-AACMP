@@ -1421,9 +1421,9 @@ h1.hero-title {
   width: 180px;
   height: 200px;
   animation: gemFloat 7s ease-in-out infinite;
-  filter: drop-shadow(0 8px 20px rgba(196, 160, 92, 0.22))
-          drop-shadow(0 0 30px rgba(135, 168, 120, 0.18))
-          drop-shadow(0 0 60px rgba(196, 184, 216, 0.12));
+  filter: drop-shadow(0 8px 24px rgba(168, 196, 220, 0.30))
+          drop-shadow(0 0 35px rgba(196, 184, 240, 0.22))
+          drop-shadow(0 0 70px rgba(220, 240, 255, 0.18));
   overflow: visible;
 }
 
@@ -1431,20 +1431,20 @@ h1.hero-title {
 @keyframes gemFloat {
   0%, 100% {
     transform: translateY(0px) rotate(-0.8deg);
-    filter: drop-shadow(0 8px 20px rgba(196, 160, 92, 0.22))
-            drop-shadow(0 0 30px rgba(135, 168, 120, 0.18))
-            drop-shadow(0 0 60px rgba(196, 184, 216, 0.12));
+    filter: drop-shadow(0 8px 24px rgba(168, 196, 220, 0.30))
+            drop-shadow(0 0 35px rgba(196, 184, 240, 0.22))
+            drop-shadow(0 0 70px rgba(220, 240, 255, 0.18));
   }
   33% {
     transform: translateY(-10px) rotate(0.5deg);
-    filter: drop-shadow(0 18px 30px rgba(196, 160, 92, 0.28))
-            drop-shadow(0 0 40px rgba(135, 168, 120, 0.25))
-            drop-shadow(0 0 80px rgba(196, 184, 216, 0.18));
+    filter: drop-shadow(0 20px 36px rgba(168, 196, 220, 0.40))
+            drop-shadow(0 0 50px rgba(196, 184, 240, 0.32))
+            drop-shadow(0 0 100px rgba(220, 240, 255, 0.25));
   }
   66% {
     transform: translateY(-5px) rotate(-0.3deg);
-    filter: drop-shadow(0 13px 25px rgba(196, 160, 92, 0.24))
-            drop-shadow(0 0 35px rgba(135, 168, 120, 0.20));
+    filter: drop-shadow(0 14px 28px rgba(168, 196, 220, 0.32))
+            drop-shadow(0 0 40px rgba(196, 184, 240, 0.25));
   }
 }
 
@@ -1571,16 +1571,16 @@ h1.hero-title {
 
 /* Hover en la gema — toda la magia se intensifica */
 .gem-crystal:hover .gem-svg {
-  filter: drop-shadow(0 10px 28px rgba(196, 160, 92, 0.38))
-          drop-shadow(0 0 50px rgba(135, 168, 120, 0.30))
-          drop-shadow(0 0 90px rgba(196, 184, 216, 0.22));
+  filter: drop-shadow(0 12px 32px rgba(168, 196, 220, 0.50))
+          drop-shadow(0 0 60px rgba(196, 184, 240, 0.40))
+          drop-shadow(0 0 100px rgba(220, 240, 255, 0.30));
   animation-play-state: paused;
   transform: translateY(-6px) rotate(0deg) scale(1.04);
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .gem-crystal:hover .gem-facet {
-  filter: brightness(1.15) saturate(1.2);
+  filter: brightness(1.25) saturate(1.1) contrast(0.95);
 }
 
 .manifesto-content {
