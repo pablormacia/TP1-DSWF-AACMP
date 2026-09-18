@@ -21,7 +21,10 @@ const teamGrid = document.querySelector('#team-grid');
 if (shuffleButton && teamGrid) {
   shuffleButton.addEventListener('click', () => {
     const cards = [...teamGrid.children];
-    cards.sort(() => Math.random() - 0.5).forEach(card => teamGrid.appendChild(card));
+    cards.sort(() => Math.random() - 0.5).forEach((card, index) => {
+      teamGrid.appendChild(card);
+      card.querySelector('.card-index').textContent = String(index + 1).padStart(2, '0');
+    });
     shuffleButton.firstChild.textContent = '¡Nuevo orden! ';
   });
 }
@@ -34,14 +37,26 @@ if (equipoSection && navLinks.length > 0) {
   window.addEventListener('scroll', () => {
     // Si scrolleamos hasta la seccion equipo (con un margen de 250px)
     if (window.scrollY >= equipoSection.offsetTop - 250) {
-      navLinks.forEach(link => link.classList.remove('active'));
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+      });
       const equipoLink = document.querySelector('.main-nav a[href="#equipo"]');
-      if (equipoLink) equipoLink.classList.add('active');
+      if (equipoLink) {
+        equipoLink.classList.add('active');
+        equipoLink.setAttribute('aria-current', 'location');
+      }
     } else {
       // Si estamos en la parte superior del hero
-      navLinks.forEach(link => link.classList.remove('active'));
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+      });
       const inicioLink = document.querySelector('.main-nav a[href="index.html"]');
-      if (inicioLink) inicioLink.classList.add('active');
+      if (inicioLink) {
+        inicioLink.classList.add('active');
+        inicioLink.setAttribute('aria-current', 'page');
+      }
     }
   });
 }

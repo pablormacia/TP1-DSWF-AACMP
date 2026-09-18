@@ -8,11 +8,11 @@ AACMP es el primer Trabajo Práctico Grupal para la materia **Desarrollo de Sist
 
 | Integrante | Rol / Enfoque | Perfil | GitHub |
 | --- | --- | --- | --- |
-| **Pablo Macia** | Estrategia & Movimiento | [Ver perfil](pages/pablo.html) | [@pablormacia](https://github.com/pablormacia) |
-| **Juan Manuel Albareda** | Análisis & Calidad | [Ver perfil](pages/juan.html) | [@juanmanuelalbareda](https://github.com/juanmanuelalbareda) |
-| **Daniela Cabrera** | Diseño & Detalle | [Ver perfil](pages/daniela.html) | [@Dancay5071](https://github.com/Dancay5071) |
-| **Mariano Arenas** | Código & Lógica | [Ver perfil](pages/mariano.html) | [@NanoCode10](https://github.com/NanoCode10) |
-| **Fernando Palearuzza** | Contenido & Empatía | [Ver perfil](pages/fernando.html) | [@FerPalearuzza](https://github.com/FerPalearuzza) |
+| **Pablo Macia** | Estrategia & Movimiento | [Ver perfil](pablo.html) | [@pablormacia](https://github.com/pablormacia) |
+| **Juan Manuel Albareda** | Análisis & Calidad | [Ver perfil](juan.html) | [@juanmanuelalbareda](https://github.com/juanmanuelalbareda) |
+| **Daniela Cabrera** | Diseño & Detalle | [Ver perfil](daniela.html) | [@Dancay5071](https://github.com/Dancay5071) |
+| **Mariano Arenas** | Código & Lógica | [Ver perfil](mariano.html) | [@NanoCode10](https://github.com/NanoCode10) |
+| **Fernando Palearuzza** | Contenido & Empatía | [Ver perfil](fernando.html) | [@FerPalearuzza](https://github.com/FerPalearuzza) |
 
 ---
 
@@ -37,12 +37,12 @@ AACMP es el primer Trabajo Práctico Grupal para la materia **Desarrollo de Sist
 ```text
 TP1-DSWF-AACMP/
 ├── index.html            # Portada principal y grilla del equipo
-├── pages/                # Páginas individuales y secundarias
-│   ├── pablo.html        # Perfil individual de Pablo
-│   ├── juan.html         # Perfil individual de Juan Manuel
-│   ├── daniela.html      # Perfil individual de Daniela
-│   ├── mariano.html      # Perfil individual de Mariano
-│   ├── fernando.html     # Perfil individual de Fernando
+├── juan.html             # Perfil individual de Juan Manuel
+├── mariano.html          # Perfil individual de Mariano
+├── daniela.html          # Perfil individual de Daniela
+├── pablo.html            # Perfil individual de Pablo
+├── fernando.html         # Perfil individual de Fernando
+├── pages/                # Páginas secundarias
 │   └── bitacora.html     # Bitácora y registro del proceso
 ├── css/
 │   └── styles.css        # Sistema visual, variables y responsive
@@ -93,7 +93,7 @@ El proyecto cuenta con un sistema de diseño propio basado en tonos orgánicos d
 3. **Menú Móvil Accesible:** controla la apertura/cierre de la navegación adaptativa y actualiza dinámicamente el estado `aria-expanded`.
 4. **ScrollSpy de Navegación:** detecta el desplazamiento vertical para actualizar automáticamente el enlace activo (`Inicio` vs `#equipo`) en la barra superior.
 
-### Perfiles Individuales (`pages/*.html`)
+### Perfiles Individuales (HTML en la raíz)
 
 - **Interacción Dinámica de Fotografía:** al pasar el cursor sobre las distintas tarjetas de habilidades (`#skills-container span`), un script nativo calcula el tono (`data-hue`) y aplica en tiempo real un filtro CSS `hue-rotate` sobre la fotografía del integrante, retornando a su estado base al quitar el cursor.
 
