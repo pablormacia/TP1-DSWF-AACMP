@@ -53,17 +53,26 @@
           <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo">Conocer al equipo <span aria-hidden="true">→</span></a>
           <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso">Ver Bitácora <span aria-hidden="true">↗</span></a>
         </div>
-        <p class="hero-note"><span aria-hidden="true">✦</span> Distintas miradas. Un mismo equipo.</p>
       </div>
       <div class="digital-core" aria-hidden="true">
         <div class="core-halo"></div>
         <svg class="core-orbits" viewBox="0 0 520 400" fill="none">
+          <defs>
+            <linearGradient id="orbitGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" class="orbit-stop-a"/>
+              <stop offset="1" class="orbit-stop-b"/>
+            </linearGradient>
+          </defs>
           <ellipse cx="260" cy="220" rx="228" ry="78" transform="rotate(-16 260 220)"/>
           <ellipse cx="260" cy="220" rx="210" ry="94" transform="rotate(22 260 220)"/>
           <ellipse class="orbit-fine" cx="260" cy="202" rx="156" ry="165" transform="rotate(34 260 202)"/>
-          <g class="orbit-nodes"><circle cx="62" cy="246" r="4"/><circle cx="433" cy="263" r="3"/><circle cx="355" cy="101" r="3"/><circle cx="201" cy="317" r="4"/></g>
+          <g class="orbit-nodes">
+            <circle cx="62" cy="246" r="4"/><circle cx="433" cy="263" r="3"/>
+            <circle class="node-violet" cx="355" cy="101" r="3"/><circle cx="201" cy="317" r="4"/>
+            <circle class="node-violet" cx="120" cy="140" r="2.5"/>
+          </g>
         </svg>
-        <div class="core-platform"></div>
+        <div class="core-platform"><i></i></div>
         <div class="gem-crystal" aria-hidden="true">
           <svg class="gem-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -223,7 +232,7 @@
         <span class="tech-node node-html">HTML</span>
         <span class="tech-node node-css">CSS</span>
         <span class="tech-node node-js">JS</span>
-        <span class="core-caption">IDEAS <span>·</span> CÓDIGO <span>·</span> PERSONAS</span>
+        <span class="core-caption"><span>Ideas</span><span>Código</span><span>Personas</span></span>
       </div>
     </section>
 
