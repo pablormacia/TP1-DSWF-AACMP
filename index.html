@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="AACMP — Agencia creativa de diseño y desarrollo web. Ideas distintas, una misma órbita.">
-  <title>AACMP | Diseño Web.</title>
+    content="AACMP Frontend Guild: cinco mentes que combinan ideas, diseño y código para crear experiencias web.">
+  <title>AACMP | Frontend Guild</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,26 +17,7 @@
   <link rel="stylesheet" href="css/guild.css">
 </head>
 
-<body>
-
-  <!-- Textura de papel (fondo) -->
-  <div class="paper-texture" aria-hidden="true"></div>
-
-  <!-- Hojas flotantes suaves -->
-  <div class="leaf-container" aria-hidden="true">
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-  </div>
+<body class="home-page" id="top">
 
   <!--Header-->
   <header class="site-header">
@@ -53,110 +34,36 @@
       <a href="#equipo">Equipo </a>
       <a href="pages/bitacora.html">Bitácora </a>
     </nav>
-    <button class="theme-toggle" type="button" aria-label="Modo oscuro" aria-pressed="false" hidden>
-      <span aria-hidden="true" class="theme-icon">◐</span>
-      <span>Dark</span>
+    <button class="theme-toggle" type="button" aria-label="Modo oscuro" aria-pressed="false" title="Cambiar tema claro / oscuro" hidden>
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
     </button>
   </header>
 
   <main>
 
-    <!--HERO -->
-    <section class="hero section-shell">
-
-      <!-- LADO IZQUIERDO — Pergamino antiguo -->
-      <div class="hero-scroll reveal">
-        <!-- Cuerpo del pergamino -->
-        <div class="scroll-body">
-          <!-- Bordes enrollados del pergamino -->
-          <div class="scroll-curl scroll-curl-top" aria-hidden="true"></div>
-          <div class="scroll-curl scroll-curl-bottom" aria-hidden="true"></div>
-
-          <!-- Contenido del pergamino -->
-          <div class="scroll-content">
-            <p class="eyebrow"> Diseño · Código · Curiosidad </p>
-            <h1 class="hero-title">
-              <span class="brush-reveal">Ideas distintas.</span><br>
-              <em class="hero-title-em brush-reveal">Una misma órbita.</em>
-            </h1>
-            <p class="hero-lead">
-              Somos AACMP: un equipo que transforma miradas diversas
-              en experiencias web etéreas, humanas y memorables.
-            </p>
-
-            <!-- Botones orgánicos-->
-            <div class="hero-actions">
-              <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo">Conocé al equipo</a>
-              <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso">Ver la bitácora ↗</a>
-            </div>
-          </div>
+    <!-- La gema original de Daniela es el núcleo de la nueva identidad. -->
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Cinco mentes · Una misma misión</p>
+        <h1 id="hero-title">AACMP<span><em>Frontend</em> Guild</span></h1>
+        <p class="hero-lead">Somos un equipo Front End. Unimos ideas, diseño y código para crear experiencias web con identidad.</p>
+        <div class="hero-actions">
+          <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo">Conocer al equipo <span aria-hidden="true">→</span></a>
+          <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso">Ver Bitácora <span aria-hidden="true">↗</span></a>
         </div>
-
-        <!-- Estadísticas debajo del pergamino -->
-        <div class="hero-stats" aria-label="Resumen del proyecto">
-          <div class="stat-leaf"><strong>5</strong><span>Integrantes</span></div>
-          <div class="stat-leaf"><strong>1</strong><span>Equipo</span></div>
-          <div class="stat-leaf"><strong>1</strong><span>Misión</span></div>
-        </div>
+        <p class="hero-note"><span aria-hidden="true">✦</span> Distintas miradas. Un mismo equipo.</p>
       </div>
-
-      <!-- LADO DERECHO — Orbe de Piedra Mística -->
-      <div class="hero-orb reveal" aria-hidden="true">
-
-        <!-- Aureola ambiental de luz -->
-        <div class="orb-aura"></div>
-
-        <!-- Vórtice de hojas flotantes -->
-        <div class="orb-vortex">
-          <div class="vortex-leaf vl-1"></div>
-          <div class="vortex-leaf vl-2"></div>
-          <div class="vortex-leaf vl-3"></div>
-          <div class="vortex-leaf vl-4"></div>
-          <div class="vortex-leaf vl-5"></div>
-          <div class="vortex-leaf vl-6"></div>
-          <div class="vortex-leaf vl-7"></div>
-          <div class="vortex-leaf vl-8"></div>
-          <div class="vortex-leaf vl-9"></div>
-          <div class="vortex-leaf vl-10"></div>
-          <div class="vortex-leaf vl-11"></div>
-          <div class="vortex-leaf vl-12"></div>
-        </div>
-
-        <!-- Luciérnagas doradas -->
-        <div class="orb-fireflies">
-          <div class="firefly ff-1"></div>
-          <div class="firefly ff-2"></div>
-          <div class="firefly ff-3"></div>
-          <div class="firefly ff-4"></div>
-          <div class="firefly ff-5"></div>
-          <div class="firefly ff-6"></div>
-          <div class="firefly ff-7"></div>
-          <div class="firefly ff-8"></div>
-          <div class="firefly ff-9"></div>
-          <div class="firefly ff-10"></div>
-        </div>
-
-        <!-- La piedra mística -->
-        <div class="stone-orb">
-          <!-- Musgo en acuarela -->
-          <div class="stone-moss stone-moss-1" aria-hidden="true"></div>
-          <div class="stone-moss stone-moss-2" aria-hidden="true"></div>
-          <div class="stone-moss stone-moss-3" aria-hidden="true"></div>
-          <!-- Letras talladas con resplandor -->
-          <span class="stone-letters">AACMP</span>
-          <!-- Grietas decorativas -->
-          <div class="stone-crack stone-crack-1" aria-hidden="true"></div>
-          <div class="stone-crack stone-crack-2" aria-hidden="true"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!--MANIFIESTO-->
-    <section class="manifesto section-shell reveal">
-      <div class="manifesto-aside">
-        <p class="label-tag">01 / Manifiesto</p>
-        <!-- Gema Mística — facetas por integrante -->
+      <div class="digital-core" aria-hidden="true">
+        <div class="core-halo"></div>
+        <svg class="core-orbits" viewBox="0 0 520 400" fill="none">
+          <ellipse cx="260" cy="220" rx="228" ry="78" transform="rotate(-16 260 220)"/>
+          <ellipse cx="260" cy="220" rx="210" ry="94" transform="rotate(22 260 220)"/>
+          <ellipse class="orbit-fine" cx="260" cy="202" rx="156" ry="165" transform="rotate(34 260 202)"/>
+          <g class="orbit-nodes"><circle cx="62" cy="246" r="4"/><circle cx="433" cy="263" r="3"/><circle cx="355" cy="101" r="3"/><circle cx="201" cy="317" r="4"/></g>
+        </svg>
+        <div class="core-platform"></div>
         <div class="gem-crystal" aria-hidden="true">
           <svg class="gem-svg" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -312,49 +219,22 @@
           <div class="gem-dust gd-4"></div>
           <div class="gem-dust gd-5"></div>
         </div>
-      </div>
-      <div class="manifesto-content">
-        <h2>
-          Lo mejor aparece<br>
-          cuando las diferencias
-          <em>se encuentran.</em>
-        </h2>
-        <p class="drop-cap-p">
-          Investigamos, diseñamos, probamos y aprendemos en conjunto.
-          Cada perfil aporta un color propio; el proyecto toma forma
-          cuando esos colores se combinan en armonía pura.
-        </p>
+        <span class="tech-node node-code">&lt;/&gt;</span>
+        <span class="tech-node node-html">HTML</span>
+        <span class="tech-node node-css">CSS</span>
+        <span class="tech-node node-js">JS</span>
+        <span class="core-caption">IDEAS <span>·</span> CÓDIGO <span>·</span> PERSONAS</span>
       </div>
     </section>
 
-    <!--EQUIPO — Bosque Etéreo Bioluminiscente -->
+    <!-- Equipo: orden inicial alfabético por apellido (AACMP). -->
     <section id="equipo" class="team-section section-shell">
 
-      <!-- Cascadas de luz mágica cayendo del dosel ancestral -->
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-
-      <!-- Polvo de estrellas y esporas bioluminiscentes -->
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-
-      <div class="section-heading reveal">
+      <div class="section-heading">
         <div>
-          <p class="label-tag">02 / El Equipo</p>
-          <h2>Cinco almas, una misión</h2>
+          <p class="label-tag">Nuestro equipo</p>
+          <h2>Cinco perfiles. Una misma órbita.</h2>
+          <p class="team-intro">Investigamos, diseñamos, probamos y aprendemos en conjunto.</p>
         </div>
         <button id="shuffle-team" class="text-button" type="button">
           Mezclar Tarjetas ↻
@@ -364,122 +244,118 @@
       <div id="team-grid" class="team-grid">
 
         <!-- Juan Manuel -->
-        <article class="member-card reveal" data-member="juan">
-          <div class="card-portrait portrait-blue" aria-label="Juan Manuel Albareda — El Tecnomago">
+        <article class="member-card" data-member="juan">
+          <div class="card-portrait portrait-blue">
             <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda" class="portrait-image">
           </div>
           <div class="card-index">01</div>
           <div class="card-body">
             <p class="role-header">ANÁLISIS & CALIDAD</p>
             <h3>Juan Manuel Albareda</h3>
+            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
             <div class="tags">
               <span>JavaScript</span>
               <span>Git</span>
+              <span>Diseño UI</span>
+              <span>HTML/CSS</span>
             </div>
-            <a class="card-link" href="juan.html" id="link-juan">Ver perfil ↗</a>
+            <a class="card-link" href="juan.html" id="link-juan" aria-label="Ver perfil de Juan Manuel Albareda">Ver perfil <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <!-- Mariano -->
-        <article class="member-card reveal" data-member="mariano">
-          <div class="card-portrait portrait-green" aria-label="Mariano Arenas — El Caminante Astral">
+        <article class="member-card" data-member="mariano">
+          <div class="card-portrait portrait-green">
             <img src="img/mariano.jpg" alt="Avatar ilustrado de Mariano Arenas" class="portrait-image">
           </div>
           <div class="card-index">02</div>
           <div class="card-body">
             <p class="role-header">CODIGO & LÓGICA</p>
             <h3>Mariano Arenas</h3>
+            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
             <div class="tags">
               <span>Research</span>
               <span>Motion</span>
+              <span>C#</span>
+              <span>MySQL</span>
             </div>
-            <a class="card-link" href="mariano.html" id="link-mariano">Ver perfil ↗</a>
+            <a class="card-link" href="mariano.html" id="link-mariano" aria-label="Ver perfil de Mariano Arenas">Ver perfil <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <!-- Daniela -->
-        <article class="member-card reveal" data-member="daniela">
-          <div class="card-portrait portrait-yellow" aria-label="Daniela Cabrera — La Escriba de la Luz">
+        <article class="member-card" data-member="daniela">
+          <div class="card-portrait portrait-yellow">
             <img src="img/daniela.jpg" alt="Avatar ilustrado de Daniela Cabrera" class="portrait-image">
           </div>
           <div class="card-index">03</div>
           <div class="card-body">
             <p class="role-header">DISEÑO & DETALLE</p>
             <h3>Daniela Cabrera</h3>
+            <p class="card-meta">General Pico, La Pampa<br>33 años</p>
             <div class="tags">
               <span>UX Writing</span>
               <span>HTML</span>
+              <span>CSS</span>
+              <span>Accesibilidad</span>
             </div>
-            <a class="card-link" href="daniela.html" id="link-daniela">Ver perfil ↗</a>
+            <a class="card-link" href="daniela.html" id="link-daniela" aria-label="Ver perfil de Daniela Cabrera">Ver perfil <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <!-- Pablo -->
-        <article class="member-card reveal" data-member="pablo">
-          <div class="card-portrait portrait-coral" aria-label="Pablo Macia — El Arquitecto Arcano">
+        <article class="member-card" data-member="pablo">
+          <div class="card-portrait portrait-coral">
             <img src="img/pablo.jpg" alt="Avatar ilustrado de Pablo Macia" class="portrait-image">
           </div>
           <div class="card-index">04</div>
           <div class="card-body">
             <p class="role-header">ESTRATEGIA & MOVIMIENTO</p>
             <h3>Pablo Macia</h3>
+            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
             <div class="tags">
               <span>Figma</span>
               <span>CSS</span>
+              <span>C#</span>
+              <span>MySQL</span>
             </div>
-            <a class="card-link" href="pablo.html" id="link-pablo">Ver perfil ↗</a>
+            <a class="card-link" href="pablo.html" id="link-pablo" aria-label="Ver perfil de Pablo Macia">Ver perfil <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <!-- Fernando -->
-        <article class="member-card reveal" data-member="fernando">
-          <div class="card-portrait portrait-purple" aria-label="Fernando Palearuzza — El Paladín del Velo">
+        <article class="member-card" data-member="fernando">
+          <div class="card-portrait portrait-purple">
             <img src="img/fernando.jpg" alt="Avatar ilustrado de Fernando Palearuzza" class="portrait-image">
           </div>
           <div class="card-index">05</div>
           <div class="card-body">
             <p class="role-header">CONTENIDO & EMPATÍA</p>
             <h3>Fernando Palearuzza</h3>
+            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
             <div class="tags">
               <span>Testing</span>
               <span>Web</span>
+              <span>Diseño UI</span>
+              <span>HTML/CSS</span>
             </div>
-            <a class="card-link" href="fernando.html" id="link-fernando">Ver perfil ↗</a>
+            <a class="card-link" href="fernando.html" id="link-fernando" aria-label="Ver perfil de Fernando Palearuzza">Ver perfil <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- CTA — El Pergamino del Viajero-->
-    <section class="cta section-shell reveal">
+    <!-- El proceso conserva su lugar destacado en la portada. -->
+    <section class="cta section-shell" aria-labelledby="log-title">
       <div class="cta-inner">
-        <!-- Mapa místico de constelaciones y rutas -->
-        <svg class="map-decoration" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M30 90 Q50 40 100 30 Q150 20 200 50 Q240 75 230 120 Q220 155 180 165 Q130 175 80 160 Q40 148 30 90Z"
-            fill="rgba(78,205,196,0.12)" stroke="rgba(78,205,196,0.4)" stroke-width="1.5" />
-          <path d="M80 80 L95 55 L110 80Z" fill="none" stroke="rgba(196,160,92,0.4)" stroke-width="1" />
-          <path d="M100 85 L118 58 L136 85Z" fill="none" stroke="rgba(196,160,92,0.4)" stroke-width="1" />
-          <path d="M160 40 Q165 80 155 120 Q148 148 140 165" stroke="rgba(160,100,220,0.5)" stroke-width="2" fill="none"
-            stroke-dasharray="4,2" />
-          <circle cx="55" cy="110" r="6" fill="rgba(78,205,196,0.25)" stroke="rgba(78,205,196,0.4)" stroke-width="1" />
-          <circle cx="185" cy="90" r="5" fill="rgba(220,180,80,0.7)" />
-          <g transform="translate(220,145)">
-            <circle cx="0" cy="0" r="14" fill="none" stroke="rgba(196,160,92,0.4)" stroke-width="1" />
-            <path d="M0,-11 L3,-2 L0,0 L-3,-2Z" fill="rgba(78,205,196,0.85)" />
-            <path d="M0,11 L3,2 L0,0 L-3,2Z" fill="rgba(196,160,92,0.65)" />
-            <text x="-2.5" y="-15" font-size="6.5" fill="rgba(196,160,92,0.9)" font-family="Georgia,serif">N</text>
-          </g>
-        </svg>
-
+        <div class="log-symbol" aria-hidden="true"><span>&lt;/&gt;</span><i></i><i></i><i></i></div>
         <div class="cta-text">
-          <p> ¿Cómo se forjó este reino?</p>
-          <h2>El resultado importa.<br><em>El proceso también.</em></h2>
+          <p>Nuestra Bitácora</p>
+          <h2 id="log-title">La misión también se documenta.</h2>
+          <p class="cta-description">Decisiones, desafíos y aprendizajes que nos hacen crecer como equipo.</p>
         </div>
-        <a class="button light" href="pages/bitacora.html" id="btn-bitacora">
-          Explorar la Bitácora <span>→</span>
-        </a>
+        <a class="button light" href="pages/bitacora.html" id="btn-bitacora">Ir a la Bitácora <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
@@ -487,12 +363,11 @@
 
   <!--FOOTER-->
   <footer class="site-footer">
-    <div class="footer-firefly" aria-hidden="true"></div>
     <a class="brand" href="index.html" aria-label="AACMP, inicio">
-      <span class="brand-mark">A</span> AACMP
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> AACMP
     </a>
     <p>AACMP · TP1 · Desarrollo de Sistemas Web · 2026</p>
-    <a href="#top" id="link-volver-arriba">Ascender al Orbe ↑</a>
+    <a href="#top" id="link-volver-arriba">Volver arriba ↑</a>
   </footer>
 
   <script src="js/main.js"></script>
