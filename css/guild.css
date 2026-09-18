@@ -1,0 +1,314 @@
+/* Fase 2: temas y componentes compartidos sobre la composición de Daniela. */
+:root {
+  color-scheme: light;
+  --bg: #f7f8fc;
+  --surface: #ffffff;
+  --surface-soft: #eef1f8;
+  --text: #17233b;
+  --text-muted: #526078;
+  --accent: #6542d9;
+  --tech: #087c91;
+  --accent-soft: #eeebfc;
+  --border: #d4dbea;
+  --focus: #6542d9;
+  --button-bg: #6542d9;
+  --button-text: #ffffff;
+  --shadow: 0 8px 28px rgb(28 40 75 / 7%);
+  --glow: rgb(101 66 217 / 12%);
+  --wash: rgb(8 124 145 / 5%);
+  --member-juan: #2463a6;
+  --member-mariano: #28734a;
+  --member-daniela: #886312;
+  --member-pablo: #ab5232;
+  --member-fernando: #7750b2;
+
+  /* Compatibilidad con los componentes existentes. */
+  --paper: var(--bg);
+  --paper-warm: var(--surface);
+  --paper-tinted: var(--surface-soft);
+  --ink: var(--text);
+  --ink-mid: var(--text);
+  --ink-light: var(--text-muted);
+  --ink-faint: var(--text-muted);
+  --sage: var(--accent);
+  --sage-light: var(--accent-soft);
+  --sage-pale: var(--surface-soft);
+  --moss: var(--tech);
+  --moss-dark: var(--tech);
+  --ochre: var(--text-muted);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1420;
+  --surface: #172233;
+  --surface-soft: #202d43;
+  --text: #f3f6fc;
+  --text-muted: #b5c1d3;
+  --accent: #b49aff;
+  --tech: #63dcec;
+  --accent-soft: #302b4d;
+  --border: #3c4d66;
+  --focus: #63dcec;
+  --button-bg: #b49aff;
+  --button-text: #17112d;
+  --shadow: 0 8px 28px rgb(0 0 0 / 18%);
+  --glow: rgb(180 154 255 / 13%);
+  --wash: rgb(99 220 236 / 5%);
+  --member-juan: #85baff;
+  --member-mariano: #82d5a8;
+  --member-daniela: #e7c66d;
+  --member-pablo: #f1ab8e;
+  --member-fernando: #c6a3f4;
+}
+
+body {
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body, .site-header, .main-nav, .site-footer, .scroll-body,
+.manifesto-content, .cta-inner, .member-card, .profile-favorites,
+.vine-card, .stat-leaf, a, button, .tags span, .profile-skills span {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease,
+    box-shadow .2s ease, transform .2s ease;
+}
+
+/* Sin confeti global. La gema conserva sus facetas, polvo y destellos. */
+.leaf-container, .card-petals, .magic-cascade, .golden-spore,
+.orb-vortex, .vine-firefly, .stone-moss, .stone-crack,
+.team-section::before, .team-section::after {
+  display: none;
+}
+.leaf, .petal, .vortex-leaf, .magic-cascade, .golden-spore,
+.vine-firefly, .stone-moss { animation: none; }
+.paper-texture::after { opacity: .2; }
+body::before {
+  background: radial-gradient(ellipse at 15% 10%, var(--wash), transparent 60%);
+  animation: none;
+}
+.hero::after { display: none; }
+.team-section { background: var(--wash); }
+
+/* La tipografía deja de cargar con la ornamentación. */
+.brand, .site-footer .brand, h1.hero-title, .hero-title-em, .hero-lead,
+.manifesto-content h2, .manifesto-content h2 em, .manifesto-content p,
+.card-body h3, .card-index, .stat-leaf strong, .cta-text h2, .cta-text em,
+.profile-header h1, .profile-bio, .fav-list h2, .fav-list li, .skills-hint,
+.log-hero h1, .log-hero p, .vine-card h2, .vine-card p, .vine-node-label,
+.stone-letters { font-style: normal; }
+h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 600; }
+.hero-title-em {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--accent);
+  filter: none;
+}
+.hero-lead { opacity: 1; }
+.drop-cap-p::first-letter {
+  float: none;
+  font: inherit;
+  padding: 0;
+  color: inherit;
+}
+.brush-reveal { clip-path: none; animation: none; }
+.profile-header h1 { font-size: clamp(2rem, 4vw, 3rem); overflow-wrap: anywhere; }
+.hero-scroll .eyebrow, .eyebrow, .label-tag, .role-header, .card-index,
+.stat-leaf span, .tags span, .skills-hint, .cta-text p,
+.vine-card .log-meta, .vine-card h3, .site-footer {
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+.card-link, .text-button, .main-nav, .btn-leaf, .btn-stone, .button,
+.btn-github { font-size: .875rem; letter-spacing: .02em; }
+.card-body h3 { font-size: 1.1rem; }
+.section-heading h2 { font-style: normal; font-weight: 600; }
+.vine-card p, .manifesto-content p { font-size: 1rem; }
+.hero-scroll .eyebrow { opacity: 1; }
+
+/* Header: mismo recorrido de navegación, con el tema siempre visible. */
+.site-header {
+  gap: 20px;
+  background: var(--surface);
+  border-color: var(--border);
+}
+.site-header .brand { margin-right: auto; flex-shrink: 0; }
+.brand { letter-spacing: 0; }
+.brand-mark {
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: none;
+  border-radius: 10px;
+  font-style: normal;
+}
+.brand-name { display: grid; line-height: 1.15; font-size: 1.15rem; }
+.brand-name small {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: .75rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.main-nav { gap: 24px; }
+.main-nav a { color: var(--text-muted); }
+.main-nav a:hover, .main-nav a.active { color: var(--accent); }
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: .875rem;
+  flex-shrink: 0;
+}
+.theme-toggle[hidden] { display: none; }
+.theme-icon { font-size: 1.2rem; line-height: 1; }
+.theme-toggle[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+:where(a, button):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+#equipo { scroll-margin-top: 100px; }
+
+/* Superficies existentes: sin fondos de pergamino incompatibles con Dark. */
+.scroll-body, .manifesto-content, .cta-inner, .vine-card,
+.profile-favorites, .stat-leaf, .stat-leaf:nth-child(2), .stat-leaf:nth-child(3) {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+}
+.scroll-body::before, .scroll-body::after, .vine-card::before { display: none; }
+.manifesto-content::before { color: var(--border); }
+.site-footer { background: var(--surface); border-color: var(--border); }
+.stat-leaf:hover, .vine-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.btn-leaf, .button.primary, .btn-github {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  animation: none;
+}
+.btn-stone, .button.light, .button.ghost {
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: none;
+}
+.btn-leaf:hover, .button.primary:hover, .btn-github:hover {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 12px;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--glow);
+}
+.btn-stone:hover, .button.light:hover, .button.ghost:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+  border-radius: 12px;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+/* Acentos por persona, independientes de Mezclar tarjetas. */
+[data-member="juan"] { --member-accent: var(--member-juan); }
+[data-member="mariano"] { --member-accent: var(--member-mariano); }
+[data-member="daniela"] { --member-accent: var(--member-daniela); }
+[data-member="pablo"] { --member-accent: var(--member-pablo); }
+[data-member="fernando"] { --member-accent: var(--member-fernando); }
+.member-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+.member-card::before { display: none; }
+.member-card::after { background: var(--member-accent); animation: none; }
+.member-card:hover, .member-card:focus-within {
+  background: var(--surface);
+  border-color: var(--member-accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+.card-portrait, .member-card:hover .card-portrait {
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--member-accent);
+  transform: none;
+}
+.card-portrait::before { display: none; }
+.role-header, .profile-role-label { color: var(--member-accent); }
+.tags span, .member-card:hover .tags span, .profile-skills span {
+  background: var(--surface-soft);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.profile-skills span:hover { background: var(--accent-soft); color: var(--text); }
+.card-link { color: var(--member-accent); border-color: var(--border); min-height: 44px; }
+.card-link:hover { color: var(--member-accent); }
+.profile-img-container { border: 2px solid var(--member-accent); box-shadow: var(--shadow); }
+.fav-list h2 { border-color: var(--border); }
+
+/* Conservamos la gema original y el orbe, con una luz más contenida. */
+.stone-orb {
+  background: radial-gradient(circle at 30% 25%, var(--accent-soft), var(--surface-soft) 65%);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 35px var(--glow), var(--shadow);
+}
+.stone-letters {
+  color: var(--text);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  animation: none;
+}
+.orb-aura { opacity: .35; animation: none; }
+.orb-fireflies { opacity: .55; }
+.hero-orb { overflow: clip; }
+.gem-svg { filter: drop-shadow(0 0 12px var(--glow)); }
+.vine-stem { animation: none; }
+.vine-node-label, .vine-entry:nth-child(even) .vine-node-label {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  animation: none;
+}
+
+@media (max-width: 900px) {
+  .site-header { padding-inline: 20px; gap: 14px; }
+  .main-nav { gap: 16px; }
+}
+@media (max-width: 600px) {
+  .site-header { padding-inline: 14px; gap: 10px; }
+  .menu-button { order: 3; min-width: 44px; min-height: 44px; }
+  .theme-toggle { padding-inline: 10px; }
+  .main-nav { background: var(--surface); border-color: var(--border); box-shadow: var(--shadow); }
+  .hero-title { overflow-wrap: anywhere; }
+  .profile-hero > *, .profile-details { min-width: 0; }
+  .vine-card .log-meta { flex-wrap: wrap; gap: 4px 12px; }
+  .hero-stats { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .brush-reveal { clip-path: none; }
+  .reveal { opacity: 1; transform: none; filter: none; }
+  .member-card:hover, .member-card:focus-within, .profile-img-container:hover img {
+    transform: none;
+  }
+}

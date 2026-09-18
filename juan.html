@@ -9,16 +9,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/guild.css">
 </head>
 
-<body>
+<body data-member="juan">
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="AACMP, inicio">
-      <span class="brand-mark">A</span> AACMP
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">AACMP<small>Frontend Guild</small></span>
     </a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
@@ -29,6 +32,10 @@
       <a href="index.html#equipo">Equipo </a>
       <a href="pages/bitacora.html">Bitácora </a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Modo oscuro" aria-pressed="false" hidden>
+      <span aria-hidden="true" class="theme-icon">◐</span>
+      <span>Dark</span>
+    </button>
   </header>
   <main class="section-shell">
     <div class="section-inner">
