@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="AACMP Frontend Guild: cinco mentes que combinan ideas, diseño y código para crear experiencias web.">
-  <title>AACMP | Frontend Guild</title>
+    content="AACMP Frontend Gems: cinco mentes que combinan ideas, diseño y código para crear experiencias web.">
+  <title>AACMP | Frontend Gems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -23,7 +23,7 @@
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="AACMP, inicio">
       <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
-      <span class="brand-name">AACMP<small>Frontend Guild</small></span>
+      <span class="brand-name">AACMP<small>Frontend Gems</small></span>
     </a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
@@ -47,11 +47,20 @@
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">Cinco mentes · Una misma misión</p>
-        <h1 id="hero-title">AACMP<span><em>Frontend</em> Guild</span></h1>
+        <h1 id="hero-title">AACMP<span><em>Frontend</em> Gems</span></h1>
         <p class="hero-lead">Somos un equipo Front End. Unimos ideas, diseño y código para crear experiencias web con identidad.</p>
         <div class="hero-actions">
-          <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo">Conocer al equipo <span aria-hidden="true">→</span></a>
-          <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso">Ver Bitácora <span aria-hidden="true">↗</span></a>
+          <!-- Desktop muestra el texto largo; mobile, el ícono y el texto corto. -->
+          <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo" aria-label="Conocer al equipo">
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.4-.2 4.1 1.3 4.5 4.3"/></svg>
+            <span class="cta-long">Conocer al equipo</span><span class="cta-short">Equipo</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso" aria-label="Ver Bitácora">
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h11a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2Z"/><path d="M5 18a2 2 0 0 1 2-2h11"/><path d="M9 8.5h5M9 11.5h3"/></svg>
+            <span class="cta-long">Ver Bitácora</span><span class="cta-short">Bitácora</span>
+            <span class="cta-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
       <div class="digital-core" aria-hidden="true">
@@ -241,116 +250,210 @@
 
       <div class="section-heading">
         <div>
-          <p class="label-tag">Nuestro equipo</p>
-          <h2>Cinco perfiles. Una misma órbita.</h2>
+          <p class="label-tag">El equipo</p>
+          <h2>Cinco almas, una misión.</h2>
           <p class="team-intro">Investigamos, diseñamos, probamos y aprendemos en conjunto.</p>
         </div>
-        <!-- main.js reemplaza solo el primer nodo de texto; el ícono se conserva. -->
-        <button id="shuffle-team" class="text-button shuffle-button" type="button">Mezclar tarjetas <span class="shuffle-icon" aria-hidden="true">↻</span></button>
+        <!-- Mezclador tipo slider: se arrastra el ícono hasta el final, o se activa
+             con click / Enter / Espacio (es un button nativo). Lógica en main.js. -->
+        <button id="shuffle-team" class="shuffle-slider" type="button" aria-label="Mezclar tarjetas" aria-describedby="shuffle-hint">
+          <span class="shuffle-fill" aria-hidden="true"></span>
+          <span class="shuffle-knob" aria-hidden="true">↻</span>
+          <span class="shuffle-label">Mezclar tarjetas</span>
+        </button>
+        <span id="shuffle-hint" class="sr-only">También podés arrastrar el control hacia la derecha.</span>
+        <p id="shuffle-status" class="sr-only" aria-live="polite"></p>
       </div>
 
       <div id="team-grid" class="team-grid">
 
         <!-- Juan Manuel -->
         <article class="member-card" data-member="juan">
-          <div class="card-portrait portrait-blue">
-            <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda" class="portrait-image">
-          </div>
-          <div class="card-index">01</div>
-          <div class="card-body">
-            <p class="role-header">ANÁLISIS & CALIDAD</p>
-            <h3>Juan Manuel Albareda</h3>
-            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
-            <div class="tags">
-              <span>JavaScript</span>
-              <span>Git</span>
-              <span>Diseño UI</span>
-              <span>HTML/CSS</span>
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-juan">
+            <span class="card-index" aria-hidden="true">01</span>
+            <span class="card-front-avatar"><img src="img/juan.jpg" alt=""></span>
+            <span class="card-front-name">Juan Manuel Albareda</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-juan">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Juan Manuel Albareda">↺</button>
+            <div class="card-portrait portrait-blue">
+              <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda" class="portrait-image">
             </div>
-            <a class="card-link" href="juan.html" id="link-juan" aria-label="Ver perfil de Juan Manuel Albareda">Ver perfil <span aria-hidden="true">→</span></a>
+            <div class="card-index">01</div>
+            <div class="card-body">
+              <p class="role-header">ANÁLISIS & CALIDAD</p>
+              <h3>Juan Manuel Albareda</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>JavaScript</span>
+                <span>Git</span>
+                <span>Diseño UI</span>
+                <span>HTML/CSS</span>
+              </div>
+              <a class="card-link" href="juan.html" id="link-juan" aria-label="Ver perfil de Juan Manuel Albareda">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
         <!-- Mariano -->
         <article class="member-card" data-member="mariano">
-          <div class="card-portrait portrait-green">
-            <img src="img/mariano.jpg" alt="Avatar ilustrado de Mariano Arenas" class="portrait-image">
-          </div>
-          <div class="card-index">02</div>
-          <div class="card-body">
-            <p class="role-header">CODIGO & LÓGICA</p>
-            <h3>Mariano Arenas</h3>
-            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
-            <div class="tags">
-              <span>Research</span>
-              <span>Motion</span>
-              <span>C#</span>
-              <span>MySQL</span>
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-mariano">
+            <span class="card-index" aria-hidden="true">02</span>
+            <span class="card-front-avatar"><img src="img/mariano.jpg" alt=""></span>
+            <span class="card-front-name">Mariano Arenas</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-mariano">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Mariano Arenas">↺</button>
+            <div class="card-portrait portrait-green">
+              <img src="img/mariano.jpg" alt="Avatar ilustrado de Mariano Arenas" class="portrait-image">
             </div>
-            <a class="card-link" href="mariano.html" id="link-mariano" aria-label="Ver perfil de Mariano Arenas">Ver perfil <span aria-hidden="true">→</span></a>
+            <div class="card-index">02</div>
+            <div class="card-body">
+              <p class="role-header">CODIGO & LÓGICA</p>
+              <h3>Mariano Arenas</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>Research</span>
+                <span>Motion</span>
+                <span>C#</span>
+                <span>MySQL</span>
+              </div>
+              <a class="card-link" href="mariano.html" id="link-mariano" aria-label="Ver perfil de Mariano Arenas">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
         <!-- Daniela -->
         <article class="member-card" data-member="daniela">
-          <div class="card-portrait portrait-yellow">
-            <img src="img/daniela.jpg" alt="Avatar ilustrado de Daniela Cabrera" class="portrait-image">
-          </div>
-          <div class="card-index">03</div>
-          <div class="card-body">
-            <p class="role-header">DISEÑO & DETALLE</p>
-            <h3>Daniela Cabrera</h3>
-            <p class="card-meta">General Pico, La Pampa<br>33 años</p>
-            <div class="tags">
-              <span>UX Writing</span>
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Accesibilidad</span>
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-daniela">
+            <span class="card-index" aria-hidden="true">03</span>
+            <span class="card-front-avatar"><img src="img/daniela.jpg" alt=""></span>
+            <span class="card-front-name">Daniela Cabrera</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-daniela">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Daniela Cabrera">↺</button>
+            <div class="card-portrait portrait-yellow">
+              <img src="img/daniela.jpg" alt="Avatar ilustrado de Daniela Cabrera" class="portrait-image">
             </div>
-            <a class="card-link" href="daniela.html" id="link-daniela" aria-label="Ver perfil de Daniela Cabrera">Ver perfil <span aria-hidden="true">→</span></a>
+            <div class="card-index">03</div>
+            <div class="card-body">
+              <p class="role-header">DISEÑO & DETALLE</p>
+              <h3>Daniela Cabrera</h3>
+              <p class="card-meta">General Pico, La Pampa<br>33 años</p>
+              <div class="tags">
+                <span>UX Writing</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Accesibilidad</span>
+              </div>
+              <a class="card-link" href="daniela.html" id="link-daniela" aria-label="Ver perfil de Daniela Cabrera">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
         <!-- Pablo -->
         <article class="member-card" data-member="pablo">
-          <div class="card-portrait portrait-coral">
-            <img src="img/pablo.jpg" alt="Avatar ilustrado de Pablo Macia" class="portrait-image">
-          </div>
-          <div class="card-index">04</div>
-          <div class="card-body">
-            <p class="role-header">ESTRATEGIA & MOVIMIENTO</p>
-            <h3>Pablo Macia</h3>
-            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
-            <div class="tags">
-              <span>Figma</span>
-              <span>CSS</span>
-              <span>C#</span>
-              <span>MySQL</span>
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-pablo">
+            <span class="card-index" aria-hidden="true">04</span>
+            <span class="card-front-avatar"><img src="img/pablo.jpg" alt=""></span>
+            <span class="card-front-name">Pablo Macia</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-pablo">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Pablo Macia">↺</button>
+            <div class="card-portrait portrait-coral">
+              <img src="img/pablo.jpg" alt="Avatar ilustrado de Pablo Macia" class="portrait-image">
             </div>
-            <a class="card-link" href="pablo.html" id="link-pablo" aria-label="Ver perfil de Pablo Macia">Ver perfil <span aria-hidden="true">→</span></a>
+            <div class="card-index">04</div>
+            <div class="card-body">
+              <p class="role-header">ESTRATEGIA & MOVIMIENTO</p>
+              <h3>Pablo Macia</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>Figma</span>
+                <span>CSS</span>
+                <span>C#</span>
+                <span>MySQL</span>
+              </div>
+              <a class="card-link" href="pablo.html" id="link-pablo" aria-label="Ver perfil de Pablo Macia">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
         <!-- Fernando -->
         <article class="member-card" data-member="fernando">
-          <div class="card-portrait portrait-purple">
-            <img src="img/fernando.jpg" alt="Avatar ilustrado de Fernando Palearuzza" class="portrait-image">
-          </div>
-          <div class="card-index">05</div>
-          <div class="card-body">
-            <p class="role-header">CONTENIDO & EMPATÍA</p>
-            <h3>Fernando Palearuzza</h3>
-            <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
-            <div class="tags">
-              <span>Testing</span>
-              <span>Web</span>
-              <span>Diseño UI</span>
-              <span>HTML/CSS</span>
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-fernando">
+            <span class="card-index" aria-hidden="true">05</span>
+            <span class="card-front-avatar"><img src="img/fernando.jpg" alt=""></span>
+            <span class="card-front-name">Fernando Palearuzza</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-fernando">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Fernando Palearuzza">↺</button>
+            <div class="card-portrait portrait-purple">
+              <img src="img/fernando.jpg" alt="Avatar ilustrado de Fernando Palearuzza" class="portrait-image">
             </div>
-            <a class="card-link" href="fernando.html" id="link-fernando" aria-label="Ver perfil de Fernando Palearuzza">Ver perfil <span aria-hidden="true">→</span></a>
+            <div class="card-index">05</div>
+            <div class="card-body">
+              <p class="role-header">CONTENIDO & EMPATÍA</p>
+              <h3>Fernando Palearuzza</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>Testing</span>
+                <span>Web</span>
+                <span>Diseño UI</span>
+                <span>HTML/CSS</span>
+              </div>
+              <a class="card-link" href="fernando.html" id="link-fernando" aria-label="Ver perfil de Fernando Palearuzza">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
+      </div>
+    </section>
+
+    <!-- Nuestra esencia: recupera el manifiesto de la propuesta original de Daniela.
+         La gema pequeña usa las mismas facetas (y gradientes) de su gema: una por integrante. -->
+    <section class="essence section-shell" aria-labelledby="essence-title">
+      <div class="essence-aside" aria-hidden="true">
+        <svg class="essence-gem" viewBox="26 34 128 148">
+          <polygon points="90,42 34,88 90,78" fill="url(#facetCoral)"/>
+          <polygon points="90,42 146,88 90,78" fill="url(#facetBlue)"/>
+          <polygon points="34,88 54,148 90,78" fill="url(#facetGold)"/>
+          <polygon points="146,88 126,148 90,78" fill="url(#facetGreen)"/>
+          <polygon points="54,148 90,174 126,148 90,78" fill="url(#facetLavender)"/>
+          <path d="M90 42 34 88 54 148 90 174 126 148 146 88Z M90 42V78 M34 88 90 78 146 88 M54 148 90 78 126 148" fill="none" stroke="rgb(255 255 255 / 70%)" stroke-width="1.2" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="essence-content">
+        <p class="label-tag">Nuestra esencia</p>
+        <h2 id="essence-title">Distintas miradas.<br><em>Una misma construcción.</em></h2>
+        <p class="essence-text">Cada integrante aporta habilidades, ideas y una forma propia de resolver problemas. El proyecto toma forma cuando esas diferencias se combinan, como las facetas de una misma gema.</p>
+        <ul class="essence-facets" aria-label="Las cinco facetas del equipo">
+          <li data-member="juan">Análisis &amp; calidad</li>
+          <li data-member="mariano">Código &amp; lógica</li>
+          <li data-member="daniela">Diseño &amp; detalle</li>
+          <li data-member="pablo">Estrategia &amp; movimiento</li>
+          <li data-member="fernando">Contenido &amp; empatía</li>
+        </ul>
       </div>
     </section>
 
@@ -375,7 +478,10 @@
       <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> AACMP
     </a>
     <p>AACMP · TP1 · Desarrollo de Sistemas Web · 2026</p>
-    <a href="#top" id="link-volver-arriba">Volver arriba ↑</a>
+    <a href="#top" id="link-volver-arriba" class="back-to-top" aria-label="Volver arriba">
+      <span class="back-to-top-text">Volver arriba</span>
+      <span class="back-to-top-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
+    </a>
   </footer>
 
   <script src="js/main.js"></script>
