@@ -191,3 +191,60 @@ if (equipoSection && navLinks.length > 0) {
     }
   });
 }
+
+/* Acabado visual de portada: los observers no modifican el flip, el orden ni el foco. */
+(() => {
+  if (!document.body.classList.contains('home-page') || !('IntersectionObserver' in window)) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const core = document.querySelector('.digital-core');
+  const cards = [...document.querySelectorAll('.member-card')];
+  const arrivals = [...document.querySelectorAll('.hero-copy, .section-heading, .member-card, .essence-aside, .essence-content, .cta-inner')];
+  let arrivalObserver, centerObserver, sceneObserver;
+  let coreVisible = true;
+
+  function pauseScene() {
+    core.classList.toggle('scene-resting', document.hidden || !coreVisible);
+  }
+
+  function watchCenter() {
+    if (centerObserver) centerObserver.disconnect();
+    cards.forEach(card => card.classList.remove('is-scroll-lit'));
+    if (reducedMotion.matches || !flipMode.matches) return;
+    // Banda central de 24% del viewport; resalta la tarjeta sin girarla.
+    const edge = Math.round(window.innerHeight * .38);
+    centerObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle('is-scroll-lit', entry.isIntersecting));
+    }, { rootMargin: `-${edge}px 0px -${edge}px 0px`, threshold: 0.01 });
+    cards.forEach(card => centerObserver.observe(card));
+  }
+
+  function configureMotion() {
+    if (arrivalObserver) arrivalObserver.disconnect();
+    if (sceneObserver) sceneObserver.disconnect();
+    arrivals.forEach(element => element.classList.remove('atmosphere-enter'));
+    watchCenter();
+    if (reducedMotion.matches) {
+      core.classList.remove('scene-resting');
+      return;
+    }
+    arrivalObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('atmosphere-enter');
+        arrivalObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    arrivals.forEach(element => arrivalObserver.observe(element));
+    sceneObserver = new IntersectionObserver(entries => {
+      coreVisible = entries[0].isIntersecting;
+      pauseScene();
+    });
+    sceneObserver.observe(core);
+  }
+
+  document.addEventListener('visibilitychange', pauseScene);
+  reducedMotion.addEventListener('change', configureMotion);
+  flipMode.addEventListener('change', watchCenter);
+  window.addEventListener('resize', watchCenter);
+  configureMotion();
+})();

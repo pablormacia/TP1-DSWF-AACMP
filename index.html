@@ -15,6 +15,7 @@
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/refinement.css">
 </head>
 
 <body class="home-page" id="top">
@@ -153,6 +154,15 @@
                 <stop offset="50%" stop-color="#A8C4D4" stop-opacity="0.10" />
                 <stop offset="100%" stop-color="#E0D8F8" stop-opacity="0" />
               </radialGradient>
+
+              <!-- Luz interna del núcleo; las cinco facetas de Daniela se conservan. -->
+              <linearGradient id="crystalCrown" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e2edff"/><stop offset=".48" stop-color="#aa9afa"/><stop offset="1" stop-color="#6754cf"/></linearGradient>
+              <linearGradient id="crystalSky" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#dcfaff"/><stop offset=".4" stop-color="#7ecef4"/><stop offset="1" stop-color="#4475c7"/></linearGradient>
+              <linearGradient id="crystalDepth" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#8473d6"/><stop offset=".45" stop-color="#564ba9"/><stop offset="1" stop-color="#aba3ee"/></linearGradient>
+              <linearGradient id="crystalIce" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8f5ff"/><stop offset=".32" stop-color="#54b6e4"/><stop offset="1" stop-color="#4d65be"/></linearGradient>
+              <linearGradient id="crystalTip" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aaa0fa"/><stop offset=".55" stop-color="#7761d2"/><stop offset="1" stop-color="#c4d8ff"/></linearGradient>
+              <linearGradient id="crystalReflection" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eefcff" stop-opacity=".7"/><stop offset=".5" stop-color="#b9eeff" stop-opacity=".08"/><stop offset="1" stop-color="#7c6cf5" stop-opacity=".3"/></linearGradient>
+              <radialGradient id="crystalHeart"><stop stop-color="#d5f7ff" stop-opacity=".8"/><stop offset=".32" stop-color="#7fddff" stop-opacity=".32"/><stop offset="1" stop-color="#8d7dfa" stop-opacity="0"/></radialGradient>
             </defs>
 
             <!-- Aura de brillo exterior -->
@@ -227,6 +237,15 @@
             <g class="gem-sparkle cross-sparkle" opacity="0.7">
               <line x1="76" y1="52" x2="76" y2="64" stroke="white" stroke-width="1" />
               <line x1="70" y1="58" x2="82" y2="58" stroke="white" stroke-width="1" />
+            </g>
+            <!-- Reflejos internos finos, sin blur ni sustitución de la silueta. -->
+            <g class="crystal-optics" pointer-events="none">
+              <polygon points="90,42 82,82 90,174 94,80" fill="url(#crystalReflection)"/>
+              <polygon points="34,88 68,112 54,148 78,116 90,78" fill="url(#crystalReflection)" opacity=".4"/>
+              <polygon points="90,78 126,148 116,107 146,88" fill="url(#crystalReflection)" opacity=".6"/>
+              <ellipse class="crystal-heart" cx="90" cy="112" rx="29" ry="42" fill="url(#crystalHeart)"/>
+              <path d="M90 43 90 78 54 148 M90 78 126 148 M90 78 90 173" fill="none" stroke="#d6edff" stroke-opacity=".6" stroke-width=".65"/>
+              <path d="M90 43 35 88 54 147 M91 44 145 88" fill="none" stroke="#ecfbff" stroke-opacity=".8" stroke-width="1"/>
             </g>
           </svg>
 
