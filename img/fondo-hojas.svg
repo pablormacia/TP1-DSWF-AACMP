@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 400">
+  <!-- Rama decorativa del fondo Light: formas simples y translúcidas, sin animación. -->
+  <defs>
+    <path id="hoja" d="M0 0 C18 -16 58 -18 84 0 C58 18 18 16 0 0 Z"/>
+  </defs>
+  <path d="M28 396 C52 300 78 214 132 120 C158 76 184 44 214 14" fill="none" stroke="#5aa9a0" stroke-opacity=".32" stroke-width="2" stroke-linecap="round"/>
+  <g fill="#4fb0a2">
+    <use href="#hoja" transform="translate(44 330) rotate(-120) scale(.9)" fill-opacity=".20"/>
+    <use href="#hoja" transform="translate(56 300) rotate(-20)" fill-opacity=".26"/>
+    <use href="#hoja" transform="translate(78 238) rotate(-135) scale(.95)" fill-opacity=".18"/>
+    <use href="#hoja" transform="translate(96 206) rotate(-30) scale(.85)" fill-opacity=".24"/>
+    <use href="#hoja" transform="translate(126 132) rotate(-140) scale(.8)" fill-opacity=".16"/>
+    <use href="#hoja" transform="translate(146 100) rotate(-38) scale(.75)" fill-opacity=".22"/>
+    <use href="#hoja" transform="translate(186 50) rotate(-150) scale(.6)" fill-opacity=".16"/>
+  </g>
+  <g fill="#8fb8e8">
+    <use href="#hoja" transform="translate(66 270) rotate(-80) scale(.7)" fill-opacity=".16"/>
+    <use href="#hoja" transform="translate(112 168) rotate(-95) scale(.6)" fill-opacity=".14"/>
+  </g>
+</svg>

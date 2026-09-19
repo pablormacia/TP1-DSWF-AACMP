@@ -232,7 +232,7 @@
         <span class="tech-node node-html">HTML</span>
         <span class="tech-node node-css">CSS</span>
         <span class="tech-node node-js">JS</span>
-        <span class="core-caption"><span>Ideas</span><span>Código</span><span>Personas</span></span>
+        <span class="core-caption"><span>Ideas</span><span>Código</span><span>Personas</span><span>Impacto</span></span>
       </div>
     </section>
 
@@ -245,9 +245,8 @@
           <h2>Cinco perfiles. Una misma órbita.</h2>
           <p class="team-intro">Investigamos, diseñamos, probamos y aprendemos en conjunto.</p>
         </div>
-        <button id="shuffle-team" class="text-button" type="button">
-          Mezclar Tarjetas ↻
-        </button>
+        <!-- main.js reemplaza solo el primer nodo de texto; el ícono se conserva. -->
+        <button id="shuffle-team" class="text-button shuffle-button" type="button">Mezclar tarjetas <span class="shuffle-icon" aria-hidden="true">↻</span></button>
       </div>
 
       <div id="team-grid" class="team-grid">
