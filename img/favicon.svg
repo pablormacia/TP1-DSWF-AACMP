@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="AACMP">
+  <title>AACMP — Frontend Gems</title>
+  <!-- Las cinco facetas de la gema del hero, una por integrante, en color plano:
+       a 16 px los gradientes y el desenfoque del original no se distinguen. -->
+  <rect width="180" height="180" rx="34" fill="#0d1420"/>
+  <g transform="translate(0,-14)">
+    <polygon points="90,42 34,88 90,78"          fill="#D4A8A0"/><!-- Pablo    -->
+    <polygon points="90,42 146,88 90,78"         fill="#A8C4D4"/><!-- Juan     -->
+    <polygon points="34,88 54,148 90,78"         fill="#C4A05C"/><!-- Daniela  -->
+    <polygon points="146,88 126,148 90,78"       fill="#87A878"/><!-- Mariano  -->
+    <polygon points="54,148 90,174 126,148 90,78" fill="#C4B8D8"/><!-- Fernando -->
+  </g>
+</svg>
