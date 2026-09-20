@@ -17,6 +17,7 @@
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/hechizo.css">
 </head>
 
 <body data-member="daniela">
@@ -47,8 +48,19 @@
     <div class="section-inner">
 
       <section class="profile-hero">
-        <div class="profile-img-container" id="profile-img">
-          <img src="img/daniela.jpg" alt="Avatar ilustrado de Daniela Cabrera">
+        <div class="profile-media">
+          <!-- Respaldo si hiciera falta volver atrás: data-real="img/gema-daniela.svg" -->
+          <button class="reveal-button" type="button" aria-pressed="false"
+                  data-real="img/daniela-real.jpg"
+                  data-alt-real="Foto de perfil de Daniela Cabrera"
+                  data-volver="Volver a la elfa"
+                  data-acorde="440.00,523.25,659.25,880.00">
+            <span class="reveal-icon" aria-hidden="true">&#10024;</span>
+            <span class="reveal-text">Revelar<span class="reveal-largo"> quién está detrás de la elfa</span></span>
+          </button>
+          <div class="profile-img-container" id="profile-img">
+            <img src="img/daniela.jpg" alt="Avatar ilustrado de Daniela Cabrera">
+          </div>
         </div>
 
         <div class="profile-details">
@@ -122,6 +134,7 @@
 
   <!-- Interacción JS: Cambia el tono de la imagen al pasar por las habilidades -->
   <script src="js/main.js"></script>
+  <script src="js/hechizo.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const skills = document.querySelectorAll('#skills-container span');

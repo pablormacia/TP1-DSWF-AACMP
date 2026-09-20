@@ -16,6 +16,7 @@
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/hechizo.css">
 </head>
 
 <body data-member="juan">
@@ -43,8 +44,18 @@
   <main class="section-shell">
     <div class="section-inner">
       <section class="profile-hero">
-        <div class="profile-img-container" id="profile-img">
-          <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda">
+        <div class="profile-media">
+          <button class="reveal-button" type="button" aria-pressed="false"
+                  data-real="img/juan-real.jpg"
+                  data-alt-real="Retrato ilustrado de Juan Manuel Albareda en su escritorio"
+                  data-volver="Volver al mago"
+                  data-acorde="523.25,659.25,783.99,1046.50">
+            <span class="reveal-icon" aria-hidden="true">&#10024;</span>
+            <span class="reveal-text">Revelar<span class="reveal-largo"> quién está detrás del mago</span></span>
+          </button>
+          <div class="profile-img-container" id="profile-img">
+            <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda">
+          </div>
         </div>
         <div class="profile-details">
           <div class="profile-header">
@@ -109,10 +120,11 @@
     <a href="index.html" id="link-volver-inicio">Volver al inicio →</a>
   </footer>
   <script src="js/main.js"></script>
+  <script src="js/hechizo.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const skills = document.querySelectorAll('#skills-container span');
-      const img = document.querySelector('#profile-img img');
+      const img = document.querySelector('#profile-img img');   // la misma imagen cambia de src
       skills.forEach(skill => {
         skill.addEventListener('mouseenter', () => {
           const hue = skill.getAttribute('data-hue');

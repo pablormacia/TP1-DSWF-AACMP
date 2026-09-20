@@ -16,6 +16,7 @@
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/hechizo.css">
 </head>
 
 <body data-member="fernando">
@@ -43,8 +44,19 @@
   <main class="section-shell">
     <div class="section-inner">
       <section class="profile-hero">
-        <div class="profile-img-container" id="profile-img">
-          <img src="img/fernando.jpg" alt="Avatar ilustrado de Fernando Palearuzza">
+        <div class="profile-media">
+          <!-- Respaldo si hiciera falta volver atrás: data-real="img/gema-fernando.svg" -->
+          <button class="reveal-button" type="button" aria-pressed="false"
+                  data-real="img/fernando-real.jpg"
+                  data-alt-real="Foto de perfil de Fernando Palearuzza"
+                  data-volver="Volver al guerrero"
+                  data-acorde="587.33,698.46,880.00,1174.66">
+            <span class="reveal-icon" aria-hidden="true">&#10024;</span>
+            <span class="reveal-text">Revelar<span class="reveal-largo"> quién está detrás del guerrero</span></span>
+          </button>
+          <div class="profile-img-container" id="profile-img">
+            <img src="img/fernando.jpg" alt="Avatar ilustrado de Fernando Palearuzza">
+          </div>
         </div>
         <div class="profile-details">
           <div class="profile-header">
@@ -108,6 +120,7 @@
     <a href="index.html" id="link-volver-inicio">Volver al inicio →</a>
   </footer>
   <script src="js/main.js"></script>
+  <script src="js/hechizo.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const skills = document.querySelectorAll('#skills-container span');
