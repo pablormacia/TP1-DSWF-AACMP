@@ -1,115 +1,261 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Bitácora de desarrollo del equipo AACMP">
-    <title>Bitácora | AACMP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">A</span> AACMP</a>
-          <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
-            <span>
-            </span>
-            <span>
-            </span>
-            <span>
-            </span>
-            <span class="sr-only">Abrir menú</span>
-          </button>
-          <nav id="main-nav" class="main-nav">
-            <a href="../index.html">Inicio</a>
-            <a href="../index.html#equipo">Equipo</a>
-            <a class="active" href="bitacora.html">Bitácora</a>
-          </nav>
-        </header>
-        <main class="section-shell">
-          <section class="log-hero reveal">
-            <p class="eyebrow">Detrás de pantalla</p>
-            <h1>Nuestra bitácora</h1>
-            <p>Decisiones, dificultades y aprendizajes del equipo. Este registro debe actualizarse con la experiencia real del grupo antes de entregar.</p>
-          </section>
-          <section class="timeline">
-            <article class="log-entry reveal">
-              <div class="log-dot">01</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 1 · Organización</span>
-                  <span>Semana 1</span>
-                </div>
-                <h2>Primero, los acuerdos</h2>
-                <p>Definimos un canal de comunicación, repartimos responsabilidades iniciales y acordamos trabajar con ramas cortas y revisiones cruzadas.</p>
-                <h3>Decisión</h3>
-                <p>Usar una identidad compartida y una estructura común para que todos los perfiles se sientan parte del mismo sistema.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">02</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 2 · Diseño</span>
-                  <span>Semana 1</span>
-                </div>
-                <h2>Una identidad flexible</h2>
-                <p>Elegimos una base neutra, tipografía geométrica y un color distinto para cada integrante. Los avatares abstractos funcionan como placeholders respetuosos de la privacidad.</p>
-                <h3>Dificultad</h3>
-                <p>Equilibrar personalidad y consistencia. Lo resolvimos repitiendo grillas, espaciados y componentes, y variando sólo el acento visual.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">03</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 3 · Desarrollo</span>
-                  <span>Semana 2</span>
-                </div>
-                <h2>Componentes sin framework</h2>
-                <p>Construimos la navegación, tarjetas y perfiles con HTML semántico, CSS compartido y JavaScript nativo.</p>
-                <h3>Dificultad</h3>
-                <p>Evitar desbordes en tamaños intermedios. Ajustamos la grilla y verificamos específicamente 400 px, 900 px y 1200 px.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">04</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 4 · Interacción</span>
-                  <span>Semana 2</span>
-                </div>
-                <h2>Movimiento con propósito</h2>
-                <p>La portada permite mezclar el orden del equipo y cada perfil ofrece una interacción temática. También sumamos revelado progresivo y menú móvil.</p>
-                <h3>Aprendizaje</h3>
-                <p>La interacción mejora la experiencia cuando responde al contenido y conserva accesibilidad, foco y legibilidad.</p>
-              </div>
-            </article>
-            <article class="log-entry reveal">
-              <div class="log-dot">05</div>
-              <div class="log-card">
-                <div class="log-meta">
-                  <span>Etapa 5 · Revisión</span>
-                  <span>Antes de entregar</span>
-                </div>
-                <h2>Checklist final</h2>
-                <p>Revisaremos enlaces, consola, ortografía, datos reales, capturas del README, participación en commits y publicación en Vercel.</p>
-                <h3>Pendiente del equipo</h3>
-                <p>Reemplazar este texto modelo por fechas, decisiones, problemas y soluciones que reflejen el proceso real.</p>
-              </div>
-            </article>
-          </section>
-        </main>
-        <footer class="site-footer">
-          <a class="brand" href="../index.html">
-            <span class="brand-mark">A</span> AACMP</a>
-              <p>TP1 · Desarrollo de Sistemas Web · 2026</p>
-              <a href="../index.html">Volver al inicio →</a>
-            </footer>
-            <script src="../js/main.js">
-            </script>
-          </body>
-        </html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bitácora de desarrollo del equipo AACMP — El pergamino del camino recorrido.">
+  <title>Bitácora | AACMP</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="../js/theme.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/guild.css">
+</head>
+
+<body>
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div class="leaf-container" aria-hidden="true">
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+  </div>
+
+  <!-- CABECERA -->
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="AACMP, inicio">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">AACMP<small>Frontend Gems</small></span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Abrir menú</span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#equipo">Equipo</a>
+      <a class="active" href="bitacora.html" aria-current="page">Bitácora</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Modo oscuro" aria-pressed="false" title="Cambiar tema claro / oscuro" hidden>
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+    </button>
+  </header>
+
+  <main class="section-shell">
+
+    <!--HERO DE BITÁCORA-->
+    <section class="log-hero reveal">
+      <p class="label-tag">Detrás de pantalla</p>
+      <h1>Nuestra bitácora</h1>
+      <p>
+        Decisiones, dificultades y aprendizajes del equipo.
+        El registro escrito a mano del camino recorrido juntos.
+      </p>
+    </section>
+
+    <!--LÍNEA DE TIEMPO — Enredadera Orgánica -->
+    <section class="timeline-vine">
+
+      <!-- Enredadera SVG de fondo (eje central izquierdo) -->
+      <div class="vine-axis" aria-hidden="true">
+        <svg class="vine-svg" viewBox="0 0 80 2200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <!-- Tallo principal ondulante -->
+          <path class="vine-stem vine-stem-main"
+            d="M40 0 C38 120 44 220 36 340 C28 460 46 540 40 660 C34 780 48 860 38 980 C28 1100 46 1180 40 1300 C34 1420 48 1500 40 1620 C32 1740 46 1820 40 1940 C34 2060 40 2150 40 2200"
+            stroke="#6B8E5A" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- Tallo secundario entrelazado -->
+          <path class="vine-stem vine-stem-alt"
+            d="M40 80 C52 160 34 240 50 360 C62 440 38 520 54 640 C66 720 38 800 52 920 C64 1000 38 1080 52 1200 C64 1280 38 1360 54 1480 C66 1560 38 1640 54 1760 C66 1840 42 1940 40 2200"
+            stroke="#87A878" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.55"/>
+
+          <!-- Ramitas laterales izquierda -->
+          <path d="M38 180 C20 165 8 152 2 140" stroke="#6B8E5A" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+          <path d="M36 320 C18 308 6 300 -2 290" stroke="#87A878" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          <path d="M39 500 C22 488 10 478 0 468" stroke="#6B8E5A" stroke-width="1.3" stroke-linecap="round" opacity="0.65"/>
+          <path d="M37 680 C20 668 8 658 0 648" stroke="#87A878" stroke-width="1.1" stroke-linecap="round" opacity="0.6"/>
+          <path d="M40 860 C23 848 10 838 2 828" stroke="#6B8E5A" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+          <path d="M38 1040 C21 1028 8 1018 0 1008" stroke="#87A878" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          <path d="M39 1220 C22 1208 9 1198 1 1188" stroke="#6B8E5A" stroke-width="1.3" stroke-linecap="round" opacity="0.65"/>
+          <path d="M38 1400 C21 1390 8 1380 0 1370" stroke="#87A878" stroke-width="1.1" stroke-linecap="round" opacity="0.58"/>
+          <path d="M40 1580 C23 1570 10 1560 2 1550" stroke="#6B8E5A" stroke-width="1.4" stroke-linecap="round" opacity="0.68"/>
+          <path d="M38 1760 C21 1750 8 1740 0 1730" stroke="#87A878" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+
+          <!-- Ramitas laterales derecha -->
+          <path d="M42 240 C58 228 70 218 78 208" stroke="#6B8E5A" stroke-width="1.4" stroke-linecap="round" opacity="0.65"/>
+          <path d="M44 420 C60 408 72 398 80 388" stroke="#87A878" stroke-width="1.2" stroke-linecap="round" opacity="0.58"/>
+          <path d="M41 600 C57 588 70 578 79 568" stroke="#6B8E5A" stroke-width="1.3" stroke-linecap="round" opacity="0.68"/>
+          <path d="M43 780 C59 768 71 758 79 748" stroke="#87A878" stroke-width="1.1" stroke-linecap="round" opacity="0.6"/>
+          <path d="M42 960 C58 948 70 938 78 928" stroke="#6B8E5A" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+          <path d="M43 1140 C59 1128 71 1118 79 1108" stroke="#87A878" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          <path d="M41 1320 C57 1310 70 1300 79 1290" stroke="#6B8E5A" stroke-width="1.3" stroke-linecap="round" opacity="0.65"/>
+          <path d="M43 1500 C59 1490 71 1480 79 1470" stroke="#87A878" stroke-width="1.1" stroke-linecap="round" opacity="0.58"/>
+          <path d="M42 1680 C58 1668 70 1660 79 1650" stroke="#6B8E5A" stroke-width="1.4" stroke-linecap="round" opacity="0.68"/>
+          <path d="M43 1860 C59 1850 71 1840 79 1830" stroke="#87A878" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+
+          <!-- Hojas pequeñas en ramitas izquierda -->
+          <ellipse cx="2" cy="140" rx="9" ry="5" fill="rgba(135,168,120,0.55)" transform="rotate(-30 2 140)"/>
+          <ellipse cx="-1" cy="290" rx="8" ry="4.5" fill="rgba(107,142,107,0.50)" transform="rotate(-20 -1 290)"/>
+          <ellipse cx="0" cy="468" rx="10" ry="5.5" fill="rgba(135,168,120,0.58)" transform="rotate(-35 0 468)"/>
+          <ellipse cx="0" cy="648" rx="8" ry="4" fill="rgba(107,142,107,0.48)" transform="rotate(-25 0 648)"/>
+          <ellipse cx="2" cy="828" rx="9" ry="5" fill="rgba(155,187,140,0.55)" transform="rotate(-30 2 828)"/>
+          <ellipse cx="0" cy="1008" rx="8" ry="4.5" fill="rgba(107,142,107,0.50)" transform="rotate(-22 0 1008)"/>
+          <ellipse cx="1" cy="1188" rx="9" ry="5" fill="rgba(135,168,120,0.52)" transform="rotate(-32 1 1188)"/>
+          <ellipse cx="0" cy="1370" rx="8" ry="4" fill="rgba(107,142,107,0.46)" transform="rotate(-20 0 1370)"/>
+          <ellipse cx="2" cy="1550" rx="10" ry="5.5" fill="rgba(135,168,120,0.55)" transform="rotate(-35 2 1550)"/>
+          <ellipse cx="0" cy="1730" rx="8" ry="4.5" fill="rgba(107,142,107,0.50)" transform="rotate(-25 0 1730)"/>
+
+          <!-- Hojas pequeñas en ramitas derecha -->
+          <ellipse cx="78" cy="208" rx="9" ry="5" fill="rgba(196,160,92,0.40)" transform="rotate(28 78 208)"/>
+          <ellipse cx="80" cy="388" rx="8" ry="4.5" fill="rgba(135,168,120,0.52)" transform="rotate(22 80 388)"/>
+          <ellipse cx="79" cy="568" rx="10" ry="5.5" fill="rgba(107,142,107,0.50)" transform="rotate(32 79 568)"/>
+          <ellipse cx="79" cy="748" rx="8" ry="4" fill="rgba(155,187,140,0.48)" transform="rotate(20 79 748)"/>
+          <ellipse cx="78" cy="928" rx="9" ry="5" fill="rgba(196,160,92,0.38)" transform="rotate(30 78 928)"/>
+          <ellipse cx="79" cy="1108" rx="8" ry="4.5" fill="rgba(135,168,120,0.52)" transform="rotate(24 79 1108)"/>
+          <ellipse cx="79" cy="1290" rx="9" ry="5" fill="rgba(107,142,107,0.50)" transform="rotate(28 79 1290)"/>
+          <ellipse cx="79" cy="1470" rx="8" ry="4" fill="rgba(155,187,140,0.46)" transform="rotate(20 79 1470)"/>
+          <ellipse cx="79" cy="1650" rx="10" ry="5.5" fill="rgba(107,142,107,0.52)" transform="rotate(35 79 1650)"/>
+          <ellipse cx="79" cy="1830" rx="8" ry="4.5" fill="rgba(196,160,92,0.38)" transform="rotate(22 79 1830)"/>
+        </svg>
+
+        <!-- Luciérnagas doradas flotando junto a la enredadera -->
+        <div class="vine-firefly vff-1" aria-hidden="true"></div>
+        <div class="vine-firefly vff-2" aria-hidden="true"></div>
+        <div class="vine-firefly vff-3" aria-hidden="true"></div>
+        <div class="vine-firefly vff-4" aria-hidden="true"></div>
+        <div class="vine-firefly vff-5" aria-hidden="true"></div>
+        <div class="vine-firefly vff-6" aria-hidden="true"></div>
+        <div class="vine-firefly vff-7" aria-hidden="true"></div>
+        <div class="vine-firefly vff-8" aria-hidden="true"></div>
+      </div>
+
+      <!-- Entradas de la bitácora -->
+      <div class="vine-entries">
+
+        <article class="vine-entry reveal" id="vine-entry-1">
+          <!-- Número flotante del capullo -->
+          <span class="vine-node-label">01</span>
+          <div class="vine-card">
+            <!-- Pétalos decorativos sobre la tarjeta -->
+            <div class="card-petals" aria-hidden="true">
+              <div class="petal petal-1"></div>
+              <div class="petal petal-2"></div>
+              <div class="petal petal-3"></div>
+            </div>
+            <div class="log-meta">
+              <span>Etapa 1 · Organización</span>
+              <span>Semana 1</span>
+            </div>
+            <h2>Primero, los acuerdos</h2>
+            <p>Definimos un canal de comunicación, repartimos responsabilidades iniciales y acordamos trabajar con ramas cortas y revisiones cruzadas.</p>
+            <h3>Decisión</h3>
+            <p>Usar una identidad compartida y una estructura común para que todos los perfiles se sientan parte del mismo sistema.</p>
+          </div>
+        </article>
+
+        <article class="vine-entry reveal" id="vine-entry-2">
+          <span class="vine-node-label">02</span>
+          <div class="vine-card">
+            <div class="card-petals" aria-hidden="true">
+              <div class="petal petal-2"></div>
+              <div class="petal petal-4"></div>
+            </div>
+            <div class="log-meta">
+              <span>Etapa 2 · Diseño</span>
+              <span>Semana 1</span>
+            </div>
+            <h2>Una identidad flexible</h2>
+            <p>Elegimos una base neutra, tipografía geométrica y un color distinto para cada integrante. Los avatares abstractos funcionan como placeholders respetuosos de la privacidad.</p>
+            <h3>Dificultad</h3>
+            <p>Equilibrar personalidad y consistencia. Lo resolvimos repitiendo grillas, espaciados y componentes, y variando sólo el acento visual.</p>
+          </div>
+        </article>
+
+        <article class="vine-entry reveal" id="vine-entry-3">
+          <span class="vine-node-label">03</span>
+          <div class="vine-card">
+            <div class="card-petals" aria-hidden="true">
+              <div class="petal petal-1"></div>
+              <div class="petal petal-3"></div>
+              <div class="petal petal-5"></div>
+            </div>
+            <div class="log-meta">
+              <span>Etapa 3 · Desarrollo</span>
+              <span>Semana 2</span>
+            </div>
+            <h2>Componentes sin framework</h2>
+            <p>Construimos la navegación, tarjetas y perfiles con HTML semántico, CSS compartido y JavaScript nativo.</p>
+            <h3>Dificultad</h3>
+            <p>Evitar desbordes en tamaños intermedios. Ajustamos la grilla y verificamos específicamente 400 px, 900 px y 1200 px.</p>
+          </div>
+        </article>
+
+        <article class="vine-entry reveal" id="vine-entry-4">
+          <span class="vine-node-label">04</span>
+          <div class="vine-card">
+            <div class="card-petals" aria-hidden="true">
+              <div class="petal petal-4"></div>
+              <div class="petal petal-2"></div>
+            </div>
+            <div class="log-meta">
+              <span>Etapa 4 · Interacción</span>
+              <span>Semana 2</span>
+            </div>
+            <h2>Movimiento con propósito</h2>
+            <p>La portada permite mezclar el orden del equipo y cada perfil ofrece una interacción temática. También sumamos revelado progresivo y menú móvil.</p>
+            <h3>Aprendizaje</h3>
+            <p>La interacción mejora la experiencia cuando responde al contenido y conserva accesibilidad, foco y legibilidad.</p>
+          </div>
+        </article>
+
+        <article class="vine-entry reveal" id="vine-entry-5">
+          <span class="vine-node-label">05</span>
+          <div class="vine-card">
+            <div class="card-petals" aria-hidden="true">
+              <div class="petal petal-5"></div>
+              <div class="petal petal-1"></div>
+              <div class="petal petal-3"></div>
+            </div>
+            <div class="log-meta">
+              <span>Etapa 5 · Revisión</span>
+              <span>Antes de entregar</span>
+            </div>
+            <h2>Checklist final</h2>
+            <p>Revisaremos enlaces, consola, ortografía, datos reales, capturas del README, participación en commits y publicación en Vercel.</p>
+            <h3>Pendiente del equipo</h3>
+            <p>Reemplazar este texto modelo por fechas, decisiones, problemas y soluciones que reflejen el proceso real.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!--FOOTER -->
+  <footer class="site-footer">
+    <a class="brand" href="../index.html" aria-label="AACMP, inicio">
+      <span class="brand-mark">A</span> AACMP
+    </a>
+    <p>TP1 · Desarrollo de Sistemas Web · 2026</p>
+    <a href="../index.html" id="link-volver-inicio">Volver al inicio →</a>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
