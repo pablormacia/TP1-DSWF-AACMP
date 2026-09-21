@@ -1397,20 +1397,23 @@ main { animation: page-enter .3s ease-out; }
   }
 }
 
-/* Grilla mobile: dos columnas compactas; la quinta tarjeta queda centrada.
-   Medidas pensadas para que las cinco entren en un viewport de ~844 px
-   una vez que empieza la sección, sin achicar texto ni áreas táctiles de más. */
+/* Grilla mobile: una columna, como en el diseño original. Se prioriza que
+   cada tarjeta se lea cómoda por encima de que las cinco entren juntas en
+   pantalla; el recorrido se hace con scroll. */
 @media (max-width: 700px) {
-  .home-page .team-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-  .home-page .member-card:nth-child(n) { grid-column: span 2; }
-  .home-page .member-card:nth-child(5) { grid-column: 2 / span 2; }
+  .home-page .team-grid { grid-template-columns: 1fr; gap: 12px; }
 
   .home-page .card-front,
   .home-page .card-back { min-height: 0; }
-  /* Frente: avatar de 76 px y nombre legible. */
-  .home-page .card-front { gap: 8px; padding: 16px 10px 14px; }
-  .card-front-avatar { width: 76px; height: 76px; }
-  .card-front-name { font-size: .9rem; line-height: 1.25; }
+  /* La tarjeta conserva la proporción que tiene en celular angosto, así el
+     alto acompaña al ancho en vez de achatarse al crecer la columna. */
+  .home-page .member-card { aspect-ratio: 2 / 1; }
+  /* Frente: al haber una sola columna, la tarjeta crece con el ancho en vez
+     de dejar el espacio vacío. clamp() fija el mínimo en celular angosto,
+     escala con el viewport y se frena antes de quedar desproporcionada. */
+  .home-page .card-front { gap: clamp(8px, 2vw, 16px); padding: clamp(16px, 4vw, 28px) 10px; }
+  .card-front-avatar { width: clamp(88px, 26vw, 170px); height: clamp(88px, 26vw, 170px); }
+  .card-front-name { font-size: clamp(.9rem, 3vw, 1.3rem); line-height: 1.25; }
   .card-front-hint { right: 8px; bottom: 8px; width: 24px; height: 24px; }
   /* Dorso: nombre, ciudad, edad, cuatro habilidades y Ver perfil. */
   .home-page .card-back { padding: 12px 10px 10px; }
