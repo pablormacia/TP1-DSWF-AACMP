@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Juan Manuel Albareda — Análisis &amp; Calidad. Integrante del equipo AACMP. Conocé su perfil, habilidades y trabajos.">
   <title>Juan Manuel Albareda | Nuestro Equipo</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -14,6 +16,7 @@
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/hechizo.css">
 </head>
 
 <body data-member="juan">
@@ -41,14 +44,24 @@
   <main class="section-shell">
     <div class="section-inner">
       <section class="profile-hero">
-        <div class="profile-img-container" id="profile-img">
-          <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda">
+        <div class="profile-media">
+          <button class="reveal-button" type="button" aria-pressed="false"
+                  data-real="img/juan-real.jpg"
+                  data-alt-real="Retrato ilustrado de Juan Manuel Albareda en su escritorio"
+                  data-volver="Volver al mago"
+                  data-acorde="523.25,659.25,783.99,1046.50">
+            <span class="reveal-icon" aria-hidden="true">&#10024;</span>
+            <span class="reveal-text">Revelar<span class="reveal-largo"> quién está detrás del mago</span></span>
+          </button>
+          <div class="profile-img-container" id="profile-img">
+            <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda">
+          </div>
         </div>
         <div class="profile-details">
           <div class="profile-header">
             <p class="profile-role-label">Análisis &amp; calidad</p>
             <h1>Juan Manuel Albareda</h1>
-            <p class="profile-meta"> Buenos Aires, Argentina &nbsp;•&nbsp; 28 años</p>
+            <p class="profile-meta"> Buenos Aires, Argentina &nbsp;•&nbsp; 47 años</p>
             <a href="https://github.com/juanmanuelalbareda" target="_blank" rel="noopener noreferrer" class="btn-github"
               id="github-juan" aria-label="GitHub de Juan Manuel Albareda">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -59,16 +72,18 @@
             </a>
           </div>
           <p class="profile-bio">
-            Revisa cada detalle y convierte ideas en soluciones sólidas, claras y confiables. Asegura que el producto
-            final esté libre de errores y ofrezca la mejor experiencia posible.
+            Technical business analyst: contador público que entiende el negocio y además escribe la capa
+            que lo implementa. Trabaja en costos, procesos y auditoría interna en PyMEs y asociaciones
+            civiles, y cursa el anteúltimo cuatrimestre de la Tecnicatura. Conoce el problema de negocio
+            desde adentro: eso es lo que lleva al código.
           </p>
           <div>
             <h2 class="skills-heading">Habilidades Destacadas</h2>
             <div class="profile-skills" id="skills-container">
               <span data-hue="60">JavaScript</span>
-              <span data-hue="220">Git</span>
-              <span data-hue="120">Diseño UI</span>
-              <span data-hue="300">HTML/CSS</span>
+              <span data-hue="220">PHP/Python</span>
+              <span data-hue="120">SQL/MariaDB</span>
+              <span data-hue="300">Análisis funcional</span>
             </div>
             <p class="skills-hint">* Pasa el cursor por las habilidades para interactuar.</p>
           </div>
@@ -76,17 +91,17 @@
             <div class="fav-list">
               <h2>Películas Favoritas</h2>
               <ul>
-                <li>El Gran Truco</li>
-                <li>Inception</li>
-                <li>La La Land</li>
+                <li>Forrest Gump</li>
+                <li>Big Fish</li>
+                <li>The Truman Show</li>
               </ul>
             </div>
             <div class="fav-list">
               <h2>Discos Favoritos</h2>
               <ul>
-                <li>Random Access Memories</li>
-                <li>In Rainbows</li>
-                <li>Discovery</li>
+                <li>No llores por mí, Argentina</li>
+                <li>Get a Grip</li>
+                <li>Yo, mi, me, contigo</li>
               </ul>
             </div>
           </div>
@@ -105,10 +120,11 @@
     <a href="index.html" id="link-volver-inicio">Volver al inicio →</a>
   </footer>
   <script src="js/main.js"></script>
+  <script src="js/hechizo.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const skills = document.querySelectorAll('#skills-container span');
-      const img = document.querySelector('#profile-img img');
+      const img = document.querySelector('#profile-img img');   // la misma imagen cambia de src
       skills.forEach(skill => {
         skill.addEventListener('mouseenter', () => {
           const hue = skill.getAttribute('data-hue');

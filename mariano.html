@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Mariano Arenas — Código &amp; Lógica. Integrante del equipo AACMP. Conocé su perfil, habilidades y trabajos.">
   <title>Mariano Arenas | Nuestro Equipo</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -14,6 +16,7 @@
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/hechizo.css">
 </head>
 
 <body data-member="mariano">
@@ -41,8 +44,19 @@
   <main class="section-shell">
     <div class="section-inner">
       <section class="profile-hero">
-        <div class="profile-img-container" id="profile-img">
-          <img src="img/mariano.jpg" alt="Avatar ilustrado de Mariano Arenas">
+        <div class="profile-media">
+          <!-- Respaldo si hiciera falta volver atrás: data-real="img/gema-mariano.svg" -->
+          <button class="reveal-button" type="button" aria-pressed="false"
+                  data-real="img/mariano-real.jpg"
+                  data-alt-real="Foto de perfil de Mariano Arenas"
+                  data-volver="Volver al pícaro"
+                  data-acorde="392.00,493.88,587.33,783.99">
+            <span class="reveal-icon" aria-hidden="true">&#10024;</span>
+            <span class="reveal-text">Revelar<span class="reveal-largo"> quién está detrás del pícaro</span></span>
+          </button>
+          <div class="profile-img-container" id="profile-img">
+            <img src="img/mariano.jpg" alt="Avatar ilustrado de Mariano Arenas">
+          </div>
         </div>
         <div class="profile-details">
           <div class="profile-header">
@@ -106,6 +120,7 @@
     <a href="index.html" id="link-volver-inicio">Volver al inicio →</a>
   </footer>
   <script src="js/main.js"></script>
+  <script src="js/hechizo.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const skills = document.querySelectorAll('#skills-container span');
