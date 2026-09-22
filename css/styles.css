@@ -1,6 +1,5 @@
 /* AACMP — Acuarela Botánica Minimalista */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@400;500;600&display=swap');
 
 :root {
   /* Papel y tinta */
@@ -35,10 +34,10 @@
   --lavender: #C4B8D8;
 
   /* Tipografías */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'EB Garamond', Georgia, serif;
-  --font-label: 'Quicksand', sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-label: 'Manrope', system-ui, sans-serif;
 
   /* Espaciado */
   --space-xs: 8px;
@@ -3677,7 +3676,7 @@ h1.hero-title {
   border-radius: 20px;
 }
 
-.fav-list h3 {
+.fav-list h2 {
   font-size: 1.2rem;
   color: var(--sage);
   margin-bottom: 15px;

@@ -5,36 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="AACMP — Agencia creativa de diseño y desarrollo web. Ideas distintas, una misma órbita.">
-  <title>AACMP | Diseño Web.</title>
+    content="AACMP Frontend Gems: cinco mentes que combinan ideas, diseño y código para crear experiencias web.">
+  <title>AACMP | Frontend Gems</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/guild.css">
+  <link rel="stylesheet" href="css/refinement.css">
 </head>
 
-<body>
-
-  <!-- Textura de papel (fondo) -->
-  <div class="paper-texture" aria-hidden="true"></div>
-
-  <!-- Hojas flotantes suaves -->
-  <div class="leaf-container" aria-hidden="true">
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-  </div>
+<body class="home-page" id="top">
 
   <!--Header-->
   <header class="site-header">
@@ -51,50 +37,37 @@
       <span class="sr-only">Abrir menú</span>
     </button>
     <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-      <a class="active" href="index.html">Inicio </a>
+      <a class="active" href="index.html" aria-current="page">Inicio </a>
       <a href="#equipo">Equipo </a>
       <a href="pages/bitacora.html">Bitácora </a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Modo oscuro" aria-pressed="false" title="Cambiar tema claro / oscuro" hidden>
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+    </button>
   </header>
 
   <main>
 
-    <!--HERO -->
-    <section class="hero section-shell">
-
-      <!-- LADO IZQUIERDO — Pergamino antiguo -->
-      <div class="hero-scroll reveal">
-        <!-- Cuerpo del pergamino -->
-        <div class="scroll-body">
-          <!-- Bordes enrollados del pergamino -->
-          <div class="scroll-curl scroll-curl-top" aria-hidden="true"></div>
-          <div class="scroll-curl scroll-curl-bottom" aria-hidden="true"></div>
-
-          <!-- Contenido del pergamino -->
-          <div class="scroll-content">
-            <p class="eyebrow"> Diseño · Código · Curiosidad </p>
-            <h1 class="hero-title">
-              <span class="brush-reveal">Ideas distintas.</span><br>
-              <em class="hero-title-em brush-reveal">Una misma órbita.</em>
-            </h1>
-            <p class="hero-lead">
-              Somos AACMP: un equipo que transforma miradas diversas
-              en experiencias web etéreas, humanas y memorables.
-            </p>
-
-            <!-- Botones orgánicos-->
-            <div class="hero-actions">
-              <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo">Conocé al equipo</a>
-              <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso">Ver la bitácora ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Estadísticas debajo del pergamino -->
-        <div class="hero-stats" aria-label="Resumen del proyecto">
-          <div class="stat-leaf"><strong>5</strong><span>Integrantes</span></div>
-          <div class="stat-leaf"><strong>1</strong><span>Equipo</span></div>
-          <div class="stat-leaf"><strong>1</strong><span>Misión</span></div>
+    <!-- La gema original de Daniela es el núcleo de la nueva identidad. -->
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Cinco mentes · Una misma misión</p>
+        <h1 id="hero-title">AACMP<span><em>Frontend</em> Gems</span></h1>
+        <p class="hero-lead">Somos un equipo Front End. Unimos ideas, diseño y código para crear experiencias web con identidad.</p>
+        <div class="hero-actions">
+          <!-- Desktop muestra el texto largo; mobile, el ícono y el texto corto. -->
+          <a class="btn-leaf" href="#equipo" id="btn-conoce-equipo" aria-label="Conocer al equipo">
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.4-.2 4.1 1.3 4.5 4.3"/></svg>
+            <span class="cta-long">Conocer al equipo</span><span class="cta-short">Equipo</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn-stone" href="pages/bitacora.html" id="btn-ver-proceso" aria-label="Ver Bitácora">
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h11a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2Z"/><path d="M5 18a2 2 0 0 1 2-2h11"/><path d="M9 8.5h5M9 11.5h3"/></svg>
+            <span class="cta-long">Ver Bitácora</span><span class="cta-short">Bitácora</span>
+            <span class="cta-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
 <<<<<<< Updated upstream
@@ -288,6 +261,15 @@
                 <stop offset="50%" stop-color="#A8C4D4" stop-opacity="0.10" />
                 <stop offset="100%" stop-color="#E0D8F8" stop-opacity="0" />
               </radialGradient>
+
+              <!-- Luz interna del núcleo; las cinco facetas de Daniela se conservan. -->
+              <linearGradient id="crystalCrown" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e2edff"/><stop offset=".48" stop-color="#aa9afa"/><stop offset="1" stop-color="#6754cf"/></linearGradient>
+              <linearGradient id="crystalSky" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#dcfaff"/><stop offset=".4" stop-color="#7ecef4"/><stop offset="1" stop-color="#4475c7"/></linearGradient>
+              <linearGradient id="crystalDepth" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#8473d6"/><stop offset=".45" stop-color="#564ba9"/><stop offset="1" stop-color="#aba3ee"/></linearGradient>
+              <linearGradient id="crystalIce" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8f5ff"/><stop offset=".32" stop-color="#54b6e4"/><stop offset="1" stop-color="#4d65be"/></linearGradient>
+              <linearGradient id="crystalTip" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#aaa0fa"/><stop offset=".55" stop-color="#7761d2"/><stop offset="1" stop-color="#c4d8ff"/></linearGradient>
+              <linearGradient id="crystalReflection" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eefcff" stop-opacity=".7"/><stop offset=".5" stop-color="#b9eeff" stop-opacity=".08"/><stop offset="1" stop-color="#7c6cf5" stop-opacity=".3"/></linearGradient>
+              <radialGradient id="crystalHeart"><stop stop-color="#d5f7ff" stop-opacity=".8"/><stop offset=".32" stop-color="#7fddff" stop-opacity=".32"/><stop offset="1" stop-color="#8d7dfa" stop-opacity="0"/></radialGradient>
             </defs>
 
             <!-- Aura de brillo exterior -->
@@ -363,6 +345,15 @@
               <line x1="76" y1="52" x2="76" y2="64" stroke="white" stroke-width="1" />
               <line x1="70" y1="58" x2="82" y2="58" stroke="white" stroke-width="1" />
             </g>
+            <!-- Reflejos internos finos, sin blur ni sustitución de la silueta. -->
+            <g class="crystal-optics" pointer-events="none">
+              <polygon points="90,42 82,82 90,174 94,80" fill="url(#crystalReflection)"/>
+              <polygon points="34,88 68,112 54,148 78,116 90,78" fill="url(#crystalReflection)" opacity=".4"/>
+              <polygon points="90,78 126,148 116,107 146,88" fill="url(#crystalReflection)" opacity=".6"/>
+              <ellipse class="crystal-heart" cx="90" cy="112" rx="29" ry="42" fill="url(#crystalHeart)"/>
+              <path d="M90 43 90 78 54 148 M90 78 126 148 M90 78 90 173" fill="none" stroke="#d6edff" stroke-opacity=".6" stroke-width=".65"/>
+              <path d="M90 43 35 88 54 147 M91 44 145 88" fill="none" stroke="#ecfbff" stroke-opacity=".8" stroke-width="1"/>
+            </g>
           </svg>
 
           <!-- Partículas de polvo mágico -->
@@ -372,174 +363,236 @@
           <div class="gem-dust gd-4"></div>
           <div class="gem-dust gd-5"></div>
         </div>
-      </div>
-      <div class="manifesto-content">
-        <h2>
-          Lo mejor aparece<br>
-          cuando las diferencias
-          <em>se encuentran.</em>
-        </h2>
-        <p class="drop-cap-p">
-          Investigamos, diseñamos, probamos y aprendemos en conjunto.
-          Cada perfil aporta un color propio; el proyecto toma forma
-          cuando esos colores se combinan en armonía pura.
-        </p>
+        <span class="tech-node node-code">&lt;/&gt;</span>
+        <span class="tech-node node-html">HTML</span>
+        <span class="tech-node node-css">CSS</span>
+        <span class="tech-node node-js">JS</span>
+        <span class="core-caption"><span>Ideas</span><span>Código</span><span>Personas</span><span>Impacto</span></span>
       </div>
     </section>
 
-    <!--EQUIPO — Bosque Etéreo Bioluminiscente -->
+    <!-- Equipo: orden inicial alfabético por apellido (AACMP). -->
     <section id="equipo" class="team-section section-shell">
 
-      <!-- Cascadas de luz mágica cayendo del dosel ancestral -->
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-      <div class="magic-cascade" aria-hidden="true"></div>
-
-      <!-- Polvo de estrellas y esporas bioluminiscentes -->
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-      <div class="golden-spore" aria-hidden="true"></div>
-
-      <div class="section-heading reveal">
+      <div class="section-heading">
         <div>
-          <p class="label-tag">02 / El Equipo</p>
-          <h2>Cinco almas, una misión</h2>
+          <p class="label-tag">El equipo</p>
+          <h2>Cinco almas, una misión.</h2>
+          <p class="team-intro">Investigamos, diseñamos, probamos y aprendemos en conjunto.</p>
         </div>
-        <button id="shuffle-team" class="text-button" type="button">
-          Mezclar Tarjetas ↻
+        <!-- Mezclador tipo slider: se arrastra el ícono hasta el final, o se activa
+             con click / Enter / Espacio (es un button nativo). Lógica en main.js. -->
+        <button id="shuffle-team" class="shuffle-slider" type="button" aria-label="Mezclar tarjetas" aria-describedby="shuffle-hint">
+          <span class="shuffle-fill" aria-hidden="true"></span>
+          <span class="shuffle-knob" aria-hidden="true">↻</span>
+          <span class="shuffle-label">Mezclar tarjetas</span>
         </button>
+        <span id="shuffle-hint" class="sr-only">También podés arrastrar el control hacia la derecha.</span>
+        <p id="shuffle-status" class="sr-only" aria-live="polite"></p>
       </div>
 
       <div id="team-grid" class="team-grid">
 
-        <!-- Pablo -->
-        <article class="member-card reveal" data-member="pablo">
-          <div class="card-portrait portrait-coral" aria-label="Pablo Macia — El Arquitecto Arcano">
-            <img src="img/pablo.jpg" alt="Foto de Pablo Macia" class="portrait-image">
-          </div>
-          <div class="card-index">01</div>
-          <div class="card-body">
-            <p class="role-header">ESTRATEGIA & MOVIMIENTO</p>
-            <h3>Pablo Macia</h3>
-            <div class="tags">
-              <span>Figma</span>
-              <span>CSS</span>
-            </div>
-            <a class="card-link" href="pages/pablo.html" id="link-pablo">Ver perfil ↗</a>
-          </div>
-        </article>
-
         <!-- Juan Manuel -->
-        <article class="member-card reveal" data-member="juan">
-          <div class="card-portrait portrait-blue" aria-label="Juan Manuel Albareda — El Tecnomago">
-            <img src="img/juan.jpg" alt="Foto de Juan Manuel Albareda" class="portrait-image">
-          </div>
-          <div class="card-index">02</div>
-          <div class="card-body">
-            <p class="role-header">ANÁLISIS & CALIDAD</p>
-            <h3>Juan Manuel Albareda</h3>
-            <div class="tags">
-              <span>JavaScript</span>
-              <span>Git</span>
+        <article class="member-card" data-member="juan">
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-juan">
+            <span class="card-index" aria-hidden="true">01</span>
+            <span class="card-front-avatar"><img src="img/juan.jpg" alt=""></span>
+            <span class="card-front-name">Juan Manuel Albareda</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-juan">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Juan Manuel Albareda">↺</button>
+            <div class="card-portrait portrait-blue">
+              <img src="img/juan.jpg" alt="Avatar ilustrado de Juan Manuel Albareda" class="portrait-image">
             </div>
-            <a class="card-link" href="pages/juan.html" id="link-juan">Ver perfil ↗</a>
-          </div>
-        </article>
-
-        <!-- Daniela -->
-        <article class="member-card reveal" data-member="daniela">
-          <div class="card-portrait portrait-yellow" aria-label="Daniela Cabrera — La Escriba de la Luz">
-            <img src="img/daniela.jpg" alt="Foto de Daniela Cabrera" class="portrait-image">
-          </div>
-          <div class="card-index">03</div>
-          <div class="card-body">
-            <p class="role-header">DISEÑO & DETALLE</p>
-            <h3>Daniela Cabrera</h3>
-            <div class="tags">
-              <span>UX Writing</span>
-              <span>HTML</span>
+            <div class="card-index">01</div>
+            <div class="card-body">
+              <p class="role-header">ANÁLISIS & CALIDAD</p>
+              <h3>Juan Manuel Albareda</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>47 años</p>
+              <div class="tags">
+                <span>JavaScript</span>
+                <span>PHP/Python</span>
+                <span>SQL/MariaDB</span>
+                <span>Funcional</span>
+              </div>
+              <a class="card-link" href="juan.html" id="link-juan" aria-label="Ver perfil de Juan Manuel Albareda">Ver perfil <span aria-hidden="true">→</span></a>
             </div>
-            <a class="card-link" href="pages/daniela.html" id="link-daniela">Ver perfil ↗</a>
           </div>
         </article>
 
         <!-- Mariano -->
-        <article class="member-card reveal" data-member="mariano">
-          <div class="card-portrait portrait-green" aria-label="Mariano Arenas — El Caminante Astral">
-            <img src="img/mariano.jpg" alt="Foto de Mariano Arenas" class="portrait-image">
-          </div>
-          <div class="card-index">04</div>
-          <div class="card-body">
-            <p class="role-header">CODIGO & LÓGICA</p>
-            <h3>Mariano Arenas</h3>
-            <div class="tags">
-              <span>Research</span>
-              <span>Motion</span>
+        <article class="member-card" data-member="mariano">
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-mariano">
+            <span class="card-index" aria-hidden="true">02</span>
+            <span class="card-front-avatar"><img src="img/mariano.jpg" alt=""></span>
+            <span class="card-front-name">Mariano Arenas</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-mariano">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Mariano Arenas">↺</button>
+            <div class="card-portrait portrait-green">
+              <img src="img/mariano.jpg" alt="Avatar ilustrado de Mariano Arenas" class="portrait-image">
             </div>
-            <a class="card-link" href="pages/mariano.html" id="link-mariano">Ver perfil ↗</a>
+            <div class="card-index">02</div>
+            <div class="card-body">
+              <p class="role-header">CODIGO & LÓGICA</p>
+              <h3>Mariano Arenas</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>Research</span>
+                <span>Motion</span>
+                <span>C#</span>
+                <span>MySQL</span>
+              </div>
+              <a class="card-link" href="mariano.html" id="link-mariano" aria-label="Ver perfil de Mariano Arenas">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Daniela -->
+        <article class="member-card" data-member="daniela">
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-daniela">
+            <span class="card-index" aria-hidden="true">03</span>
+            <span class="card-front-avatar"><img src="img/daniela.jpg" alt=""></span>
+            <span class="card-front-name">Daniela Cabrera</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-daniela">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Daniela Cabrera">↺</button>
+            <div class="card-portrait portrait-yellow">
+              <img src="img/daniela.jpg" alt="Avatar ilustrado de Daniela Cabrera" class="portrait-image">
+            </div>
+            <div class="card-index">03</div>
+            <div class="card-body">
+              <p class="role-header">DISEÑO & DETALLE</p>
+              <h3>Daniela Cabrera</h3>
+              <p class="card-meta">General Pico, La Pampa<br>33 años</p>
+              <div class="tags">
+                <span>UX Writing</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Accesibilidad</span>
+              </div>
+              <a class="card-link" href="daniela.html" id="link-daniela" aria-label="Ver perfil de Daniela Cabrera">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pablo -->
+        <article class="member-card" data-member="pablo">
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-pablo">
+            <span class="card-index" aria-hidden="true">04</span>
+            <span class="card-front-avatar"><img src="img/pablo.jpg" alt=""></span>
+            <span class="card-front-name">Pablo Macia</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-pablo">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Pablo Macia">↺</button>
+            <div class="card-portrait portrait-coral">
+              <img src="img/pablo.jpg" alt="Avatar ilustrado de Pablo Macia" class="portrait-image">
+            </div>
+            <div class="card-index">04</div>
+            <div class="card-body">
+              <p class="role-header">ESTRATEGIA & MOVIMIENTO</p>
+              <h3>Pablo Macia</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>Figma</span>
+                <span>CSS</span>
+                <span>C#</span>
+                <span>MySQL</span>
+              </div>
+              <a class="card-link" href="pablo.html" id="link-pablo" aria-label="Ver perfil de Pablo Macia">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
         <!-- Fernando -->
-        <article class="member-card reveal" data-member="fernando">
-          <div class="card-portrait portrait-purple" aria-label="Fernando Palearuzza — El Paladín del Velo">
-            <img src="img/fernando.jpg" alt="Foto de Fernando Palearuzza" class="portrait-image">
-          </div>
-          <div class="card-index">05</div>
-          <div class="card-body">
-            <p class="role-header">CONTENIDO & EMPATÍA</p>
-            <h3>Fernando Palearuzza</h3>
-            <div class="tags">
-              <span>Testing</span>
-              <span>Web</span>
+        <article class="member-card" data-member="fernando">
+          <!-- Cara frontal (solo modo flip): número, avatar y nombre. -->
+          <button class="card-front" type="button" aria-expanded="false" aria-controls="card-back-fernando">
+            <span class="card-index" aria-hidden="true">05</span>
+            <span class="card-front-avatar"><img src="img/fernando.jpg" alt=""></span>
+            <span class="card-front-name">Fernando Palearuzza</span>
+            <span class="sr-only">: ver datos</span>
+            <span class="card-front-hint" aria-hidden="true">↻</span>
+          </button>
+          <!-- Dorso en mobile / contenido completo en desktop. -->
+          <div class="card-back" id="card-back-fernando">
+            <button class="card-back-close" type="button" aria-label="Volver a la foto de Fernando Palearuzza">↺</button>
+            <div class="card-portrait portrait-purple">
+              <img src="img/fernando.jpg" alt="Avatar ilustrado de Fernando Palearuzza" class="portrait-image">
             </div>
-            <a class="card-link" href="pages/fernando.html" id="link-fernando">Ver perfil ↗</a>
+            <div class="card-index">05</div>
+            <div class="card-body">
+              <p class="role-header">CONTENIDO & EMPATÍA</p>
+              <h3>Fernando Palearuzza</h3>
+              <p class="card-meta">Buenos Aires, Argentina<br>28 años</p>
+              <div class="tags">
+                <span>Testing</span>
+                <span>Web</span>
+                <span>Diseño UI</span>
+                <span>HTML/CSS</span>
+              </div>
+              <a class="card-link" href="fernando.html" id="link-fernando" aria-label="Ver perfil de Fernando Palearuzza">Ver perfil <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- CTA — El Pergamino del Viajero-->
-    <section class="cta section-shell reveal">
-      <div class="cta-inner">
-        <!-- Mapa místico de constelaciones y rutas -->
-        <svg class="map-decoration" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M30 90 Q50 40 100 30 Q150 20 200 50 Q240 75 230 120 Q220 155 180 165 Q130 175 80 160 Q40 148 30 90Z"
-            fill="rgba(78,205,196,0.12)" stroke="rgba(78,205,196,0.4)" stroke-width="1.5" />
-          <path d="M80 80 L95 55 L110 80Z" fill="none" stroke="rgba(196,160,92,0.4)" stroke-width="1" />
-          <path d="M100 85 L118 58 L136 85Z" fill="none" stroke="rgba(196,160,92,0.4)" stroke-width="1" />
-          <path d="M160 40 Q165 80 155 120 Q148 148 140 165" stroke="rgba(160,100,220,0.5)" stroke-width="2" fill="none"
-            stroke-dasharray="4,2" />
-          <circle cx="55" cy="110" r="6" fill="rgba(78,205,196,0.25)" stroke="rgba(78,205,196,0.4)" stroke-width="1" />
-          <circle cx="185" cy="90" r="5" fill="rgba(220,180,80,0.7)" />
-          <g transform="translate(220,145)">
-            <circle cx="0" cy="0" r="14" fill="none" stroke="rgba(196,160,92,0.4)" stroke-width="1" />
-            <path d="M0,-11 L3,-2 L0,0 L-3,-2Z" fill="rgba(78,205,196,0.85)" />
-            <path d="M0,11 L3,2 L0,0 L-3,2Z" fill="rgba(196,160,92,0.65)" />
-            <text x="-2.5" y="-15" font-size="6.5" fill="rgba(196,160,92,0.9)" font-family="Georgia,serif">N</text>
-          </g>
+    <!-- Nuestra esencia: recupera el manifiesto de la propuesta original de Daniela.
+         La gema pequeña usa las mismas facetas (y gradientes) de su gema: una por integrante. -->
+    <section class="essence section-shell" aria-labelledby="essence-title">
+      <div class="essence-aside" aria-hidden="true">
+        <svg class="essence-gem" viewBox="26 34 128 148">
+          <polygon points="90,42 34,88 90,78" fill="url(#facetCoral)"/>
+          <polygon points="90,42 146,88 90,78" fill="url(#facetBlue)"/>
+          <polygon points="34,88 54,148 90,78" fill="url(#facetGold)"/>
+          <polygon points="146,88 126,148 90,78" fill="url(#facetGreen)"/>
+          <polygon points="54,148 90,174 126,148 90,78" fill="url(#facetLavender)"/>
+          <path d="M90 42 34 88 54 148 90 174 126 148 146 88Z M90 42V78 M34 88 90 78 146 88 M54 148 90 78 126 148" fill="none" stroke="rgb(255 255 255 / 70%)" stroke-width="1.2" stroke-linejoin="round"/>
         </svg>
+      </div>
+      <div class="essence-content">
+        <p class="label-tag">Nuestra esencia</p>
+        <h2 id="essence-title">Distintas miradas.<br><em>Una misma construcción.</em></h2>
+        <p class="essence-text">Cada integrante aporta habilidades, ideas y una forma propia de resolver problemas. El proyecto toma forma cuando esas diferencias se combinan, como las facetas de una misma gema.</p>
+        <ul class="essence-facets" aria-label="Las cinco facetas del equipo">
+          <li data-member="juan">Análisis &amp; calidad</li>
+          <li data-member="mariano">Código &amp; lógica</li>
+          <li data-member="daniela">Diseño &amp; detalle</li>
+          <li data-member="pablo">Estrategia &amp; movimiento</li>
+          <li data-member="fernando">Contenido &amp; empatía</li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- El proceso conserva su lugar destacado en la portada. -->
+    <section class="cta section-shell" aria-labelledby="log-title">
+      <div class="cta-inner">
+        <div class="log-symbol" aria-hidden="true"><span>&lt;/&gt;</span><i></i><i></i><i></i></div>
         <div class="cta-text">
-          <p> ¿Cómo se forjó este reino?</p>
-          <h2>El resultado importa.<br><em>El proceso también.</em></h2>
+          <p>Nuestra Bitácora</p>
+          <h2 id="log-title">La misión también se documenta.</h2>
+          <p class="cta-description">Decisiones, desafíos y aprendizajes que nos hacen crecer como equipo.</p>
         </div>
-        <a class="button light" href="pages/bitacora.html" id="btn-bitacora">
-          Explorar la Bitácora <span>→</span>
-        </a>
+        <a class="button light" href="pages/bitacora.html" id="btn-bitacora">Ir a la Bitácora <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
@@ -547,12 +600,14 @@
 
   <!--FOOTER-->
   <footer class="site-footer">
-    <div class="footer-firefly" aria-hidden="true"></div>
     <a class="brand" href="index.html" aria-label="AACMP, inicio">
-      <span class="brand-mark">A</span> AACMP
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span> AACMP
     </a>
     <p>AACMP · TP1 · Desarrollo de Sistemas Web · 2026</p>
-    <a href="#top" id="link-volver-arriba">Ascender al Orbe ↑</a>
+    <a href="#top" id="link-volver-arriba" class="back-to-top" aria-label="Volver arriba">
+      <span class="back-to-top-text">Volver arriba</span>
+      <span class="back-to-top-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
+    </a>
   </footer>
 
   <script src="js/main.js"></script>

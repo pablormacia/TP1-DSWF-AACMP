@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bitácora de desarrollo del equipo AACMP — El pergamino del camino recorrido.">
   <title>Bitácora | AACMP</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <script src="../js/theme.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/guild.css">
 </head>
 
 <body>
@@ -34,7 +38,8 @@
   <!-- CABECERA -->
   <header class="site-header">
     <a class="brand" href="../index.html" aria-label="AACMP, inicio">
-      <span class="brand-mark">A</span> AACMP
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">AACMP<small>Frontend Gems</small></span>
     </a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
@@ -43,8 +48,13 @@
     <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
       <a href="../index.html">Inicio</a>
       <a href="../index.html#equipo">Equipo</a>
-      <a class="active" href="bitacora.html">Bitácora</a>
+      <a class="active" href="bitacora.html" aria-current="page">Bitácora</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Modo oscuro" aria-pressed="false" title="Cambiar tema claro / oscuro" hidden>
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+    </button>
   </header>
 
   <main class="section-shell">
