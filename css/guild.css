@@ -1547,3 +1547,114 @@ main { animation: page-enter .3s ease-out; }
   .essence-text { font-size: .95rem; }
   .essence-facets li { font-size: .72rem; padding: 4px 10px 4px 8px; }
 }
+
+/* =====================================================================
+   BITÁCORA — Integración con el sistema de temas de guild.css
+   ===================================================================== */
+
+/* Stats: superficies como el resto de tarjetas */
+.log-stat {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+}
+.log-stat-num  { color: var(--tech); }
+.log-stat-label { color: var(--text-muted); font-size: .7rem; letter-spacing: .04em; }
+.log-stat:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Hero sin gema: 1 sola columna, centrado */
+.log-hero {
+  grid-template-columns: 1fr;
+  text-align: center;
+  gap: 16px;
+  padding-block: 56px 40px;
+}
+.log-hero .label-tag { margin-inline: auto; }
+.log-hero-lead {
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+.log-hero-gem { display: none; }
+
+
+/* Log-card: misma superficie que vine-card */
+.log-card {
+  background: var(--surface);
+  border-color: var(--entry-accent);
+  box-shadow: var(--shadow);
+  border-radius: 4px 16px 16px 4px;
+}
+.log-card::before { display: none; }
+.log-card:hover { transform: translateY(-2px) translateX(2px); box-shadow: var(--shadow); }
+.log-card .log-meta { font-size: .72rem; letter-spacing: .04em; color: var(--text-muted); }
+.log-card h2 { font-style: normal; font-weight: 600; color: var(--text); font-size: 1.3rem; }
+.log-card p  { font-style: normal; font-size: 1rem; color: var(--text-muted); }
+.log-card h3 { font-size: .72rem; letter-spacing: .04em; filter: none; color: var(--entry-accent); }
+
+/* Nodo gema: mismo esquema que vine-node-label */
+.log-gem-node::before {
+  box-shadow:
+    0 0 0 2.5px var(--surface),
+    0 0 0 4px var(--gem-border),
+    0 6px 14px var(--gem-shadow),
+    0 0 18px 3px var(--gem-glow);
+}
+.log-entry:hover .log-gem-node::before {
+  box-shadow:
+    0 0 0 2.5px var(--surface),
+    0 0 0 4px var(--gem-border),
+    0 8px 20px var(--gem-shadow),
+    0 0 26px 6px var(--gem-glow);
+}
+
+/* Línea del timeline — efecto neón pulsante */
+.log-entries::before {
+  left: 36px;          /* centro del rombo: 78px padding - 64px node-left + 23px node-radius - 1px line-half */
+  width: 2px;
+  background: var(--accent);
+  box-shadow:
+    0 0 4px  1px var(--accent),
+    0 0 12px 3px color-mix(in srgb, var(--accent) 60%, transparent),
+    0 0 28px 6px color-mix(in srgb, var(--accent) 30%, transparent);
+  animation: neonLinePulse 2.6s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+/* Gema del hero */
+.log-gem-svg {
+  filter:
+    drop-shadow(0 8px 20px var(--glow))
+    drop-shadow(0 0 24px var(--wash));
+}
+
+:root[data-theme="dark"] .log-gem-svg {
+  filter:
+    drop-shadow(0 10px 24px rgba(107, 142, 107, .40))
+    drop-shadow(0 0 36px rgba(196, 160, 92, .28));
+}
+
+/* Neón: la intensidad del glow respira suavemente */
+@keyframes neonLinePulse {
+  0%, 100% {
+    opacity: .75;
+    box-shadow:
+      0 0 3px  1px var(--accent),
+      0 0 8px  2px color-mix(in srgb, var(--accent) 55%, transparent),
+      0 0 18px 4px color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 6px  2px var(--accent),
+      0 0 18px 5px color-mix(in srgb, var(--accent) 65%, transparent),
+      0 0 38px 9px color-mix(in srgb, var(--accent) 32%, transparent);
+  }
+}
+
+/* Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .log-gem-svg, .log-entries::before { animation: none; }
+  .log-stat:hover, .log-card:hover, .log-entry:hover .log-gem-node::before { transform: none; }
+}
