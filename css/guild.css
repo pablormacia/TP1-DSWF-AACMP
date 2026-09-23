@@ -1032,7 +1032,7 @@ main { animation: page-enter .3s ease-out; }
   .digital-core .gem-crystal { width: 150px; height: 185px; margin-top: -20px; }
   .digital-core .gem-svg { width: 140px; height: 180px; }
   .core-platform { width: 110px; height: 28px; top: 69%; }
-  .core-caption, .orbit-fine, .node-js { display: none; }
+  .core-caption, .orbit-fine { display: none; }
   .node-code { left: 15%; top: 26%; }
   .node-html { right: 15%; top: 21%; }
   .node-css { right: 20%; bottom: 12%; }

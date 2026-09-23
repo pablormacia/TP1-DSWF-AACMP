@@ -71,10 +71,12 @@
 }
 
 /* =========================================================
-   ÓRBITA REAL: Los tech-nodes giran alrededor del diamante.
-   Técnica: cada chip es hijo absoluto del .digital-core.
-   Se mueve en un círculo usando transform-origin en el centro
-   del contenedor. La contra-rotación mantiene el texto legible.
+   ÓRBITA AMBIENTAL: los tech-nodes flotan alrededor del diamante.
+   Cada chip es hijo absoluto del .digital-core, anclado al centro de
+   la órbita (50 %, 48 %). Su lugar sobre la elipse es un ángulo
+   (--orbita): el chip avanza y retrocede un arco corto alrededor de
+   su ángulo base, sin dar la vuelta completa. Sólo se traslada y
+   escala, nunca rota, así que el texto queda siempre derecho.
    ========================================================= */
 
 /* Líneas orbitales FIJAS — solo el trazo, sin animación */
@@ -103,13 +105,24 @@
 
 /* Tech-node base: glassmorphism mejorado con glow del chip */
 .home-page .tech-node {
-  /* Cancelar posición estática: la órbita la maneja la animación */
+  /* Cancelar posición estática: el ángulo sobre la órbita ubica el chip */
   position: absolute;
   left: 50%;
   top: 48%;
-  margin-left: -24px;
-  margin-top: -21px;
-  transform-origin: 24px 21px; /* origen en el centro del chip */
+  right: auto;
+  bottom: auto;
+  margin: 0;
+  --orbita: var(--angulo);
+  /* Punto de la elipse para --orbita; abajo queda "más cerca": crece y se aclara. */
+  transform:
+    translate(
+      calc(-50% + var(--orbita-rx) * cos(var(--orbita))),
+      calc(-50% + var(--orbita-ry) * sin(var(--orbita))))
+    scale(calc(1 + var(--orbita-profundidad) * sin(var(--orbita))));
+  opacity: calc(.93 + .07 * sin(var(--orbita)));
+  animation:
+    orbita-chip var(--vaiven) ease-in-out var(--desfase) infinite alternate,
+    chip-glow-pulse calc(var(--vaiven) * .75) ease-in-out var(--desfase) infinite;
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 60%),
     0 0 14px -4px var(--chip),
@@ -129,11 +142,6 @@
     inset 0 1px 0 rgb(255 255 255 / 80%),
     0 0 14px -4px var(--violet),
     0 0 28px -8px var(--violet);
-  left: 50%;
-  top: 48%;
-  margin-left: -24px;
-  margin-top: -24px;
-  transform-origin: 24px 24px;
 }
 /* Modo oscuro: fondo violeta sólido con texto blanco (ya se veía bien) */
 :root[data-theme="dark"] .home-page .node-code {
@@ -144,53 +152,28 @@
   box-shadow: 0 0 22px -2px rgb(127 92 255 / 70%);
 }
 
-/* Anulamos posiciones fijas que venían de guild.css;
-   la animación de órbita posiciona cada chip desde el centro. */
-.home-page .node-html {
-  left: 50%; top: 48%;
-  right: auto; bottom: auto;
-  margin-left: -24px; margin-top: -21px;
-  --chip: var(--cyan);
-}
-.home-page .node-css {
-  left: 50%; top: 48%;
-  right: auto; bottom: auto;
-  margin-left: -24px; margin-top: -21px;
-  --chip: var(--violet);
-}
-.home-page .node-js {
-  left: 50%; top: 48%;
-  right: auto; bottom: auto;
-  margin-left: -24px; margin-top: -21px;
-  --chip: #b07d05;
-}
+.home-page .node-html { --chip: var(--cyan); }
+.home-page .node-css { --chip: var(--violet); }
+.home-page .node-js { --chip: #b07d05; }
 :root[data-theme="dark"] .home-page .node-js { --chip: #f2cc5b; }
 
-/* ANIMACIONES DE ÓRBITA PARA CADA CHIP
-   Radio de la elipse: rx=128px, ry=84px aprox.
-   Cada chip empieza en un ángulo diferente (0°, 90°, 180°, 270°)
-   y gira en sentido horario. La segunda rotación cancela el giro
-   para que el texto quede siempre horizontal. */
-.home-page .node-code {
-  animation:
-    orbit-chip-a 10s linear infinite,
-    chip-glow-pulse 2.2s ease-in-out infinite;
+/* Órbita compartida: la elipse se achica en mobile (ver @media 700 px). */
+.home-page .digital-core {
+  --orbita-rx: 165px;
+  --orbita-ry: 92px;
+  --orbita-profundidad: .05;
+  --orbita-calma: 1;          /* multiplica el arco de cada chip */
 }
-.home-page .node-html {
-  animation:
-    orbit-chip-b 10s linear infinite,
-    chip-glow-pulse 2.2s ease-in-out infinite 0.55s;
-}
-.home-page .node-css {
-  animation:
-    orbit-chip-c 10s linear infinite,
-    chip-glow-pulse 2.2s ease-in-out infinite 1.1s;
-}
-.home-page .node-js {
-  animation:
-    orbit-chip-d 10s linear infinite,
-    chip-glow-pulse 2.2s ease-in-out infinite 1.65s;
-}
+
+/* Cada chip tiene su ángulo base (0° a la derecha, en sentido horario),
+   su arco (±--arco), un vaivén propio y un desfase: no se mueven en bloque.
+     </>  arriba a la izquierda     HTML  arriba a la derecha
+     JS   abajo a la izquierda      CSS   abajo a la derecha
+   Cada vaivén dura 11–14,5 s por sentido: un ciclo completo, 22–29 s. */
+.home-page .node-code { --angulo: 208deg; --arco: 9deg;  --vaiven: 12s;   --desfase: -4s; }
+.home-page .node-html { --angulo: 331deg; --arco: 7deg;  --vaiven: 13.5s; --desfase: -10s; }
+.home-page .node-css  { --angulo: 34deg;  --arco: 8deg;  --vaiven: 11s;   --desfase: -2s; }
+.home-page .node-js   { --angulo: 146deg; --arco: 10deg; --vaiven: 14.5s; --desfase: -7s; }
 
 :root[data-theme="dark"] .home-page .tech-node {
   background:
@@ -271,13 +254,16 @@
   border-color: rgb(141 168 219 / 25%);
   box-shadow: 0 7px 24px -5px rgb(102 151 206 / 24%);
 }
-/* Posición mobile: en pantallas pequeñas mostramos sólo 3 chips y
-   reducimos el radio de la órbita */
+/* Mobile: los cuatro chips, en una elipse más chica y con arcos más cortos.
+   El radio está medido para el núcleo de 320 px escalado a 1.2: los chips
+   quedan fuera de la gema y del pedestal, y lejos de los bordes. */
 @media (max-width: 700px) {
-  .home-page .node-js { display: none; }
-  .home-page .node-code { animation-name: orbit-chip-a-sm, chip-glow-pulse; }
-  .home-page .node-html { animation-name: orbit-chip-b-sm, chip-glow-pulse; }
-  .home-page .node-css  { animation-name: orbit-chip-c-sm, chip-glow-pulse; }
+  .home-page .digital-core {
+    --orbita-rx: 100px;
+    --orbita-ry: 62px;
+    --orbita-profundidad: .03;
+    --orbita-calma: .7;
+  }
 }
 .home-page .digital-core::after {
   content: '';
@@ -372,123 +358,17 @@
   }
 }
 
-/* ==========================================================
-   ÓRBITAS ELÍPTICAS PARA DESKTOP (radio rx≈128, ry≈84)
-   Origen de la elipse: centro del .digital-core (50%,48%)
-   Fórmula: translate(-rx, 0) rotate(θ) translate(rx, 0)
-   Lo que sigue usa la técnica de "transform offset orbit"
-   en CSS puro con la propiedad `offset-path` (no compatible
-   en todos los browsers), así que usamos keyframes manuales
-   que calculan las posiciones clave en la elipse.
-   ========================================================== */
-
-/* Radio elipse: X=125px, Y=82px desde el centro del contenedor.
-   El chip mide aprox 50x42px y el .digital-core mide 296px alto.
-   Centro del diamante ≈ left:50%, top:48% ≈ (50%, 48%).
-   Chip A (</>): empieza arriba a la izquierda
-   Elipse rx=125, ry=82. Posiciones: x=rx*cos(θ), y=ry*sin(θ)
-   θ parte de 180° (izquierda), gira en sentido horario (decrece) */
-@keyframes orbit-chip-a {
-  0%   { transform: translate(-125px,   0px); }
-  6.25%{ transform: translate(-116px, -32px); }
-  12.5%{ transform: translate( -89px, -58px); }
-  18.75%{ transform: translate( -48px, -75px); }
-  25%  { transform: translate(   0px, -82px); }
-  31.25%{ transform: translate(  48px, -75px); }
-  37.5%{ transform: translate(  89px, -58px); }
-  43.75%{ transform: translate( 116px, -32px); }
-  50%  { transform: translate( 125px,   0px); }
-  56.25%{ transform: translate( 116px,  32px); }
-  62.5%{ transform: translate(  89px,  58px); }
-  68.75%{ transform: translate(  48px,  75px); }
-  75%  { transform: translate(   0px,  82px); }
-  81.25%{ transform: translate( -48px,  75px); }
-  87.5%{ transform: translate( -89px,  58px); }
-  93.75%{ transform: translate(-116px,  32px); }
-  100% { transform: translate(-125px,   0px); }
+/* Vaivén orbital: el ángulo recorre un arco corto alrededor del ángulo base
+   y vuelve (alternate). ease-in-out frena suave en cada extremo.
+   --orbita se registra como <angle> para que el navegador lo interpole. */
+@property --orbita {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
 }
-/* Chip B (HTML): 90° desfase */
-@keyframes orbit-chip-b {
-  0%   { transform: translate(   0px, -82px); }
-  6.25%{ transform: translate(  48px, -75px); }
-  12.5%{ transform: translate(  89px, -58px); }
-  18.75%{ transform: translate( 116px, -32px); }
-  25%  { transform: translate( 125px,   0px); }
-  31.25%{ transform: translate( 116px,  32px); }
-  37.5%{ transform: translate(  89px,  58px); }
-  43.75%{ transform: translate(  48px,  75px); }
-  50%  { transform: translate(   0px,  82px); }
-  56.25%{ transform: translate( -48px,  75px); }
-  62.5%{ transform: translate( -89px,  58px); }
-  68.75%{ transform: translate(-116px, -32px); }
-  75%  { transform: translate(-125px,   0px); }
-  81.25%{ transform: translate(-116px, -32px); }
-  87.5%{ transform: translate( -89px, -58px); }
-  93.75%{ transform: translate( -48px, -75px); }
-  100% { transform: translate(   0px, -82px); }
-}
-/* Chip C (CSS): 180° desfase */
-@keyframes orbit-chip-c {
-  0%   { transform: translate( 125px,   0px); }
-  6.25%{ transform: translate( 116px,  32px); }
-  12.5%{ transform: translate(  89px,  58px); }
-  18.75%{ transform: translate(  48px,  75px); }
-  25%  { transform: translate(   0px,  82px); }
-  31.25%{ transform: translate( -48px,  75px); }
-  37.5%{ transform: translate( -89px,  58px); }
-  43.75%{ transform: translate(-116px,  32px); }
-  50%  { transform: translate(-125px,   0px); }
-  56.25%{ transform: translate(-116px, -32px); }
-  62.5%{ transform: translate( -89px, -58px); }
-  68.75%{ transform: translate( -48px, -75px); }
-  75%  { transform: translate(   0px, -82px); }
-  81.25%{ transform: translate(  48px, -75px); }
-  87.5%{ transform: translate(  89px, -58px); }
-  93.75%{ transform: translate( 116px, -32px); }
-  100% { transform: translate( 125px,   0px); }
-}
-/* Chip D (JS): 270° desfase */
-@keyframes orbit-chip-d {
-  0%   { transform: translate(   0px,  82px); }
-  6.25%{ transform: translate( -48px,  75px); }
-  12.5%{ transform: translate( -89px,  58px); }
-  18.75%{ transform: translate(-116px,  32px); }
-  25%  { transform: translate(-125px,   0px); }
-  31.25%{ transform: translate(-116px, -32px); }
-  37.5%{ transform: translate( -89px, -58px); }
-  43.75%{ transform: translate( -48px, -75px); }
-  50%  { transform: translate(   0px, -82px); }
-  56.25%{ transform: translate(  48px, -75px); }
-  62.5%{ transform: translate(  89px, -58px); }
-  68.75%{ transform: translate( 116px,  32px); }
-  75%  { transform: translate( 125px,   0px); }
-  81.25%{ transform: translate( 116px,  32px); }
-  87.5%{ transform: translate(  89px,  58px); }
-  93.75%{ transform: translate(  48px,  75px); }
-  100% { transform: translate(   0px,  82px); }
-}
-
-/* Versiones mobile: radio reducido rx=72, ry=50 */
-@keyframes orbit-chip-a-sm {
-  0%   { transform: translate( -72px,   0px); }
-  25%  { transform: translate(   0px, -50px); }
-  50%  { transform: translate(  72px,   0px); }
-  75%  { transform: translate(   0px,  50px); }
-  100% { transform: translate( -72px,   0px); }
-}
-@keyframes orbit-chip-b-sm {
-  0%   { transform: translate(   0px, -50px); }
-  25%  { transform: translate(  72px,   0px); }
-  50%  { transform: translate(   0px,  50px); }
-  75%  { transform: translate( -72px,   0px); }
-  100% { transform: translate(   0px, -50px); }
-}
-@keyframes orbit-chip-c-sm {
-  0%   { transform: translate(  72px,   0px); }
-  25%  { transform: translate(   0px,  50px); }
-  50%  { transform: translate( -72px,   0px); }
-  75%  { transform: translate(   0px, -50px); }
-  100% { transform: translate(  72px,   0px); }
+@keyframes orbita-chip {
+  from { --orbita: calc(var(--angulo) - var(--arco) * var(--orbita-calma)); }
+  to   { --orbita: calc(var(--angulo) + var(--arco) * var(--orbita-calma)); }
 }
 /* Sparkle del diamante: destello más vivo, escala y glow */
 @keyframes gem-sparkle-glow {
