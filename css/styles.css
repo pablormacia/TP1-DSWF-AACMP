@@ -2417,9 +2417,12 @@ h1.hero-title {
   bottom: max(20px, env(safe-area-inset-bottom));
   z-index: 10;
   display: inline-flex;
+  width: 44px;
+  height: 44px;
   align-items: center;
   gap: 10px;
-  padding: 10px 16px;
+  justify-content: center;
+  padding: 0;
   border: 1px solid var(--ink-light);
   border-radius: 999px;
   background: color-mix(in srgb, var(--paper) 92%, transparent);
@@ -2453,8 +2456,8 @@ h1.hero-title {
   .page-back-link {
     left: max(14px, env(safe-area-inset-left));
     bottom: max(14px, env(safe-area-inset-bottom));
-    padding: 9px 13px;
-    font-size: .82rem;
+    width: 44px;
+    height: 44px;
   }
 }
 
