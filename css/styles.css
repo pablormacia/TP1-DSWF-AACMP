@@ -2436,15 +2436,23 @@ h1.hero-title {
   transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
 
-.page-back-link span {
-  font-size: 1.2rem;
-  line-height: 1;
+.page-back-link img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%)
+    invert(32%) sepia(8%) saturate(850%) hue-rotate(345deg) brightness(92%) contrast(88%);
 }
 
 .page-back-link:hover {
-  background: var(--ink);
+  background: var(--moss);
   color: var(--paper);
   transform: translateX(-3px);
+}
+
+.page-back-link:hover img {
+  filter: brightness(0) invert(1);
 }
 
 .page-back-link:focus-visible {
