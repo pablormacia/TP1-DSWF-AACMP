@@ -348,7 +348,7 @@ h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 
   height: 72px;
   padding-inline: max(24px, calc((100% - 1160px) / 2));
 }
-.site-header .brand-mark { background: none; color: var(--tech); font-size: 1.4rem; }
+.site-header .brand-mark { background: none; color: var(--tech); font-size: 1.2rem; }
 .site-header::before { display: none; }
 .main-nav a { padding-block: 10px; }
 .main-nav a::after { background: var(--accent); bottom: 3px; }

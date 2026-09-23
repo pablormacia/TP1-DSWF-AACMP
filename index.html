@@ -25,7 +25,7 @@
   <!--Header-->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="AACMP, inicio">
-      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt; </span>
       <span class="brand-name">AACMP<small>Frontend Gems</small></span>
     </a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
@@ -74,14 +74,54 @@
               <stop offset="0" class="orbit-stop-a"/>
               <stop offset="1" class="orbit-stop-b"/>
             </linearGradient>
+            <!-- Paths de las elipses para animateMotion -->
+            <!-- Elipse 1: cx=260 cy=220 rx=228 ry=78 rot=-16° -->
+            <path id="orbitPath1"
+              d="M 32,220 A 228,78,0,1,1 488,220 A 228,78,0,1,1 32,220"
+              transform="rotate(-16 260 220)"/>
+            <!-- Elipse 2: cx=260 cy=220 rx=210 ry=94 rot=22° -->
+            <path id="orbitPath2"
+              d="M 50,220 A 210,94,0,1,1 470,220 A 210,94,0,1,1 50,220"
+              transform="rotate(22 260 220)"/>
+            <!-- Elipse 3: cx=260 cy=202 rx=156 ry=165 rot=34° -->
+            <path id="orbitPath3"
+              d="M 104,202 A 156,165,0,1,1 416,202 A 156,165,0,1,1 104,202"
+              transform="rotate(34 260 202)"/>
           </defs>
+          <!-- Elipses fijas (líneas guía) -->
           <ellipse cx="260" cy="220" rx="228" ry="78" transform="rotate(-16 260 220)"/>
           <ellipse cx="260" cy="220" rx="210" ry="94" transform="rotate(22 260 220)"/>
           <ellipse class="orbit-fine" cx="260" cy="202" rx="156" ry="165" transform="rotate(34 260 202)"/>
+          <!-- Luces orbitales con animateMotion -->
           <g class="orbit-nodes">
-            <circle cx="62" cy="246" r="4"/><circle cx="433" cy="263" r="3"/>
-            <circle class="node-violet" cx="355" cy="101" r="3"/><circle cx="201" cy="317" r="4"/>
-            <circle class="node-violet" cx="120" cy="140" r="2.5"/>
+            <!-- Órbita 1: dos luces cian en sentidos y velocidades diferentes -->
+            <circle r="4" class="orbit-light orbit-light-1">
+              <animateMotion dur="8s" repeatCount="indefinite" begin="0s">
+                <mpath href="#orbitPath1"/>
+              </animateMotion>
+            </circle>
+            <circle r="3" class="orbit-light orbit-light-2">
+              <animateMotion dur="8s" repeatCount="indefinite" begin="-4s">
+                <mpath href="#orbitPath1"/>
+              </animateMotion>
+            </circle>
+            <!-- Órbita 2: dos luces violeta -->
+            <circle r="3" class="orbit-light orbit-light-violet orbit-light-3">
+              <animateMotion dur="11s" repeatCount="indefinite" begin="-2s">
+                <mpath href="#orbitPath2"/>
+              </animateMotion>
+            </circle>
+            <circle r="4" class="orbit-light orbit-light-4">
+              <animateMotion dur="11s" repeatCount="indefinite" begin="-7s">
+                <mpath href="#orbitPath2"/>
+              </animateMotion>
+            </circle>
+            <!-- Órbita 3: luz violeta fina -->
+            <circle r="2.5" class="orbit-light orbit-light-violet orbit-light-5">
+              <animateMotion dur="15s" repeatCount="indefinite" begin="-5s">
+                <mpath href="#orbitPath3"/>
+              </animateMotion>
+            </circle>
           </g>
         </svg>
         <div class="core-platform"><i></i></div>
