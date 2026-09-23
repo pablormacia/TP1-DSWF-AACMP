@@ -12,10 +12,18 @@
     // El sitio sigue funcionando si el navegador bloquea el almacenamiento.
   }
 
+  // Intercambia el src de las imágenes temáticas según el tema activo.
+  function applyThemeImages(theme) {
+    document.querySelectorAll('img[data-src-light][data-src-dark]').forEach(img => {
+      img.src = theme === 'dark' ? img.dataset.srcDark : img.dataset.srcLight;
+    });
+  }
+
   function applyTheme() {
     const theme = preference || (system.matches ? 'dark' : 'light');
     document.documentElement.dataset.theme = theme;
     if (button) button.setAttribute('aria-pressed', String(theme === 'dark'));
+    applyThemeImages(theme);
   }
 
   applyTheme();

@@ -3800,3 +3800,326 @@ h1.hero-title {
     filter: none;
   }
 }
+
+/* =====================================================================
+   BITÁCORA — Rediseño con eje de gemas
+   Clases: log-hero · log-timeline · log-card · log-gem-node
+   ===================================================================== */
+
+/* --- Hero de Bitácora --- */
+.log-hero {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  align-items: center;
+  gap: 48px;
+  padding-block: 64px 48px;
+}
+
+.log-hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-style: italic;
+  font-weight: 600;
+  margin: 8px 0 16px;
+  line-height: 1.1;
+}
+
+.log-hero-lead {
+  color: var(--ink-mid);
+  font-size: 1.08rem;
+  line-height: 1.82;
+  max-width: 520px;
+  margin: 0 0 28px;
+  font-style: italic;
+}
+
+/* Stats pills */
+.log-stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.log-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 22px 10px;
+  background: rgba(253, 250, 245, .88);
+  border: 1px solid rgba(135, 168, 120, .22);
+  border-radius: 48% 52% 44% 56% / 52% 48% 52% 48%;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(135, 168, 120, .10);
+  transition: transform .3s ease;
+}
+
+.log-stat:hover { transform: translateY(-2px); }
+
+.log-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--moss);
+  line-height: 1;
+}
+
+.log-stat-label {
+  font-family: var(--font-label);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+/* Gema decorativa en el hero */
+.log-hero-gem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-gem-svg {
+  width: 150px;
+  height: auto;
+  filter:
+    drop-shadow(0 8px 22px rgba(135, 168, 120, .30))
+    drop-shadow(0 0 30px rgba(196, 160, 92, .20));
+  animation: logGemFloat 6s ease-in-out infinite;
+}
+
+@keyframes logGemFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%       { transform: translateY(-10px) rotate(2.5deg); }
+}
+
+/* --- Timeline --- */
+.log-timeline { padding-bottom: 48px; }
+
+.log-entries {
+  position: relative;
+  padding-left: 78px;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Línea vertical que conecta los nodos */
+.log-entries::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 44px;
+  bottom: 44px;
+  width: 1.5px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(135, 168, 120, .32) 8%,
+    rgba(135, 168, 120, .32) 92%,
+    transparent
+  );
+}
+
+/* Cada entrada */
+.log-entry { position: relative; }
+
+/* Nodo gema: cuadrado girado 45° → rombo */
+.log-gem-node {
+  position: absolute;
+  left: -64px;
+  top: 16px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-gem-node::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: rotate(45deg);
+  border-radius: 4px 14px 4px 14px;
+  background: var(--gem-gradient);
+  box-shadow:
+    0 0 0 2.5px var(--paper),
+    0 0 0 4px var(--gem-border),
+    0 6px 16px var(--gem-shadow),
+    0 0 20px 4px var(--gem-glow);
+  transition: border-radius .45s ease, box-shadow .3s;
+}
+
+.log-entry:hover .log-gem-node::before {
+  border-radius: 14px 4px 14px 4px;
+  box-shadow:
+    0 0 0 2.5px var(--paper),
+    0 0 0 4px var(--gem-border),
+    0 8px 22px var(--gem-shadow),
+    0 0 28px 6px var(--gem-glow);
+}
+
+.log-gem-inner {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: .75rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--gem-text);
+}
+
+/* Colores de gema — una faceta por entrada */
+.log-entry[data-gem="coral"] {
+  --gem-gradient: linear-gradient(135deg, #FDEAE8 0%, #D4A8A0 55%, #C48878 100%);
+  --gem-border:   rgba(196, 136, 120, .42);
+  --gem-shadow:   rgba(196, 136, 120, .28);
+  --gem-glow:     rgba(212, 168, 160, .18);
+  --gem-text:     #8a3828;
+  --entry-accent: #D4A8A0;
+}
+
+.log-entry[data-gem="cerulean"] {
+  --gem-gradient: linear-gradient(135deg, #EAF4FA 0%, #A8C4D4 55%, #7AAAC4 100%);
+  --gem-border:   rgba(122, 170, 196, .42);
+  --gem-shadow:   rgba(122, 170, 196, .28);
+  --gem-glow:     rgba(168, 196, 212, .18);
+  --gem-text:     #1a486a;
+  --entry-accent: #A8C4D4;
+}
+
+.log-entry[data-gem="ochre"] {
+  --gem-gradient: linear-gradient(135deg, #FBF0D8 0%, #E0C88C 55%, #C4A05C 100%);
+  --gem-border:   rgba(196, 160, 92, .42);
+  --gem-shadow:   rgba(196, 160, 92, .28);
+  --gem-glow:     rgba(224, 200, 140, .18);
+  --gem-text:     #6a4010;
+  --entry-accent: #C4A05C;
+}
+
+.log-entry[data-gem="sage"] {
+  --gem-gradient: linear-gradient(135deg, #DAE8D2 0%, #B4CCA8 55%, #87A878 100%);
+  --gem-border:   rgba(135, 168, 120, .42);
+  --gem-shadow:   rgba(135, 168, 120, .28);
+  --gem-glow:     rgba(180, 204, 168, .18);
+  --gem-text:     #2a4a20;
+  --entry-accent: #87A878;
+}
+
+.log-entry[data-gem="lavender"] {
+  --gem-gradient: linear-gradient(135deg, #F0EDF8 0%, #C4B8D8 55%, #A898CC 100%);
+  --gem-border:   rgba(168, 152, 204, .42);
+  --gem-shadow:   rgba(168, 152, 204, .28);
+  --gem-glow:     rgba(196, 184, 216, .18);
+  --gem-text:     #4a3870;
+  --entry-accent: #A898CC;
+}
+
+/* --- Tarjeta de entrada --- */
+.log-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(255, 252, 245, .96) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(245, 238, 222, .88) 0%, transparent 60%),
+    linear-gradient(160deg,
+      rgba(255, 252, 244, .97) 0%,
+      rgba(252, 246, 234, .93) 30%,
+      rgba(248, 240, 224, .90) 65%,
+      rgba(244, 234, 216, .88) 100%);
+  border-radius: 4px 16px 16px 4px;
+  border-left: 3px solid var(--entry-accent);
+  padding: 28px 32px;
+  box-shadow:
+    0 2px 0 rgba(180, 150, 80, .07),
+    0 6px 24px rgba(140, 100, 50, .09),
+    0 14px 40px rgba(120, 90, 40, .05);
+  transition:
+    transform .4s cubic-bezier(.34, 1.56, .64, 1),
+    box-shadow .4s;
+}
+
+/* Textura fina de fibra de papel */
+.log-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(175deg,
+    transparent 0px, transparent 22px,
+    rgba(180, 150, 80, .02) 22px, rgba(180, 150, 80, .02) 23px);
+  pointer-events: none;
+}
+
+/* Glow del borde de acento en hover */
+.log-card:hover {
+  transform: translateY(-4px) translateX(3px);
+  box-shadow:
+    0 4px 0 rgba(180, 150, 80, .10),
+    0 10px 32px rgba(140, 100, 50, .13),
+    0 20px 50px rgba(120, 90, 40, .07);
+}
+
+.log-card .log-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-label);
+  color: var(--ink-faint);
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.log-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.48rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 4px 0 12px;
+  line-height: 1.2;
+}
+
+.log-card h3 {
+  font-family: var(--font-label);
+  font-size: .66rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--entry-accent);
+  margin: 16px 0 5px;
+  filter: saturate(1.2) brightness(.72);
+}
+
+.log-card p {
+  color: var(--ink-light);
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.76;
+  margin: 0 0 4px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .log-hero {
+    grid-template-columns: 1fr;
+    padding-block: 48px 36px;
+    gap: 32px;
+  }
+  .log-hero-gem { display: none; }
+  .log-entries  { padding-left: 60px; }
+  .log-gem-node { left: -48px; width: 38px; height: 38px; top: 18px; }
+  .log-entries::before { left: 19px; }
+  .log-card { padding: 22px 24px; }
+  .log-card h2 { font-size: 1.25rem; }
+  .log-gem-inner { font-size: .7rem; }
+}
+
+@media (max-width: 480px) {
+  .log-entries  { padding-left: 50px; }
+  .log-gem-node { left: -40px; width: 32px; height: 32px; }
+  .log-entries::before { left: 16px; top: 38px; bottom: 38px; }
+  .log-gem-inner { font-size: .62rem; }
+}
