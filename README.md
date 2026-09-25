@@ -153,15 +153,27 @@ El sonido **no es un archivo**: se sintetiza en el momento con la **Web Audio AP
 
 ---
 
+## Optimización del sitio
+
+Los avatares que originalmente eran pesados archivos jpg se convirtieron a un formato más liviano (WebP) y se generaron en varios tamaños para evitar descargar imágenes más pesadas de lo necesario:
+
+- En las tarjetas de la portada se usan variantes de **300 px** y **720 px**.
+- En los perfiles individuales se usan variantes de **720 px** y **1500 px**.
+
+Cada etiqueta `<img>` usa `srcset` y `sizes` para que el navegador elija automáticamente el archivo más adecuado según el espacio disponible y la densidad de la pantalla. También se mantienen versiones claras y oscuras de cada avatar, que se intercambian al cambiar el tema.
+
+Las imagenes se cargan de forma diferida con loading=lazy y decoding=async para evitar sobrecargar el navegador durante la carga de la página.
+
 ## Uso de Inteligencia Artificial y Autoría
 
-Se emplearon herramientas de **Inteligencia Artificial** —ChatGPT (GPT-5.5), Claude (Opus 5) y Gemini (3.1 Pro y 3.5 Flash-Lite), en sus versiones gratuitas y con plan pago según el caso— como apoyo técnico y creativo para:
+Se emplearon herramientas de **Inteligencia Artificial** —ChatGPT (GPT-5.5), Claude (Opus 5, Sonnet, Haiku), Gemini (3.1 Pro y 3.5 Flash-Lite), en sus versiones gratuitas y con plan pago según el caso— como apoyo técnico y creativo para:
 
 - Interpretación inicial de consignas y estructuración del layout HTML.
 - Sugerencia de fórmulas matemáticas para lavados de acuarela en CSS y animaciones `@keyframes`.
 - Generación de textos base y borradores para la bitácora.
 - Generación de los avatares y de la gema, con prompts que pedían ilustraciones en acuarela de personajes de fantasía, uno por integrante.
 - Programación del sonido del hechizo: de la idea de «un ruidito de magia al tocar el botón» salió sintetizarlo con la Web Audio API, en lugar de usar un archivo de audio de terceros.
+- Sugerencias de optimización en base a informes de Lighthouse y varias propuestas de código.
 
 El equipo ya venía trabajando con estas herramientas antes de la cursada, con distinto grado de experiencia.
 
