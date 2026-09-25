@@ -3892,12 +3892,12 @@ h1.hero-title {
   50%       { transform: translateY(-10px) rotate(2.5deg); }
 }
 
-/* --- Timeline --- */
+/* --- Timeline ---
+   El eje (rama) y la posición de los nodos se definen en guild.css. */
 .log-timeline { padding-bottom: 48px; }
 
 .log-entries {
   position: relative;
-  padding-left: 78px;
   max-width: 700px;
   margin: 0 auto;
   display: flex;
@@ -3905,33 +3905,12 @@ h1.hero-title {
   gap: 28px;
 }
 
-/* Línea vertical que conecta los nodos */
-.log-entries::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 44px;
-  bottom: 44px;
-  width: 1.5px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(135, 168, 120, .32) 8%,
-    rgba(135, 168, 120, .32) 92%,
-    transparent
-  );
-}
-
 /* Cada entrada */
 .log-entry { position: relative; }
 
 /* Nodo gema: cuadrado girado 45° → rombo */
 .log-gem-node {
-  position: absolute;
-  left: -64px;
-  top: 16px;
-  width: 46px;
-  height: 46px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3949,16 +3928,6 @@ h1.hero-title {
     0 0 0 4px var(--gem-border),
     0 6px 16px var(--gem-shadow),
     0 0 20px 4px var(--gem-glow);
-  transition: border-radius .45s ease, box-shadow .3s;
-}
-
-.log-entry:hover .log-gem-node::before {
-  border-radius: 14px 4px 14px 4px;
-  box-shadow:
-    0 0 0 2.5px var(--paper),
-    0 0 0 4px var(--gem-border),
-    0 8px 22px var(--gem-shadow),
-    0 0 28px 6px var(--gem-glow);
 }
 
 .log-gem-inner {
@@ -3971,8 +3940,8 @@ h1.hero-title {
   color: var(--gem-text);
 }
 
-/* Colores de gema — una faceta por entrada */
-.log-entry[data-gem="coral"] {
+/* Colores de gema — una faceta por entrada (también los usa el cierre de la bitácora) */
+[data-gem="coral"] {
   --gem-gradient: linear-gradient(135deg, #FDEAE8 0%, #D4A8A0 55%, #C48878 100%);
   --gem-border:   rgba(196, 136, 120, .42);
   --gem-shadow:   rgba(196, 136, 120, .28);
@@ -3981,7 +3950,7 @@ h1.hero-title {
   --entry-accent: #D4A8A0;
 }
 
-.log-entry[data-gem="cerulean"] {
+[data-gem="cerulean"] {
   --gem-gradient: linear-gradient(135deg, #EAF4FA 0%, #A8C4D4 55%, #7AAAC4 100%);
   --gem-border:   rgba(122, 170, 196, .42);
   --gem-shadow:   rgba(122, 170, 196, .28);
@@ -3990,7 +3959,7 @@ h1.hero-title {
   --entry-accent: #A8C4D4;
 }
 
-.log-entry[data-gem="ochre"] {
+[data-gem="ochre"] {
   --gem-gradient: linear-gradient(135deg, #FBF0D8 0%, #E0C88C 55%, #C4A05C 100%);
   --gem-border:   rgba(196, 160, 92, .42);
   --gem-shadow:   rgba(196, 160, 92, .28);
@@ -3999,7 +3968,7 @@ h1.hero-title {
   --entry-accent: #C4A05C;
 }
 
-.log-entry[data-gem="sage"] {
+[data-gem="sage"] {
   --gem-gradient: linear-gradient(135deg, #DAE8D2 0%, #B4CCA8 55%, #87A878 100%);
   --gem-border:   rgba(135, 168, 120, .42);
   --gem-shadow:   rgba(135, 168, 120, .28);
@@ -4008,7 +3977,7 @@ h1.hero-title {
   --entry-accent: #87A878;
 }
 
-.log-entry[data-gem="lavender"] {
+[data-gem="lavender"] {
   --gem-gradient: linear-gradient(135deg, #F0EDF8 0%, #C4B8D8 55%, #A898CC 100%);
   --gem-border:   rgba(168, 152, 204, .42);
   --gem-shadow:   rgba(168, 152, 204, .28);
@@ -4109,17 +4078,11 @@ h1.hero-title {
     gap: 32px;
   }
   .log-hero-gem { display: none; }
-  .log-entries  { padding-left: 60px; }
-  .log-gem-node { left: -48px; width: 38px; height: 38px; top: 18px; }
-  .log-entries::before { left: 19px; }
   .log-card { padding: 22px 24px; }
   .log-card h2 { font-size: 1.25rem; }
   .log-gem-inner { font-size: .7rem; }
 }
 
 @media (max-width: 480px) {
-  .log-entries  { padding-left: 50px; }
-  .log-gem-node { left: -40px; width: 32px; height: 32px; }
-  .log-entries::before { left: 16px; top: 38px; bottom: 38px; }
   .log-gem-inner { font-size: .62rem; }
 }

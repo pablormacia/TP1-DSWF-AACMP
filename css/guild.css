@@ -300,8 +300,9 @@ h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 
 }
 .fav-list h2 { border-color: var(--border); }
 
-/* Volver al equipo: enlace de salida del perfil, teñido con el acento del integrante. */
-.btn-volver {
+/* Volver al equipo: enlace de salida del perfil, teñido con el acento del integrante.
+   El cierre de la bitácora (.log-cta-button) comparte la misma base. */
+.btn-volver, .log-cta-button {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -317,7 +318,7 @@ h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 
   text-decoration: none;
   box-shadow: var(--shadow);
 }
-.btn-volver-icon {
+.btn-volver-icon, .log-cta-button-icon {
   display: grid;
   place-items: center;
   width: 36px;
@@ -327,7 +328,7 @@ h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 
   color: var(--member-accent);
   transition: transform .2s ease, background-color .2s ease;
 }
-.btn-volver:hover {
+.btn-volver:hover, .log-cta-button:hover {
   border-color: var(--member-accent);
   box-shadow: 0 8px 24px color-mix(in srgb, var(--member-accent) 18%, transparent);
 }
@@ -335,13 +336,25 @@ h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 
   transform: translateX(-3px);
   background: color-mix(in srgb, var(--member-accent) 22%, var(--surface));
 }
-.btn-volver:focus-visible {
+.btn-volver:focus-visible, .log-cta-button:focus-visible {
   outline: 3px solid var(--member-accent);
   outline-offset: 4px;
   border-radius: 999px;
 }
+/* Variante de avance: flecha a la derecha, en un círculo lleno para que se lea como acción principal. */
+.log-cta-button { padding: 6px 6px 6px 24px; font-size: 1rem; transition: border-color .2s ease, box-shadow .2s ease; }
+.log-cta-button-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--member-accent);
+  color: var(--surface);
+}
+.log-cta-button:hover .log-cta-button-icon {
+  transform: translateX(3px);
+  background: color-mix(in srgb, var(--member-accent) 86%, var(--text));
+}
 @media (prefers-reduced-motion: reduce) {
-  .btn-volver:hover .btn-volver-icon { transform: none; }
+  .btn-volver:hover .btn-volver-icon, .log-cta-button:hover .log-cta-button-icon { transform: none; }
 }
 
 /* Conservamos la gema original y el orbe, con una luz más contenida. */
@@ -1642,33 +1655,176 @@ main { animation: page-enter .3s ease-out; }
 .log-card p  { font-style: normal; font-size: 1rem; color: var(--text-muted); }
 .log-card h3 { font-size: .72rem; letter-spacing: .04em; filter: none; color: var(--entry-accent); }
 
-/* Nodo gema: mismo esquema que vine-node-label */
+/* Timeline con riel: cada entrada es una grilla [riel | tarjeta]. El diamante se
+   centra en el riel y la rama se ubica en el centro de ese mismo riel, así que
+   ambos comparten una sola medida (--rail) en todos los tamaños de pantalla. */
+.log-entries {
+  --rail: 64px;
+  --rail-gap: 14px;
+  --node: 46px;
+  --entry-gap: 28px;
+  --vine-w: 68px;
+  /* Verde salvia/oliva, inspirado en la enredadera de marianoa: tallo más oscuro, hojas más claras. */
+  --vine-stem: #5e7d52;
+  --vine-leaf: #86a672;
+  /* Tramo de enredadera (adaptado de la bitácora de marianoa): tallo sinuoso,
+     tallo secundario punteado que se entrelaza, ramitas alternadas y hojas.
+     Empieza y termina en el eje con tangente vertical para empalmar con el tramo siguiente.
+     Tallos y hojas van en máscaras separadas para poder darles tonos distintos. */
+  --vine-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 400' preserveAspectRatio='none' fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cstyle%3Epath%7Bvector-effect:non-scaling-stroke%7D%3C/style%3E%3Cpath d='M40 0C40 52 33 84 35 142C37 204 49 222 46 284C43 342 40 360 40 400' stroke-width='2.2'/%3E%3Cpath d='M40 12C55 72 29 118 50 190C64 252 31 298 45 358C47 380 41 394 40 400' stroke-width='1.2' stroke-dasharray='6 4' stroke-opacity='.5'/%3E%3Cpath d='M34.5 112C24 104 15 97 10 88' stroke-width='1.4' stroke-opacity='.75'/%3E%3Cpath d='M47.5 250C58 241 66 233 71 224' stroke-width='1.3' stroke-opacity='.7'/%3E%3Cpath d='M41.5 340C35 334 31 328 28 323' stroke-width='1.1' stroke-opacity='.6'/%3E%3C/svg%3E");
+  --vine-leaves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 400' preserveAspectRatio='none' fill='%23000' stroke='none' stroke-linecap='round'%3E%3Cstyle%3Epath%7Bvector-effect:non-scaling-stroke%7D%3C/style%3E%3Cpath d='M10 88C4 87 1 81 1 73C7 75 10 81 10 88Z' fill-opacity='.8'/%3E%3Cpath d='M71 224C77 223 79 217 79 209C73 211 71 217 71 224Z' fill-opacity='.72'/%3E%3Cpath d='M28 323C24 322 22 318 22 312C26 313 28 318 28 323Z' fill-opacity='.64'/%3E%3Cpath d='M37 168C41 168 43 164 43 159C39 160 37 164 37 168Z' fill-opacity='.6'/%3E%3C/svg%3E");
+  gap: var(--entry-gap);
+}
+:root[data-theme="dark"] .log-entries { --vine-stem: #8aa87c; --vine-leaf: #a7c08f; }
+.log-entry {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: var(--rail-gap);
+  align-items: start;
+  -webkit-tap-highlight-color: transparent;
+}
+.log-gem-node {
+  z-index: 1;
+  justify-self: center;
+  width: var(--node);
+  height: var(--node);
+  margin-top: calc(var(--node) * .4);
+  transition: transform .2s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Rama viva: cada entrada dibuja el tramo que va del centro de su diamante al
+   centro del siguiente, así la enredadera siempre atraviesa los nodos. El SVG se
+   estira al alto de la entrada sin engrosar los trazos (non-scaling-stroke) y las
+   entradas pares lo espejan para que las ramitas alternen de lado. */
+.log-entry::before, .log-entry::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: calc(var(--rail) / 2);
+  top: calc(var(--node) * .9);
+  bottom: calc(-1 * (var(--entry-gap) + var(--node) * .9));
+  width: var(--vine-w);
+  translate: -50% 0;
+  background: var(--vine-stem);
+  -webkit-mask: var(--vine-shape) center / 100% 100% no-repeat;
+  mask: var(--vine-shape) center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+.log-entry::after {
+  background: var(--vine-leaf);
+  -webkit-mask-image: var(--vine-leaves);
+  mask-image: var(--vine-leaves);
+}
+.log-entry:nth-child(even)::before, .log-entry:nth-child(even)::after { scale: -1 1; }
+/* Después de la última etapa la rama se apaga dentro de la propia entrada. */
+.log-entry:last-child::before, .log-entry:last-child::after { bottom: 0; }
+.log-entry:last-child::before { background: linear-gradient(to bottom, var(--vine-stem) 45%, transparent); }
+.log-entry:last-child::after { background: linear-gradient(to bottom, var(--vine-leaf) 45%, transparent); }
+
+@media (max-width: 768px) {
+  .log-entries { --rail: 52px; --rail-gap: 10px; --node: 38px; --vine-w: 56px; }
+}
+@media (max-width: 480px) {
+  .log-entries { --rail: 46px; --rail-gap: 8px; --node: 32px; --vine-w: 50px; }
+}
+
+/* Diamante: respuesta corta al pasar el cursor o tocar la entrada. */
 .log-gem-node::before {
   box-shadow:
     0 0 0 2.5px var(--surface),
     0 0 0 4px var(--gem-border),
     0 6px 14px var(--gem-shadow),
     0 0 18px 3px var(--gem-glow);
+  transition: box-shadow .2s ease, filter .2s ease;
 }
-.log-entry:hover .log-gem-node::before {
+.log-entry.is-pressed .log-gem-node { transform: translateY(-2px) scale(1.04); }
+.log-entry.is-pressed .log-gem-node::before {
+  filter: brightness(1.05);
   box-shadow:
     0 0 0 2.5px var(--surface),
     0 0 0 4px var(--gem-border),
-    0 8px 20px var(--gem-shadow),
-    0 0 26px 6px var(--gem-glow);
+    0 9px 18px var(--gem-shadow),
+    0 0 24px 6px var(--gem-glow);
+}
+@media (hover: hover) {
+  .log-entry:hover .log-gem-node { transform: translateY(-2px) scale(1.04); }
+  .log-entry:hover .log-gem-node::before {
+    filter: brightness(1.05);
+    box-shadow:
+      0 0 0 2.5px var(--surface),
+      0 0 0 4px var(--gem-border),
+      0 9px 18px var(--gem-shadow),
+      0 0 24px 6px var(--gem-glow);
+  }
 }
 
-/* Línea del timeline — efecto neón pulsante */
-.log-entries::before {
-  left: 36px;          /* centro del rombo: 78px padding - 64px node-left + 23px node-radius - 1px line-half */
-  width: 2px;
-  background: var(--accent);
-  box-shadow:
-    0 0 4px  1px var(--accent),
-    0 0 12px 3px color-mix(in srgb, var(--accent) 60%, transparent),
-    0 0 28px 6px color-mix(in srgb, var(--accent) 30%, transparent);
-  animation: neonLinePulse 2.6s ease-in-out infinite;
-  border-radius: 2px;
+/* Cierre de la bitácora */
+.log-cta { --member-accent: var(--accent); padding-bottom: 80px; }
+.log-cta-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 56px) clamp(22px, 6vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, var(--accent-soft), transparent 70%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+/* Las cinco gemas de la timeline, reunidas sobre un mismo tallo. */
+.log-cta-gems {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding: 6px 4px;
+}
+.log-cta-gems::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1.5px;
+  background: linear-gradient(to right, transparent, color-mix(in srgb, var(--tech) 62%, var(--accent)) 20%, color-mix(in srgb, var(--tech) 62%, var(--accent)) 80%, transparent);
+  opacity: .7;
+}
+.log-cta-gems i {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  rotate: 45deg;
+  border-radius: 2px 5px 2px 5px;
+  background: var(--gem-gradient);
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--gem-border), 0 0 10px 2px var(--gem-glow);
+}
+.log-cta-eyebrow {
+  margin: 22px 0 10px;
+  font-family: var(--font-label);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--tech);
+}
+.log-cta h2 {
+  margin: 0 0 14px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4.4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  color: var(--text);
+}
+.log-cta-text {
+  max-width: 580px;
+  margin: 0 0 30px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
 }
 
 /* Gema del hero */
@@ -1684,26 +1840,10 @@ main { animation: page-enter .3s ease-out; }
     drop-shadow(0 0 36px rgba(196, 160, 92, .28));
 }
 
-/* Neón: la intensidad del glow respira suavemente */
-@keyframes neonLinePulse {
-  0%, 100% {
-    opacity: .75;
-    box-shadow:
-      0 0 3px  1px var(--accent),
-      0 0 8px  2px color-mix(in srgb, var(--accent) 55%, transparent),
-      0 0 18px 4px color-mix(in srgb, var(--accent) 25%, transparent);
-  }
-  50% {
-    opacity: 1;
-    box-shadow:
-      0 0 6px  2px var(--accent),
-      0 0 18px 5px color-mix(in srgb, var(--accent) 65%, transparent),
-      0 0 38px 9px color-mix(in srgb, var(--accent) 32%, transparent);
-  }
-}
-
-/* Reducción de movimiento */
+/* Reducción de movimiento: el diamante sólo cambia su brillo, sin moverse ni escalar. */
 @media (prefers-reduced-motion: reduce) {
-  .log-gem-svg, .log-entries::before { animation: none; }
-  .log-stat:hover, .log-card:hover, .log-entry:hover .log-gem-node::before { transform: none; }
+  .log-gem-svg { animation: none; }
+  .log-stat:hover, .log-card:hover { transform: none; }
+  .log-gem-node { transition: none; }
+  .log-entry:hover .log-gem-node, .log-entry.is-pressed .log-gem-node { transform: none; }
 }

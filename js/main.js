@@ -16,6 +16,21 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
+/* Bitácora: al tocar una entrada, el diamante responde con un brillo breve.
+   Se usa click (toque confirmado) para no reaccionar al arrastrar con el dedo;
+   con mouse alcanza el :hover del CSS. */
+document.querySelectorAll('.log-entry').forEach(entry => {
+  let pointerType = 'mouse';
+  let timer;
+  entry.addEventListener('pointerdown', event => { pointerType = event.pointerType; });
+  entry.addEventListener('click', () => {
+    if (pointerType === 'mouse') return;
+    clearTimeout(timer);
+    entry.classList.add('is-pressed');
+    timer = setTimeout(() => entry.classList.remove('is-pressed'), 220);
+  });
+});
+
 const teamGrid = document.querySelector('#team-grid');
 const memberCards = teamGrid ? [...teamGrid.querySelectorAll('.member-card')] : [];
 
