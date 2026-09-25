@@ -30,6 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
     srcset: foto.getAttribute('srcset'),
     sizes: foto.getAttribute('sizes')
   };
+  let fotoRealLista;
+
+  // La foto real no forma parte del primer render. Se descarga apenas termina
+  // la carga inicial para que el destello no tenga que esperar a la red.
+  function prepararFotoReal() {
+    if (fotoRealLista) return fotoRealLista;
+
+    const precarga = new Image();
+    // Se solicita tras `load`, por lo que ya no compite con el avatar LCP.
+    // Alta prioridad acorta la espera si el usuario revela enseguida la foto.
+    if ('fetchPriority' in precarga) precarga.fetchPriority = 'high';
+    fotoRealLista = new Promise(resolve => {
+      precarga.onload = () => precarga.decode().catch(() => {}).finally(resolve);
+      precarga.onerror = resolve;
+      precarga.src = imagen.real;
+    });
+    return fotoRealLista;
+  }
+
+  window.addEventListener('load', prepararFotoReal, { once: true });
 
   function restaurarMago() {
     const temaOscuro = document.documentElement.dataset.theme === 'dark';
@@ -81,10 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => ctx.close(), 1400);
   }
 
-  boton.addEventListener('click', () => {
-    const eraMago = boton.getAttribute('aria-pressed') === 'false';
-    const destino = eraMago ? 'real' : 'mago';
-
+  function transformar(destino, eraMago) {
     sonarHechizo();
     marco.classList.remove('is-conjuring');
     void marco.offsetWidth;      // reinicia la animación si se toca dos veces seguidas
@@ -105,6 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     boton.setAttribute('aria-pressed', String(eraMago));
     if (texto) texto.innerHTML = rotulo[destino];
+  }
+
+  boton.addEventListener('click', () => {
+    const eraMago = boton.getAttribute('aria-pressed') === 'false';
+    const destino = eraMago ? 'real' : 'mago';
+
+    if (destino === 'real') {
+      boton.disabled = true;
+      prepararFotoReal().finally(() => {
+        boton.disabled = false;
+        transformar(destino, eraMago);
+      });
+      return;
+    }
+    transformar(destino, eraMago);
   });
 
   marco.addEventListener('animationend', () => marco.classList.remove('is-conjuring'));

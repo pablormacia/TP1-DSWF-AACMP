@@ -96,13 +96,23 @@
   });
   parsing.observe(document.documentElement, { childList: true, subtree: true });
 
-  // Con la página cargada, se deja lista la variante del otro tema para que
-  // el cambio sea inmediato. Las imágenes diferidas (lazy) no se adelantan.
+  // La variante opuesta es una mejora de comodidad, no parte del primer
+  // render. La esperamos a tiempo ocioso para no competir con la foto real
+  // de un perfil en conexiones lentas.
   window.addEventListener('load', () => {
-    const other = currentTheme() === 'dark' ? 'light' : 'dark';
-    document.querySelectorAll(themed).forEach(img => {
-      if (img.loading !== 'lazy') load(img, variant(img, other));
-    });
+    const warmOtherTheme = () => {
+      const connection = navigator.connection;
+      if (connection && (connection.saveData || /2g/.test(connection.effectiveType || ''))) return;
+      const other = currentTheme() === 'dark' ? 'light' : 'dark';
+      document.querySelectorAll(themed).forEach(img => {
+        if (img.loading !== 'lazy') load(img, variant(img, other));
+      });
+    };
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(warmOtherTheme, { timeout: 4000 });
+    } else {
+      window.setTimeout(warmOtherTheme, 1500);
+    }
   });
 
   document.addEventListener('DOMContentLoaded', () => {
