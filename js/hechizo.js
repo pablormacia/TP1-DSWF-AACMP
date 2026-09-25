@@ -26,6 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const imagen = { mago: foto.getAttribute('src'), real: boton.dataset.real };
   const alterno = { mago: foto.getAttribute('alt'), real: boton.dataset.altReal || '' };
   const rotulo = { mago: texto ? texto.innerHTML : '', real: boton.dataset.volver || 'Volver al personaje' };
+  const tamanosMago = {
+    srcset: foto.getAttribute('srcset'),
+    sizes: foto.getAttribute('sizes')
+  };
+
+  function restaurarMago() {
+    const temaOscuro = document.documentElement.dataset.theme === 'dark';
+
+    if (tamanosMago.sizes) foto.sizes = tamanosMago.sizes;
+
+    if (foto.dataset.srcsetLight && foto.dataset.srcsetDark) {
+      foto.srcset = temaOscuro ? foto.dataset.srcsetDark : foto.dataset.srcsetLight;
+    } else if (tamanosMago.srcset) {
+      foto.srcset = tamanosMago.srcset;
+    }
+
+    foto.src = temaOscuro ? foto.dataset.srcDark : foto.dataset.srcLight;
+    foto.dataset.showingReal = 'false';
+  }
 
   // Do mayor por defecto; cada perfil pisa las notas con data-acorde.
   const acorde = (boton.dataset.acorde || '523.25,659.25,783.99,1046.50')
@@ -73,7 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // El cambio ocurre en el pico del destello, con la imagen velada.
     setTimeout(() => {
-      foto.src = imagen[destino];
+      if (destino === 'real') {
+        foto.dataset.showingReal = 'true';
+        foto.removeAttribute('srcset');
+        foto.removeAttribute('sizes');
+        foto.src = imagen.real;
+      } else {
+        restaurarMago();
+      }
       if (alterno[destino]) foto.alt = alterno[destino];
     }, 400);
 
