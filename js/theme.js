@@ -12,30 +12,101 @@
     // El sitio sigue funcionando si el navegador bloquea el almacenamiento.
   }
 
-  // Intercambia el src de las imágenes temáticas según el tema activo.
-  function applyThemeImages(theme) {
-    document.querySelectorAll('img[data-src-light][data-src-dark]').forEach(img => {
+  const themed = 'img[data-src-light][data-src-dark]';
+  const pending = new WeakMap();
+
+  function variant(img, theme) {
+    const dark = theme === 'dark';
+    const hasSrcset = img.dataset.srcsetLight && img.dataset.srcsetDark;
+    return {
+      src: dark ? img.dataset.srcDark : img.dataset.srcLight,
+      srcset: hasSrcset ? (dark ? img.dataset.srcsetDark : img.dataset.srcsetLight) : null
+    };
+  }
+
+  function setVariant(img, { src, srcset }) {
+    if (srcset) img.srcset = srcset;
+    img.src = src;
+  }
+
+  // Descarga y decodifica la variante aparte, sin tocar la imagen visible.
+  function load(img, { src, srcset }) {
+    const next = new Image();
+    if (img.sizes) next.sizes = img.sizes;
+    if (srcset) next.srcset = srcset;
+    next.src = src;
+    return next.decode().catch(() => {});
+  }
+
+  /* Intercambia las imágenes temáticas según el tema activo.
+     Antes del primer pintado se cambian directo; después, la imagen nueva
+     se decodifica aparte y recién entonces reemplaza a la actual, así el
+     marco nunca queda vacío ni se ve la imagen cargando a medias. */
+  function applyThemeImages(theme, immediate) {
+    document.querySelectorAll(themed).forEach(img => {
       if (img.dataset.showingReal === 'true') return;
-      img.src = theme === 'dark' ? img.dataset.srcDark : img.dataset.srcLight;
-      if (img.dataset.srcsetLight && img.dataset.srcsetDark) {
-        img.srcset = theme === 'dark' ? img.dataset.srcsetDark : img.dataset.srcsetLight;
+      const target = variant(img, theme);
+      if (img.getAttribute('src') === target.src) {
+        pending.delete(img);
+        return;
       }
+      if (immediate) {
+        setVariant(img, target);
+        return;
+      }
+      const token = {};
+      pending.set(img, token);
+      load(img, target).then(() => {
+        // Un cambio de tema posterior o el hechizo ganan sobre este.
+        if (pending.get(img) !== token || img.dataset.showingReal === 'true') return;
+        pending.delete(img);
+        setVariant(img, target);
+      });
     });
   }
 
-  function applyTheme() {
-    const theme = preference || (system.matches ? 'dark' : 'light');
-    document.documentElement.dataset.theme = theme;
-    if (button) button.setAttribute('aria-pressed', String(theme === 'dark'));
-    applyThemeImages(theme);
+  function currentTheme() {
+    return preference || (system.matches ? 'dark' : 'light');
   }
 
-  applyTheme();
+  function applyTheme(immediate) {
+    const theme = currentTheme();
+    document.documentElement.dataset.theme = theme;
+    if (button) button.setAttribute('aria-pressed', String(theme === 'dark'));
+    applyThemeImages(theme, immediate);
+  }
+
+  applyTheme(true);
   system.addEventListener('change', () => {
     if (!preference) applyTheme();
   });
 
+  /* Mientras se lee el HTML, cada imagen temática recibe la variante del
+     tema al insertarse, antes de pintarse: en Dark nunca se ve la clara. */
+  const parsing = new MutationObserver(records => {
+    const theme = currentTheme();
+    records.forEach(record => record.addedNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      const imgs = node.matches(themed) ? [node] : node.querySelectorAll(themed);
+      imgs.forEach(img => {
+        const target = variant(img, theme);
+        if (img.getAttribute('src') !== target.src) setVariant(img, target);
+      });
+    }));
+  });
+  parsing.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Con la página cargada, se deja lista la variante del otro tema para que
+  // el cambio sea inmediato. Las imágenes diferidas (lazy) no se adelantan.
+  window.addEventListener('load', () => {
+    const other = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.querySelectorAll(themed).forEach(img => {
+      if (img.loading !== 'lazy') load(img, variant(img, other));
+    });
+  });
+
   document.addEventListener('DOMContentLoaded', () => {
+    parsing.disconnect();
     button = document.querySelector('.theme-toggle');
     if (!button) return;
     button.hidden = false;

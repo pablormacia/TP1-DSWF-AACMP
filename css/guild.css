@@ -292,8 +292,57 @@ h1.hero-title, .manifesto-content h2, .cta-text h2, .log-hero h1 { font-weight: 
 .profile-skills span:hover { background: var(--accent-soft); color: var(--text); }
 .card-link { color: var(--member-accent); border-color: var(--border); min-height: 44px; }
 .card-link:hover { color: var(--member-accent); }
-.profile-img-container { border: 2px solid var(--member-accent); box-shadow: var(--shadow); }
+.profile-img-container {
+  border: 2px solid var(--member-accent);
+  box-shadow: var(--shadow);
+  /* Con el tema cambian sólo el marco y su sombra; la imagen no se anima. */
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
 .fav-list h2 { border-color: var(--border); }
+
+/* Volver al equipo: enlace de salida del perfil, teñido con el acento del integrante. */
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px 22px 6px 6px;
+  border: 1px solid color-mix(in srgb, var(--member-accent) 35%, var(--border));
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-label);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+.btn-volver-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--member-accent) 14%, var(--surface));
+  color: var(--member-accent);
+  transition: transform .2s ease, background-color .2s ease;
+}
+.btn-volver:hover {
+  border-color: var(--member-accent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--member-accent) 18%, transparent);
+}
+.btn-volver:hover .btn-volver-icon {
+  transform: translateX(-3px);
+  background: color-mix(in srgb, var(--member-accent) 22%, var(--surface));
+}
+.btn-volver:focus-visible {
+  outline: 3px solid var(--member-accent);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-volver:hover .btn-volver-icon { transform: none; }
+}
 
 /* Conservamos la gema original y el orbe, con una luz más contenida. */
 .stone-orb {
