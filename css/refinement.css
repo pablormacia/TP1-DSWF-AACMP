@@ -259,10 +259,24 @@
    quedan fuera de la gema y del pedestal, y lejos de los bordes. */
 @media (max-width: 700px) {
   .home-page .digital-core {
-    --orbita-rx: 100px;
-    --orbita-ry: 62px;
+    --orbita-rx: 112px;
+    --orbita-ry: 66px;
     --orbita-profundidad: .03;
     --orbita-calma: .7;
+  }
+  /* La gema respira: un halo centrado y el aro punteado de desktop (más tenue),
+     en lugar de quedar recortada entre los chips. */
+  .home-page .core-orbits .orbit-fine { opacity: .12; }
+  .home-page .digital-core::before {
+    inset: 0;
+    background:
+      radial-gradient(circle closest-side at 50% 46%, rgb(141 116 240 / 17%), rgb(99 199 228 / 6%) 55%, transparent),
+      radial-gradient(ellipse closest-side at 50% 80%, rgb(116 197 206 / 10%), transparent);
+  }
+  :root[data-theme="dark"] .home-page .digital-core::before {
+    background:
+      radial-gradient(circle closest-side at 50% 46%, rgb(128 96 240 / 30%), rgb(95 224 240 / 9%) 55%, transparent),
+      radial-gradient(ellipse closest-side at 50% 83%, rgb(99 199 228 / 12%), transparent);
   }
 }
 .home-page .digital-core::after {

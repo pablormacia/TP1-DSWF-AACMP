@@ -7,6 +7,7 @@
   <meta name="description"
     content="AACMP Frontend Gems: cinco mentes que combinan ideas, diseño y código para crear experiencias web.">
   <title>AACMP | Frontend Gems</title>
+  <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +26,7 @@
   <!--Header-->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="AACMP, inicio">
-      <span class="brand-mark" aria-hidden="true">&lt;/&gt; </span>
+      <span class="brand-mark" aria-hidden="true"><svg class="brand-iso" viewBox="0 0 32 24" width="30" height="22" fill="none"><path class="brand-iso-code" d="M9 6.5 3.5 12 9 17.5M23 6.5l5.5 5.5-5.5 5.5"/><path class="brand-iso-slash" d="M18.6 3.5 13.4 20.5"/></svg></span>
       <span class="brand-name">AACMP<small>Frontend Gems</small></span>
     </a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
@@ -537,16 +538,27 @@
     </section>
 
     <!-- Nuestra esencia: recupera el manifiesto de la propuesta original de Daniela.
-         La gema pequeña usa las mismas facetas (y gradientes) de su gema: una por integrante. -->
+         La gema pequeña es la del hero en miniatura: mismas cinco facetas (una por integrante)
+         y los mismos gradientes de cristal, con su núcleo de luz y un destello. -->
     <section class="essence section-shell" aria-labelledby="essence-title">
       <div class="essence-aside" aria-hidden="true">
-        <svg class="essence-gem" viewBox="26 34 128 148">
-          <polygon points="90,42 34,88 90,78" fill="url(#facetCoral)"/>
-          <polygon points="90,42 146,88 90,78" fill="url(#facetBlue)"/>
-          <polygon points="34,88 54,148 90,78" fill="url(#facetGold)"/>
-          <polygon points="146,88 126,148 90,78" fill="url(#facetGreen)"/>
-          <polygon points="54,148 90,174 126,148 90,78" fill="url(#facetLavender)"/>
-          <path d="M90 42 34 88 54 148 90 174 126 148 146 88Z M90 42V78 M34 88 90 78 146 88 M54 148 90 78 126 148" fill="none" stroke="rgb(255 255 255 / 70%)" stroke-width="1.2" stroke-linejoin="round"/>
+        <svg class="essence-gem" viewBox="34 28 112 160">
+          <!-- Estirada en vertical como la del hero, pero más compacta (.86 × 1.1). -->
+          <g transform="translate(90 108) scale(.86 1.1) translate(-90 -108)">
+            <polygon points="90,42 34,88 90,78" fill="url(#crystalCrown)"/>
+            <polygon points="90,42 146,88 90,78" fill="url(#crystalSky)"/>
+            <polygon points="34,88 54,148 90,78" fill="url(#crystalDepth)"/>
+            <polygon points="146,88 126,148 90,78" fill="url(#crystalIce)"/>
+            <polygon points="54,148 90,174 126,148 90,78" fill="url(#crystalTip)"/>
+            <polygon points="90,42 82,82 90,174 94,80" fill="url(#crystalReflection)"/>
+            <ellipse cx="90" cy="112" rx="30" ry="40" fill="url(#crystalHeart)"/>
+            <path d="M90 43V78L54 148M90 78l36 70M90 78v95" fill="none" stroke="#d6edff" stroke-opacity=".55" stroke-width=".8"/>
+            <path d="M90 42 34 88 54 148 90 174 126 148 146 88Z M34 88 90 78 146 88" fill="none" stroke="#ecfbff" stroke-opacity=".75" stroke-width="1.1" stroke-linejoin="round"/>
+          </g>
+          <g class="essence-sparkle" stroke="#fff" stroke-linecap="round">
+            <path d="M77 52v12M71 58h12" stroke-width="1" opacity=".75"/>
+            <circle cx="77" cy="58" r="1.8" fill="#fff" stroke="none"/>
+          </g>
         </svg>
       </div>
       <div class="essence-content">
