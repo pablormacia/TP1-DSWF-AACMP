@@ -1208,7 +1208,7 @@ main { animation: page-enter .3s ease-out; }
   /* La escena se centra en el espacio entre los CTAs y el pie del Hero. */
   .home-page .digital-core {
     align-self: center;
-    width: min(100%, 320px);
+    width: min(calc((100vw - 16px) / 1.2), 320px);
     margin-block: 20px 0;
     transform: scale(1.2);
     transform-origin: 50% 50%; /* crece parejo hacia arriba y abajo: queda centrada */

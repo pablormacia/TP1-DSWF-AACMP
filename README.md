@@ -1,6 +1,6 @@
 # AACMP — Frontend Gems
 
-Primer Trabajo Práctico Grupal para la materia **Desarrollo de Sistemas Web Front End (2026)**. El sitio presenta al equipo de trabajo a través de una propuesta estética de *Acuarela Botánica Minimalista*, reúne perfiles individuales interactivos y documenta el proceso de desarrollo en una bitácora navegable.
+Primer Trabajo Práctico Grupal para la materia **Desarrollo de Sistemas Web Front End (2026)**. El sitio presenta al equipo de trabajo a través de una identidad de fantasía —una gema con una faceta por integrante y un personaje ilustrado para cada uno—, reúne perfiles individuales interactivos y documenta el proceso de desarrollo en una bitácora navegable.
 
 **Cinco almas, una misión**: distintas miradas que aportan, cada una desde lo suyo, a una misma construcción.
 
@@ -53,15 +53,16 @@ TP1-DSWF-AACMP/
 │   └── hechizo.css       # Botón y animación del revelado en los perfiles
 ├── js/
 │   ├── theme.js          # Modo claro/oscuro, recordando la preferencia
-│   ├── main.js           # Portada: mezclador, tarjetas giratorias, ScrollSpy
+│   ├── main.js           # Menú y animaciones en todo el sitio; mezclador, tarjetas y ScrollSpy en la portada
 │   └── hechizo.js        # Revelado del avatar y sonido con Web Audio API
 ├── img/
-│   ├── <nombre>.jpg          # Avatar ilustrado de cada integrante
-│   ├── <nombre>-real.jpg     # Imagen que revela el hechizo
-│   ├── gema-<nombre>.svg     # Faceta de cada integrante (respaldo del hechizo)
-│   ├── fondo-*.svg           # Fondos de hojas, estrellas y montañas
-│   ├── favicon.svg           # La gema del equipo como ícono
-│   └── apple-touch-icon.png  # Ícono para pantalla de inicio en iOS
+│   ├── <nombre>{300,720,1500}.webp      # Avatar de cada integrante en tres tamaños
+│   ├── <nombre>Dark{300,720,1500}.webp  # Su variante para el tema oscuro
+│   ├── <nombre>-real.jpg                # Imagen que revela el hechizo
+│   ├── gema-<nombre>.svg                # Faceta de cada integrante (respaldo del hechizo)
+│   ├── fondo-*.svg                      # Fondos de hojas, estrellas y montañas
+│   ├── favicon.svg                      # La gema del equipo como ícono
+│   └── apple-touch-icon.png             # Ícono para pantalla de inicio en iOS
 ├── docs/
 │   └── capturas/         # Capturas de las funciones JavaScript, para este README
 └── README.md
@@ -73,7 +74,7 @@ TP1-DSWF-AACMP/
 
 ## Guía de Estilos (Sistema de Diseño)
 
-El sistema visual parte de la propuesta de acuarela botánica —viva en los avatares, los fondos y la gema— sobre una paleta de dos temas, claro y oscuro.
+El sistema visual combina la gema del equipo, los personajes ilustrados y fondos de hojas, estrellas y montañas, sobre una paleta de dos temas, claro y oscuro.
 
 ### Paleta de Colores
 
@@ -157,12 +158,12 @@ El sonido **no es un archivo**: se sintetiza en el momento con la **Web Audio AP
 
 Los avatares que originalmente eran pesados archivos jpg se convirtieron a un formato más liviano (WebP) y se generaron en varios tamaños para evitar descargar imágenes más pesadas de lo necesario:
 
-- En las tarjetas de la portada se usan variantes de **300 px** y **720 px**.
-- En los perfiles individuales se usan variantes de **720 px** y **1500 px**.
+- En la portada se usa sólo la variante de **300 px**, que alcanza para el tamaño de las tarjetas.
+- En los perfiles se usan **720 px** y **1500 px** con `srcset` y `sizes`, para que el navegador elija según la pantalla.
 
-Cada etiqueta `<img>` usa `srcset` y `sizes` para que el navegador elija automáticamente el archivo más adecuado según el espacio disponible y la densidad de la pantalla. También se mantienen versiones claras y oscuras de cada avatar, que se intercambian al cambiar el tema.
+También se mantienen versiones claras y oscuras de cada avatar, que se intercambian al cambiar el tema.
 
-Las imagenes se cargan de forma diferida con loading=lazy y decoding=async para evitar sobrecargar el navegador durante la carga de la página.
+En la portada las imágenes cargan diferidas (`loading="lazy"`). En el perfil el avatar carga con prioridad (`fetchpriority="high"`), porque es lo primero que se ve.
 
 ## Uso de Inteligencia Artificial y Autoría
 
@@ -171,7 +172,7 @@ Se emplearon herramientas de **Inteligencia Artificial** —ChatGPT (GPT-5.5), C
 - Interpretación inicial de consignas y estructuración del layout HTML.
 - Sugerencia de fórmulas matemáticas para lavados de acuarela en CSS y animaciones `@keyframes`.
 - Generación de textos base y borradores para la bitácora.
-- Generación de los avatares y de la gema, con prompts que pedían ilustraciones en acuarela de personajes de fantasía, uno por integrante.
+- Generación de los avatares y de la gema, con prompts que pedían un personaje de fantasía por integrante, en versión clara y oscura, con un estilo común para todo el equipo.
 - Programación del sonido del hechizo: de la idea de «un ruidito de magia al tocar el botón» salió sintetizarlo con la Web Audio API, en lugar de usar un archivo de audio de terceros.
 - Sugerencias de optimización en base a informes de Lighthouse y varias propuestas de código.
 
